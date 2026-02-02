@@ -19,6 +19,13 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
   - **Submitted**: 2026-01
   - **Artifacts**:  [Draft Manuscript](manuscripts/2026-01_four-stages-of-ai-governance_v1.0.md) / [Submitted Version](in-progress/2026-01_four-stages-of-ai-governance.pdf)
 
+- **Toward Decision Behavior Governance: Reframing AI Governance in the Era of Foundation Models**
+  - **Status**: Submitted
+  - **Venue**: SSRN
+  - **ID**: 6092687
+  - **Submitted**: 2026-01
+  - **Artifacts**:  [Draft Manuscript](manuscripts/2026-01_decision-behavior-governance_v1.0.md) / [Submitted Version][2026-01_decision-behavior-governance.pdf](submitted/2026-01_decision-behavior-governance.pdf)
+
 ## Governance
 
 ---
