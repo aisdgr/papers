@@ -45,6 +45,10 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 ## EDBF: Engineering Decision Behavior Framework
 > Provides engineering-level structures and methods to form, observe, and carry decision behaviors so they can be implemented and analyzed.
 
+- **An Architectural Boundary for Decision Behavior Governance**
+  - **Status**: Draft
+  - **Artifacts**:  [Draft Manuscript](manuscripts/2026-01_an-architectural-boundary-for-decision-behavior-governance_v0.1.md)
+
 ---
 
 ## Definitions
