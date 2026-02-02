@@ -24,7 +24,7 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
   - **Venue**: SSRN
   - **ID**: 6092687
   - **Submitted**: 2026-01
-  - **Artifacts**:  [Draft Manuscript](manuscripts/2026-01_decision-behavior-governance_v1.0.md) / [Submitted Version][2026-01_decision-behavior-governance.pdf](submitted/2026-01_decision-behavior-governance.pdf)
+  - **Artifacts**:  [Draft Manuscript](manuscripts/2026-01_decision-behavior-governance_v1.0.md) / [Submitted Version](submitted/2026-01_decision-behavior-governance.pdf)
 
 - **Toward Decision Behavior Governance: Governance Existence, Invocation, and Decision Formation**
   - **Status**: Submitted
@@ -32,6 +32,11 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
   - **ID**: 6105226
   - **Submitted**: 2026-01
   - **Artifacts**:  [Draft Manuscript](manuscripts/2026-01_governance-existence-invocation-decision-formation_v1.0.md) / [Submitted Version](submitted/2026-01_governance-existence-invocation-decision-formation.pdf)
+
+- **Why Runtime Interception Is Not Decision Behavior Governance**
+  - **Status**: In-Progress
+  - **Venue**: arXiv
+  - **Artifacts**:  [Draft Manuscript](manuscripts/2026-01_why-runtime-interception-is-not-decision-behavior-governance_v1.0.md)
 
 ## Governance
 

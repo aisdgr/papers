@@ -1,0 +1,432 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\hypertarget{runtime-governance-vs.-development-governance}{%
+\section{Runtime Governance vs.~Development
+Governance:}\label{runtime-governance-vs.-development-governance}}
+
+\hypertarget{why-runtime-interception-is-not-decision-behavior-governance}{%
+\subsection{Why Runtime Interception Is Not Decision Behavior
+Governance}\label{why-runtime-interception-is-not-decision-behavior-governance}}
+
+\textbf{Author:} Spark Tsai\\
+\textbf{Date:} January 2026\\
+\textbf{Keywords:} AI Governance, Decision Behavior Governance (DBG),
+Governance Existence, Governance Invocation, Development Governance,
+Runtime Governance, Decision Formation, ISO/IEC 42001
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{abstract}{%
+\subsection{Abstract}\label{abstract}}
+
+As large language models (LLMs) increasingly participate in
+organizational decision-making, contemporary AI governance practices
+have gravitated toward deployment-stage controls and runtime
+interception mechanisms. While these practices are operationally
+necessary, they are frequently misconstrued as sufficient indicators of
+effective governance.
+
+This paper introduces a structural distinction between
+\textbf{Development Governance} and \textbf{Runtime Governance}, and
+further refines this distinction through the concepts of
+\textbf{Governance Existence} and \textbf{Governance Invocation}. We
+argue that runtime interception---absent pre-established decision
+constraints---cannot constitute governance over AI decision behavior.
+
+We do not reject deployment or runtime governance. Rather, we clarify
+their governance scope and architectural limitations. Deployment and
+runtime mechanisms govern \emph{operational conditions} and
+\emph{execution environments}, but they do not govern the
+\textbf{decision formation process} of AI agents.
+
+We define \textbf{Decision Behavior Governance (DBG)} as a governance
+paradigm that targets the structure by which AI agents form decisions
+\emph{prior to execution}. By reframing governance as an ex-ante
+institutional condition rather than an ex-post reactive event, this
+paper explains why many existing governance approaches remain
+administratively valid yet behaviorally ineffective---particularly in
+probabilistic, black-box model environments.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{introduction-governance-in-the-age-of-probabilistic-agents}{%
+\subsection{1. Introduction: Governance in the Age of Probabilistic
+Agents}\label{introduction-governance-in-the-age-of-probabilistic-agents}}
+
+Large language models do not execute decisions deterministically; they
+\emph{sample} decisions from probabilistic distributions. This
+fundamental property disrupts traditional assumptions of software
+governance, which presume that behavior can be controlled through system
+configuration, deployment oversight, or runtime supervision.
+
+In response, many organizations have expanded deployment-stage controls
+and runtime guardrails---monitoring outputs, intercepting sensitive
+responses, and enforcing policy filters. These mechanisms are valuable.
+However, their increasing prominence has obscured a deeper governance
+question:
+
+\begin{quote}
+\textbf{Was the AI agent's decision formed within an attributable
+governance structure, or merely filtered after the fact?}
+\end{quote}
+
+This paper argues that conflating runtime interception with governance
+constitutes a categorical error.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{development-governance-vs.-runtime-governance}{%
+\subsection{2. Development Governance vs.~Runtime
+Governance}\label{development-governance-vs.-runtime-governance}}
+
+Contemporary AI governance discourse frequently emphasizes
+\textbf{runtime governance} mechanisms, including output filtering,
+real-time monitoring, policy enforcement, and execution-time
+interception. These mechanisms are indispensable for managing
+operational risks in deployed systems. However, their prominence has led
+to a conceptual conflation between \emph{governing execution} and
+\emph{governing decision behavior}.
+
+This section clarifies the structural distinction between
+\textbf{Development Governance} and \textbf{Runtime Governance}, not as
+competing approaches, but as governance mechanisms operating at
+fundamentally different stages of the decision lifecycle.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{runtime-governance}{%
+\subsubsection{2.1 Runtime Governance}\label{runtime-governance}}
+
+Runtime governance operates \textbf{after} a decision has been formed by
+an AI agent and entered the execution loop.
+
+Its primary functions include:
+
+\begin{itemize}
+\tightlist
+\item
+  Observing generated behavior during execution\\
+\item
+  Intercepting or suppressing outputs that violate predefined policies\\
+\item
+  Enforcing environmental or contextual restrictions\\
+\item
+  Recording logs for audit, monitoring, or incident response
+\end{itemize}
+
+Runtime governance is inherently \textbf{reactive} and
+\textbf{event-driven}. It responds to manifestations of behavior rather
+than shaping the internal structure by which decisions are formed.
+
+From a probabilistic perspective, runtime governance acts as a
+\textbf{filter applied to sampled outputs}. The absence of a triggered
+interception indicates only that a specific execution path did not cross
+a detectable threshold. It does not constitute evidence that the
+underlying decision process was structurally governed.
+
+Runtime governance therefore governs \textbf{outcomes and environments},
+not the \textbf{decision formation process} itself.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{development-governance}{%
+\subsubsection{2.2 Development
+Governance}\label{development-governance}}
+
+Development governance operates \textbf{prior to execution}, at the
+stage where the decision space is defined, constrained, and
+institutionally authorized.
+
+Its primary functions include:
+
+\begin{itemize}
+\tightlist
+\item
+  Defining which decision premises are admissible\\
+\item
+  Establishing explicit, versioned constraints\\
+\item
+  Structuring priority, override, and exclusion rules\\
+\item
+  Determining the legitimacy conditions under which decisions may be
+  formed
+\end{itemize}
+
+Development governance is \textbf{ex-ante}, \textbf{structural}, and
+\textbf{deterministic} in nature. It does not react to behavior; it
+defines the conditions under which behavior is allowed to exist.
+
+In probabilistic AI systems, statistical uncertainty persists throughout
+the lifecycle. Consequently, governance cannot be relegated to runtime
+alone. Development governance exists to \textbf{bound the decision space
+before sampling occurs}, thereby reducing systemic risk that
+execution-stage controls---by their reactive nature---cannot reverse.
+
+Development governance governs the \textbf{decision structure}, not the
+execution environment.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{governance-existence-vs.-governance-invocation}{%
+\subsection{3. Governance Existence vs.~Governance
+Invocation}\label{governance-existence-vs.-governance-invocation}}
+
+The distinction between development and runtime governance can be
+further formalized through two governance concepts: \textbf{Governance
+Existence} and \textbf{Governance Invocation}.
+
+\hypertarget{governance-existence}{%
+\subsubsection{3.1 Governance Existence}\label{governance-existence}}
+
+\textbf{Governance Existence} refers to the institutional fact that a
+decision space is \emph{pre-bounded} by defined, versioned, and
+authoritative constraints \emph{before} execution occurs.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Nature:} Ex-ante, structural, deterministic\\
+\item
+  \textbf{Function:} Defines the admissible decision space\\
+\item
+  \textbf{Analogy:} Architectural boundaries or safety rails that exist
+  regardless of whether they are tested
+\end{itemize}
+
+Governance exists once these boundaries are formally established---even
+if a particular decision instance never triggers enforcement.
+
+\hypertarget{governance-invocation}{%
+\subsubsection{3.2 Governance Invocation}\label{governance-invocation}}
+
+\textbf{Governance Invocation} refers to reactive interventions during
+execution, such as output filtering, runtime blocking, or
+policy-triggered interception.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Nature:} Ex-post, event-driven, probabilistic\\
+\item
+  \textbf{Function:} Responds to detected behaviors\\
+\item
+  \textbf{Analogy:} Law enforcement responding to observed violations
+\end{itemize}
+
+Invocation presupposes existence; invocation alone does not establish
+governance.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{the-probabilistic-limit-of-runtime-centric-governance}{%
+\subsection{4. The Probabilistic Limit of Runtime-Centric
+Governance}\label{the-probabilistic-limit-of-runtime-centric-governance}}
+
+LLM behavior is generated through probabilistic sampling. Runtime
+interception therefore constitutes a probabilistic filter acting upon a
+probabilistic generator.
+
+In such a system:
+
+\begin{itemize}
+\tightlist
+\item
+  ``No interception occurred'' is a \textbf{statistical outcome}, not a
+  governance guarantee.\\
+\item
+  Absence of violation cannot be equated with presence of control.
+\end{itemize}
+
+From an engineering or legal standpoint, The application of a stochastic
+filter upon a stochastic generator does not yield a deterministic
+guarantee. does not establish determinism, accountability, or
+attributable governance.
+
+Interception is a form of \textbf{event suppression}, not
+\textbf{behavior correction}. Once a decision is formed, runtime
+governance cannot alter the system's internal decision structure that
+produced it.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{decision-behavior-governance-dbg-a-distinct-governance-target}{%
+\subsection{5. Decision Behavior Governance (DBG): A Distinct Governance
+Target}\label{decision-behavior-governance-dbg-a-distinct-governance-target}}
+
+\hypertarget{what-dbg-governs}{%
+\subsubsection{5.1 What DBG Governs}\label{what-dbg-governs}}
+
+\textbf{Decision Behavior Governance (DBG)} governs the \emph{formation}
+of decisions---not their outputs, environments, or side effects.
+
+Specifically, DBG targets:
+
+\begin{itemize}
+\tightlist
+\item
+  Which premises may be used\\
+\item
+  Which constraints apply\\
+\item
+  How priorities and overrides are structured\\
+\item
+  How decision legitimacy is established \emph{before execution}
+\end{itemize}
+
+DBG does not optimize reasoning quality, nor does it police runtime
+behavior. It defines the \textbf{institutional conditions under which
+decision-making is allowed to occur}.
+
+\hypertarget{how-dbg-differs-from-existing-governance-approaches}{%
+\subsubsection{5.2 How DBG Differs from Existing Governance
+Approaches}\label{how-dbg-differs-from-existing-governance-approaches}}
+
+\textbf{Model Governance}\\
+Governs model capability at the pre-training stage; it is not
+organization-specific.
+
+\textbf{Deployment Governance}\\
+Governs configuration and exposure prior to execution; it cannot alter
+internal decision logic.
+
+\textbf{Runtime Governance}\\
+Governs observed behavior after decision formation; it is reactive and
+probabilistic in nature.
+
+\textbf{Decision Behavior Governance (DBG)}\\
+Governs decision formation \emph{ex-ante}; it is structural and
+attributable.
+
+DBG introduces governance \emph{before} the execution loop begins.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{software-engineering-analogy-shift-left-governance}{%
+\subsection{6. Software Engineering Analogy: Shift-Left
+Governance}\label{software-engineering-analogy-shift-left-governance}}
+
+In software engineering, modern practice does not replace static typing
+or compile-time checks with production log analysis.
+
+Runtime errors are evidence of failure---not substitutes for
+correctness.
+
+Similarly, DBG argues that governance must be \textbf{shifted left} to
+the decision formation stage. Runtime logs may record incidents, but
+they do not constitute governance existence.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{implications-for-isoiec-42001}{%
+\subsection{7. Implications for ISO/IEC
+42001}\label{implications-for-isoiec-42001}}
+
+Under ISO/IEC 42001, organizations are required to demonstrate
+accountable AI governance. This paper proposes a clarification:
+
+\begin{itemize}
+\tightlist
+\item
+  Runtime interception logs demonstrate \textbf{governance invocation}\\
+\item
+  Only ex-ante decision constraints demonstrate \textbf{governance
+  existence}
+\end{itemize}
+
+High-quality compliance requires evidence that every execution instance
+is traceable to a pre-defined governance boundary---not merely that
+violations were sometimes blocked.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{from-statistical-outcomes-to-institutional-facts}{%
+\subsection{8. From Statistical Outcomes to Institutional
+Facts}\label{from-statistical-outcomes-to-institutional-facts}}
+
+``Runtime interception did not trigger'' is a \textbf{statistical
+fact}.\\
+``Decision behavior occurred within a defined governance regime'' is an
+\textbf{institutional fact}.
+
+Only the latter supports accountability, auditability, and legal
+attribution.
+
+DBG provides the missing structural layer required to transform AI
+governance from outcome monitoring into institutional control.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{conclusion}{%
+\subsection{9. Conclusion}\label{conclusion}}
+
+Development governance and runtime governance are both necessary
+components of AI system governance---but they govern different things.
+Development governance establishes \textbf{governance existence} by
+defining ex-ante decision boundaries, while runtime governance performs
+\textbf{governance invocation} by reacting to specific execution events.
+
+Runtime governance without development governance reduces governance to
+probabilistic damage control. \textbf{Conversely, development governance
+without runtime governance lacks operational enforcement. Effective AI
+governance requires both, properly situated, clearly distinguished, and
+institutionally aligned. They do not replace one another; they complete
+different parts of the governance problem.}
+
+\textbf{Decision Behavior Governance defines the conditions under which
+AI decisions are allowed to exist.} In probabilistic AI systems,
+governance cannot be an afterthought. It must be an architectural
+precondition.
+
+\end{document}
