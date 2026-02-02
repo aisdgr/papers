@@ -1,136 +1,125 @@
 # Paper Status Definitions
 
 This document defines the lifecycle states used in this repository.
-Status changes are **structural events** and must be reflected by
-directory movement and a corresponding commit.
 
-Status labels describe **maturity and intent**, not quality or acceptance.
+Status reflects **the role of a document in the research workflow**,
+not academic quality, acceptance, or endorsement.
+
+Status changes are **organizational signals**, expressed by
+directory placement and index updates — not embedded in document content.
 
 ---
 
 ## Status Overview
 
-| Status      | Meaning                        | Structural Location |
-| ----------- | ------------------------------ | ------------------- |
-| draft       | Exploratory, incomplete ideas  | `drafts/`           |
-| in-progress | Structured, actively developed | `in-progress/`      |
-| submitted   | Under formal review            | `submitted/`        |
-| preprint    | Publicly available reference   | `preprints/`        |
+| Status      | Meaning                                      | Location       |
+| ----------- | -------------------------------------------- | -------------- |
+| manuscripts | Authoritative working manuscripts (Markdown) | `manuscripts/` |
+| in-progress | Submission-ready artifacts not yet submitted | `in-progress/` |
+| submitted   | Formally submitted versions under review     | `submitted/`   |
+| preprints   | Publicly accessible reference versions       | `preprints/`   |
 
 ---
 
-## draft
+## manuscripts
 
 ### Definition
-A **draft** represents early or exploratory work.
-Arguments may be incomplete, unstable, or undergoing reframing.
+**Manuscripts** are the canonical writing surface of this repository.
+
+They represent the author's current thinking in Markdown form,
+regardless of whether the content is finalized or still evolving.
 
 ### Characteristics
-- Structure may change significantly
-- Evaluation may be absent or undefined
-- Target venue may be unknown or tentative
-- Content is not citation-ready
+- Written in Markdown
+- May include:
+  - early drafts
+  - refined but unpublished manuscripts
+  - post-submission revisions
+- Content may continue evolving even after submission
 
-### Allowed Artifacts
-- Conceptual framing
-- Partial arguments
-- Open questions
-- Notes and sketches
+### Design Intent
+Manuscripts are **not tied to submission state**.
 
-### Transition Criteria
-A draft may be promoted to **in-progress** when:
-- A stable core question is identified
-- Overall structure is no longer experimental
-- The paper has a clear direction
+They answer:
+> “What does the author currently think?”
+
+Not:
+> “What has been submitted?”
 
 ---
 
 ## in-progress
 
 ### Definition
-An **in-progress** paper has a defined structure and scope,
-but is still undergoing substantive development.
+**In-progress** contains artifacts that are structurally complete
+and prepared for submission, but **not yet formally submitted**.
 
 ### Characteristics
-- Core argument is stable
-- Sections and flow are mostly fixed
-- Evaluation, examples, or evidence may still be incomplete
-- Target venue is identified
+- PDF, TeX, or other submission-format artifacts
+- Correspond to a specific manuscript snapshot
+- Awaiting submission timing or venue decision
 
-### Allowed Artifacts
-- Full manuscript drafts
-- Figures under refinement
-- Preliminary evaluation or case material
-
-### Transition Criteria
-An in-progress paper may be promoted to **submitted** when:
-- The manuscript is submission-complete
-- All required sections for the target venue are present
-- No major conceptual changes are expected
+### Typical Use
+- Final PDF prepared but not uploaded
+- TeX package ready for arXiv but held back
+- Internal consistency check stage
 
 ---
 
 ## submitted
 
 ### Definition
-A **submitted** paper has been formally submitted to a conference,
-journal, or archive and is under external review.
+**Submitted** contains artifacts that have been formally submitted
+to external platforms (SSRN, arXiv, conferences, journals).
 
 ### Characteristics
-- Manuscript content is frozen for the review cycle
-- Only minor formatting or administrative changes may occur
-- Review outcome is pending
+- Content is frozen for that review cycle
+- Files represent an exact submission snapshot
+- External review or processing is ongoing
 
-### Required Artifacts
-- Final submission version (PDF or source)
-- `submission-info.md` documenting:
-  - venue
-  - submission date
-  - paper identifier (if available)
-
-### Transition Criteria
-A submitted paper may transition to:
-- **preprint**, if publicly released
-- **in-progress**, if substantially revised after rejection
-- **draft**, if reframed or restarted
+### Required Context (via index.md)
+- Submission platform (e.g., SSRN, arXiv)
+- Submission date
+- Identifier (if available)
 
 ---
 
-## preprint
+## preprints
 
 ### Definition
-A **preprint** is a publicly accessible version of a paper,
-typically hosted on platforms such as arXiv or SSRN.
+**Preprints** are publicly accessible reference versions of papers.
 
 ### Characteristics
-- Stable reference point for citation
-- Content corresponds to a specific submission version
-- May coexist with an active in-progress revision
-
-### Required Artifacts
-- Public PDF
-- `link.md` with external URL
-- Identifier (e.g., arXiv ID)
+- Public URL exists
+- Stable citation target
+- Corresponds to a specific submitted version
 
 ### Notes
 Preprints are **additive**, not replacements.
-The corresponding `submitted/` or `in-progress/` history is preserved.
+
+A manuscript may:
+- exist in `manuscripts/`
+- have a submitted snapshot in `submitted/`
+- and a public reference in `preprints/`
+
+All simultaneously.
 
 ---
 
 ## Structural Rules
 
-- Status changes **must** be reflected by moving the paper directory
-- Status changes **must** include a commit explaining the transition
-- Status is not inferred from commit messages alone
-- Front-matter `status` must match directory placement
+- Documents **do not carry status internally**
+- Status is expressed by:
+  - directory placement
+  - index.md entries
+- Content edits and status changes should be **separate commits**
 
 ---
 
 ## Design Principle
 
-> Status reflects **where the work is in its lifecycle**,  
-> not whether the ideas are correct, accepted, or complete.
+> Manuscripts express thinking.  
+> Submissions express timing.  
+> Preprints express visibility.
 
-This repository treats status as an engineering signal,
-not an academic judgment.
+Status is a **workflow signal**, not an academic judgment.

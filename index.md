@@ -1,67 +1,48 @@
 # Research Paper Index
 
-This index provides a **structural overview** of all research papers
-maintained in this repository.
+**Domain Focus**  
+Sub-domain of AI Governance centered on **development-stage decision behavior**.  
+- **Focus:** Governs how decision behaviors are formed during engineering activities.  
+- **Scope:** **Development-stage (design-time / ex-ante)** structural governance.  
+- **Core Paradigm:** **EDBG** – Engineering Decision Behavior Governance.  
+- **Core Realization Framework:** **EDBF** – Engineering Decision Behavior Framework.
 
-Paper status is determined by **directory placement**.
-This file records only factual information:
-location, lifecycle state, and public availability.
+## EDBG: Engineering Decision Behavior Governance
+> A theoretical governance framework that shifts the focus from static output auditing to the dynamic guidance and sovereign control of AI-driven "decision behaviors" within engineering evolutions.
 
-For status semantics, see `STATUS.md`.
+### Core Concept
 
----
+- **Four Stages of AI Governance: A Stage-Based Framing of Contemporary Practices**
+  - **Status**: Submitted
+  - **Venue**: SSRN
+  - **ID**: 6146666
+  - **Submitted**: 2026-01
+  - **Artifacts**:  [Draft Manuscript](manuscripts/2026-01_four-stages-of-ai-governance_v1.0.md) / [Submitted Version](in-progress/2026-01_four-stages-of-ai-governance.pdf)
 
-## Drafts
-
-Exploratory and conceptual work under active development.
-These papers are primarily written in Markdown and may change substantially.
-
-| Title                                                     | Topic                             | Location                     |
-| --------------------------------------------------------- | --------------------------------- | ---------------------------- |
-| Adapting Software Engineering for AI-Assisted Development | Software engineering adaptation   | `drafts/adapting-se-for-ai/` |
-| Decision Vacancy in AI-Assisted DevOps                    | Decision behavior, execution gaps | `drafts/decision-vacancy/`   |
-
----
-
-## In Progress
-
-Structured manuscripts with stable scope and argument,
-actively being refined toward submission.
-
-| Title                               | Target Venue  | Location                                    |
-| ----------------------------------- | ------------- | ------------------------------------------- |
-| Toward Decision Behavior Governance | arXiv (cs.SE) | `in-progress/decision-behavior-governance/` |
+## Governance
 
 ---
 
-## Submitted
-
-Manuscripts formally submitted and under external review.
-Content is frozen for the review cycle.
-
-| Title                                                  | Venue | Submitted | Location                        |
-| ------------------------------------------------------ | ----- | --------- | ------------------------------- |
-| Boundary and Scope in AI-Assisted Software Engineering | arXiv | 2026-01   | `submitted/boundary-and-scope/` |
+## EDBF: Engineering Decision Behavior Framework
+> Provides engineering-level structures and methods to form, observe, and carry decision behaviors so they can be implemented and analyzed.
 
 ---
 
-## Preprints
+## Definitions
 
-Publicly accessible reference versions.
-These entries correspond to specific submission snapshots.
+### Decision Phenomenon Definitions
+> Describe observable decision behavior phenomena in engineering practice as the basis for problem identification and theoretical analysis.
 
-| Title                                                       | Platform | Identifier       | Location                      |
-| ----------------------------------------------------------- | -------- | ---------------- | ----------------------------- |
-| Decision Vacancy and Governance Risks in AI-Assisted DevOps | arXiv    | arXiv:2601.xxxxx | `preprints/decision-vacancy/` |
+### Decision Scope Definitions
+> Presents factors that influence decision behavior during the development stage.
 
 ---
 
-## Notes
+## Decision Lifecycle Phases
+> Characterize the lifecycle stages through which decision behaviors are formed, enacted, and generate effects, supporting analysis, governance, and engineering alignment.
 
-- Content changes do not require updates to this index.
-- This index is updated only when a paper is:
-  - added
-  - moved between lifecycle states
-  - made publicly accessible
+### Before Decision Behavior Occurs
 
-This file serves as the **single source of truth** for paper status.
+### During Decision Behavior Formation
+
+### After Decision Behavior Occurs

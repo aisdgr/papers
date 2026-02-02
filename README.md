@@ -23,7 +23,7 @@ policy, compliance, or institutional governance.
 
 ## Repository Structure
 
-- `drafts/`  
+- `manuscripts/`  
   Early concepts, exploratory arguments, and incomplete manuscripts.
 
 - `in-progress/`  
