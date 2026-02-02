@@ -26,6 +26,13 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
   - **Submitted**: 2026-01
   - **Artifacts**:  [Draft Manuscript](manuscripts/2026-01_decision-behavior-governance_v1.0.md) / [Submitted Version][2026-01_decision-behavior-governance.pdf](submitted/2026-01_decision-behavior-governance.pdf)
 
+- **Toward Decision Behavior Governance: Governance Existence, Invocation, and Decision Formation**
+  - **Status**: Submitted
+  - **Venue**: SSRN
+  - **ID**: 6105226
+  - **Submitted**: 2026-01
+  - **Artifacts**:  [Draft Manuscript](manuscripts/2026-01_governance-existence-invocation-decision-formation_v1.0.md) / [Submitted Version](submitted/2026-01_governance-existence-invocation-decision-formation.pdf)
+
 ## Governance
 
 ---
