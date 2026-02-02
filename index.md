@@ -40,6 +40,11 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 
 ## Governance
 
+- **Realizing ISO/IEC 42001 through Decision Behavior Governance**
+  - **Status**: In-Progress
+  - **Venue**: SSRN
+  - **Artifacts**:  [Draft Manuscript](manuscripts/2026-01_realizing-ISO-IEC-42001-through-decision-behavior-governance_v0.1.md) / [Submitted Version](in-progress/2026-01_realizing-ISO-IEC-42001-through-decision-behavior-governance.pdf)
+
 ---
 
 ## EDBF: Engineering Decision Behavior Framework
