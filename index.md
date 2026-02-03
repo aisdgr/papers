@@ -61,6 +61,14 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 ### Decision Phenomenon Definitions
 > Describe observable decision behavior phenomena in engineering practice as the basis for problem identification and theoretical analysis.
 
+- **From Inference Creep to Risk Acceleration Pipelines**
+  - **Status**: Submitted
+  - **Venue**: SSRN
+  - **ID**: 6146686
+  - **Submitted**: 2026-01
+  - **Artifacts**:  [Draft Manuscript](manuscripts/2026-01_from-inference-creep-to-risk-acceleration-pipelines_v1.0.md) / [Submitted Version](submitted/2026-01_from-inference-creep-to-risk-acceleration-pipelines.pdf)
+
+
 ### Decision Scope Definitions
 > Presents factors that influence decision behavior during the development stage.
 
