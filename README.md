@@ -35,6 +35,10 @@ policy, compliance, or institutional governance.
 - `preprints/`  
   Publicly available preprints (e.g., arXiv) corresponding to submitted work.
 
+- `history/`  
+  Conceptual and structural version histories for each paper, documenting
+  how arguments, scope, and terminology evolved over time.
+
 - `index.md`  
   A chronological and thematic index of all papers in this repository.
 
