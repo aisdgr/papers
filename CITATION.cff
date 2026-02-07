@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use or reference this work, please cite it as follows."
+title: "AI-Assisted Software Engineering: Research Papers and Drafts"
+authors:
+  - family-names: Tsai
+    given-names: Spark
+    orcid: https://orcid.org/0009-0006-8847-4703
+license: CC-BY-4.0
+repository-code: https://github.com/aisdgr/papers

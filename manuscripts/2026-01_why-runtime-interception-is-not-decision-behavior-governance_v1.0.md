@@ -2,7 +2,9 @@
 ## Why Runtime Interception Is Not Decision Behavior Governance
 
 **Author:** Spark Tsai  
+**ORCID:** https://orcid.org/0009-0006-8847-4703
 **Date:** January 2026  
+**Email:** spark.tsai@gmail.com
 **Keywords:** AI Governance, Decision Behavior Governance (DBG), Governance Existence, Governance Invocation, Development Governance, Runtime Governance, Decision Formation, ISO/IEC 42001
 
 ---

@@ -2,6 +2,7 @@
 ## Why AI-Assisted Development Fails Before Governance Begins
 
 **Author:** Spark Tsai  
+**ORCID:** https://orcid.org/0009-0006-8847-4703
 **Date:** February 2026  
 **Email:** spark.tsai@gmail.com
 
