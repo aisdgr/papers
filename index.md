@@ -54,6 +54,12 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
   - **Status**: In-Progress
   - **Artifacts**: [Draft Manuscript](manuscripts/2026-01_an-architectural-boundary-for-decision-behavior-governance_v0.1.md)
 
+- **Viewpoint-Driven Specification: Structural Observability for Governing AI-Assisted Software Engineering**
+  - **Status**: Draft
+  - **Artifacts**:  [Draft Manuscript](manuscripts/2026-02_viewpoint-driven-specification_v0.62.md)
+
+
+
 ---
 
 ## Definitions
