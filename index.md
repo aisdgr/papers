@@ -68,10 +68,10 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
   - **Submitted**: 2026-01
   - **Artifacts**: [Draft Manuscript](manuscripts/2026-01_from-inference-creep-to-risk-acceleration-pipelines_v1.0.md) / [Submitted Version](submitted/2026-01_from-inference-creep-to-risk-acceleration-pipelines.pdf)
 
-- **Ghost Intent: An Effect of Traceability Collapse in GenAI-Assisted SDLCs**
-  - **Status**: Draft
-  - **Artifacts**: [Draft Manuscript](manuscripts/2026-02_ghost-intent-authorless-traceability-collapse_v1.0.md)
-  - **History**: [Version History](history/2026-02_ghost-intent-authorless-traceability-collapse.history.md)
+- **Inference Creep: Decision Expansion and Governance Drift in AI-Assisted Software Engineering**
+  - **Status**: In-Progress
+  - **Venue**: arXiv
+  - **Artifacts**:  [Draft Manuscript](manuscripts/2026-02_inference-creep-decision-expansion-and-governance-drift_1.4.md)
 
 ### Decision Scope Definitions
 > Presents factors that influence decision behavior during the development stage.
