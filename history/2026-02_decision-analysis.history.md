@@ -90,3 +90,44 @@ but not *when those words are applicable*.
 v0.12 answered:
 > *Why some decision-related problems cannot even be surfaced or estimated.*
 
+---
+
+## v0.13 — Effect-First, Authority-Conditional Analysis (Asymmetric Inference)
+
+**Status:** analytical structure stabilized  
+**Role:** defining valid analysis results and their governance transitions
+
+### Key Contributions
+- Established **effect-first analysis** as mandatory
+- Introduced **asymmetric two-phase inference**:
+  1. Effect-based decision analysis (authority-free)
+  2. Authority-conditional interpretation (only if required)
+- Clarified Decision Analysis result set:
+  - DA-N — Normal (observable, explainable)
+  - DA-O — Over (observable, attributable at effect level)
+  - DA-I — Indeterminate (observable, not stably classifiable)
+  - DA-V — Vacancy (observable, no decision-bearing locus)
+  - **DA-U — Unobservable** (analysis attempted, no observable anchors)
+
+### Critical Clarifications
+- Authority is **not** an analytical primitive
+- Authority is required **only** to establish DA-V
+- DA-I deterministically induces DR-I
+- DA-U:
+  - is an analysis result
+  - is **not** a risk
+  - cannot be engineering-determined as risk
+  - may only be acknowledged by human judgment
+
+### Mapping to Decision Risk
+- DA-N → no Decision Risk
+- DA-I → DR-I
+- DA-O → DR-O *or* DR-V (authority-conditional)
+- DA-V → DR-V
+- DA-U → no DR classification
+
+### Rationale
+v0.13 fixed the inference order problem and prevented
+authority and governance from contaminating analytical validity.
+
+
