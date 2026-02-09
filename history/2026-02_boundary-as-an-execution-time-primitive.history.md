@@ -1,4 +1,4 @@
-# 2026-02_boundary-as-an-execution-time-primitive
+# 2026-02_boundary-as-an-execution-time-primitive — Version History
 
 This document records the conceptual and structural evolution of this paper.
 

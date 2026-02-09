@@ -1,11 +1,10 @@
 # Runtime Governance vs. Development Governance:  
-## Why Runtime Interception Is Not Decision Behavior Governance
+> Why Runtime Interception Is Not Decision Behavior Governance
 
 **Author:** Spark Tsai  
-**ORCID:** https://orcid.org/0009-0006-8847-4703
+**ORCID:** https://orcid.org/0009-0006-8847-4703  
+**Email:** spark.tsai@gmail.com  
 **Date:** January 2026  
-**Email:** spark.tsai@gmail.com
-**Keywords:** AI Governance, Decision Behavior Governance (DBG), Governance Existence, Governance Invocation, Development Governance, Runtime Governance, Decision Formation, ISO/IEC 42001
 
 ---
 
@@ -21,7 +20,13 @@ We define **Decision Behavior Governance (DBG)** as a governance paradigm that t
 
 ---
 
-## 1. Introduction: Governance in the Age of Probabilistic Agents
+## Keywords
+
+AI Governance, Decision Behavior Governance (DBG), Governance Existence, Governance Invocation, Development Governance, Runtime Governance, Decision Formation, ISO/IEC 42001
+
+---
+
+## Introduction: Governance in the Age of Probabilistic Agents
 
 Large language models do not execute decisions deterministically; they *sample* decisions from probabilistic distributions. This fundamental property disrupts traditional assumptions of software governance, which presume that behavior can be controlled through system configuration, deployment oversight, or runtime supervision.
 
@@ -33,7 +38,7 @@ This paper argues that conflating runtime interception with governance constitut
 
 ---
 
-## 2. Development Governance vs. Runtime Governance
+## Development Governance vs. Runtime Governance
 
 Contemporary AI governance discourse frequently emphasizes **runtime governance** mechanisms, including output filtering, real-time monitoring, policy enforcement, and execution-time interception. These mechanisms are indispensable for managing operational risks in deployed systems. However, their prominence has led to a conceptual conflation between *governing execution* and *governing decision behavior*.
 
@@ -41,7 +46,7 @@ This section clarifies the structural distinction between **Development Governan
 
 ---
 
-### 2.1 Runtime Governance
+### Runtime Governance
 
 Runtime governance operates **after** a decision has been formed by an AI agent and entered the execution loop.
 
@@ -60,7 +65,7 @@ Runtime governance therefore governs **outcomes and environments**, not the **de
 
 ---
 
-### 2.2 Development Governance
+### Development Governance
 
 Development governance operates **prior to execution**, at the stage where the decision space is defined, constrained, and institutionally authorized.
 
@@ -79,11 +84,11 @@ Development governance governs the **decision structure**, not the execution env
 
 ---
 
-## 3. Governance Existence vs. Governance Invocation
+## Governance Existence vs. Governance Invocation
 
 The distinction between development and runtime governance can be further formalized through two governance concepts: **Governance Existence** and **Governance Invocation**.
 
-### 3.1 Governance Existence
+### Governance Existence
 
 **Governance Existence** refers to the institutional fact that a decision space is *pre-bounded* by defined, versioned, and authoritative constraints *before* execution occurs.
 
@@ -93,7 +98,7 @@ The distinction between development and runtime governance can be further formal
 
 Governance exists once these boundaries are formally established—even if a particular decision instance never triggers enforcement.
 
-### 3.2 Governance Invocation
+### Governance Invocation
 
 **Governance Invocation** refers to reactive interventions during execution, such as output filtering, runtime blocking, or policy-triggered interception.
 
@@ -105,7 +110,7 @@ Invocation presupposes existence; invocation alone does not establish governance
 
 ---
 
-## 4. The Probabilistic Limit of Runtime-Centric Governance
+## The Probabilistic Limit of Runtime-Centric Governance
 
 LLM behavior is generated through probabilistic sampling. Runtime interception therefore constitutes a probabilistic filter acting upon a probabilistic generator.
 
@@ -120,9 +125,9 @@ Interception is a form of **event suppression**, not **behavior correction**. On
 
 ---
 
-## 5. Decision Behavior Governance (DBG): A Distinct Governance Target
+## Decision Behavior Governance (DBG): A Distinct Governance Target
 
-### 5.1 What DBG Governs
+### What DBG Governs
 
 **Decision Behavior Governance (DBG)** governs the *formation* of decisions—not their outputs, environments, or side effects.
 
@@ -135,7 +140,7 @@ Specifically, DBG targets:
 
 DBG does not optimize reasoning quality, nor does it police runtime behavior. It defines the **institutional conditions under which decision-making is allowed to occur**.
 
-### 5.2 How DBG Differs from Existing Governance Approaches
+### How DBG Differs from Existing Governance Approaches
 
 **Model Governance**  
 Governs model capability at the pre-training stage; it is not organization-specific.
@@ -153,7 +158,7 @@ DBG introduces governance *before* the execution loop begins.
 
 ---
 
-## 6. Software Engineering Analogy: Shift-Left Governance
+## Software Engineering Analogy: Shift-Left Governance
 
 In software engineering, modern practice does not replace static typing or compile-time checks with production log analysis.
 
@@ -163,7 +168,7 @@ Similarly, DBG argues that governance must be **shifted left** to the decision f
 
 ---
 
-## 7. Implications for ISO/IEC 42001
+## Implications for ISO/IEC 42001
 
 Under ISO/IEC 42001, organizations are required to demonstrate accountable AI governance. This paper proposes a clarification:
 
@@ -174,7 +179,7 @@ High-quality compliance requires evidence that every execution instance is trace
 
 ---
 
-## 8. From Statistical Outcomes to Institutional Facts
+## From Statistical Outcomes to Institutional Facts
 
 “Runtime interception did not trigger” is a **statistical fact**.  
 “Decision behavior occurred within a defined governance regime” is an **institutional fact**.
@@ -185,7 +190,7 @@ DBG provides the missing structural layer required to transform AI governance fr
 
 ---
 
-## 9. Conclusion
+## Conclusion
 
 Development governance and runtime governance are both necessary components of AI system governance—but they govern different things. Development governance establishes **governance existence** by defining ex-ante decision boundaries, while runtime governance performs **governance invocation** by reacting to specific execution events.
  
