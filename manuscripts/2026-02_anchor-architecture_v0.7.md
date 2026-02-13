@@ -1289,98 +1289,692 @@ Thus:
 
 ## 7. Structural Operations
 
-Operations are queries over anchors and relationships.
+Structural operations are **queries over relation and coordinate space**.
+
+They introduce no new primitives.
+
+All operations derive exclusively from:
+
+- Anchor set  $\mathcal{A}$
+- Relation     $R \subseteq \mathcal{A} \times \mathcal{A}$
+
+Let:
+
+$$
+R^+
+$$
+
+denote the transitive closure of $R$.
+
+All structural analysis reduces to:
+
+- Traversal over $R$ or $R^+$
+- Projection over $\mathcal{A}$
+- Content resolution via coordinate
+
+No semantic inference is required at this layer.
 
 ---
 
-### 7.1 trace()
+### 7.1 Base Structural Capabilities
 
-Graph traversal.
+Anchor Architecture provides exactly two primitive capabilities.
+
+---
+
+#### 7.1.1 Relation Traversal
+
+Traversal computes structural reachability.
 
 $$
-trace(A) = \{ A' \mid A \leadsto A' \}
+R^+(a) = \{ b \in \mathcal{A} \mid (a,b) \in R^+ \}
+$$
+
+This expresses structural propagation without semantic interpretation.
+
+Traversal does not assume:
+
+- hierarchy
+- tree structure
+- unique parent
+- semantic meaning
+
+It is pure relation expansion.
+
+---
+
+#### 7.1.2 Content Resolution
+
+Resolution retrieves content from a coordinate.
+
+Given:
+
+$$
+a = \langle ID, L, \tau \rangle
+$$
+
+$$
+resolve(a) \rightarrow \text{Content}
+$$
+
+Resolution is deterministic.
+
+If resolution fails:
+
+Structural examinability at that coordinate cannot be guaranteed.
+
+Resolution failure does not invalidate the anchor definition,  
+but prevents structural verification at that moment.
+
+---
+
+### 7.2 Derived Operations (Application Layer)
+
+The following operations are projections over base capabilities.
+
+They are named usage patterns — not new primitives.
+
+---
+
+#### 7.2.1 trace()
+
+##### Definition
+
+trace is **goal-oriented traversal with path preservation**.
+
+Given:
+
+- source anchor $a$
+- predicate $P$ over anchors
+
+$$
+trace(a, P) = \{ \text{ordered sequences } (a \rightarrow \dots \rightarrow b) \mid b \in R^+(a) \land P(b) \}
+$$
+
+##### Properties
+
+- Requires a termination condition $P$
+- Returns complete causal chains
+- If no reachable anchor satisfies $P$, result is empty
+- Preserves structural ordering
+
+trace answers:
+
+> "Through what structural chain does a reach a target?"
+
+---
+
+##### Example
+
+If:
+
+$$
+P(x) := \text{x is a Test anchor}
+$$
+
+Then:
+
+$$
+trace(A_{FR091}, P) = \{ (A_{FR091}, A_{code1}, A_{test}), (A_{FR091}, A_{code2}, A_{test}) \}
 $$
 
 ---
 
-### 7.2 impact()
+##### Implementation Illustration
 
-Reachability + set membership.
+```python
+# ID: FUNC-validate-password
+# TRACE: FR-091
+# Version: 1.4.0
+def validate_password(pwd):
+    return len(pwd) >= 12
+```
+
+trace reconstructs the structural chain,  
+not the semantic meaning of "implements".
+
+---
+
+#### 7.2.2 impact()
+
+##### Definition
+
+impact is **unconstrained structural expansion**.
 
 $$
-impact(A) = forward\_reach(A)
+impact(a) = R^+(a)
+$$
+
+##### Properties
+
+- No termination predicate
+- No path preservation
+- Returns reachable anchor set
+- Order irrelevant
+
+impact answers:
+
+> "If a changes, which anchors are structurally downstream?"
+
+---
+
+##### Example
+
+Using the same structure:
+
+$$
+impact(A_{FR091}) = \{ A_{code1}, A_{code2}, A_{test} \}
+$$
+
+Note:
+
+trace returns paths.  
+impact returns reachable anchors.
+
+They share traversal basis but differ in:
+
+- objective
+- return structure
+- analytical meaning
+
+---
+
+#### 7.2.3 diff()
+
+##### Definition
+
+diff compares the resolved content of **two distinct anchors**.
+
+Given:
+
+$$
+a_1, a_2 \in \mathcal{A}
+$$
+
+$$
+diff(a_1, a_2)
+=
+resolve(a_2) \setminus resolve(a_1)
+$$
+
+No identity or location equality is required.
+
+The two anchors may:
+
+- share the same ID but differ in temporal index
+- share the same location but differ in ID
+- differ in all three coordinates
+
+diff is therefore a **content-level comparison**,  
+not a version-control operation.
+
+Precondition:
+
+$$
+resolve(a_1) \neq \varnothing \land resolve(a_2) \neq \varnothing
+$$
+
+If resolution fails, structural comparison cannot be performed.
+
+---
+
+##### Example
+
+Anchors:
+
+$$
+\langle FR-091, srs/auth.md, v1.1 \rangle
+$$
+ 
+$$
+\langle FR-091, srs/auth.md, v1.2 \rangle
+$$
+
+diff returns structural content difference,  
+not semantic interpretation.
+
+---
+
+##### Implementation Illustration
+
+diff answers:
+
+> How does the resolved content of one anchor differ from another?
+
+Meaning is not embedded in the operation.  
+Semantic interpretation of the difference belongs to the application layer.
+
+---
+
+#### 7.2.4 version()
+
+##### Definition
+
+version projects anchors sharing identity and location across temporal indices.
+
+Given fixed:
+
+$$
+ID^*, L^*
+$$
+
+$$
+version(ID^*, L^*) = \{ a \in \mathcal{A} \mid ID_a = ID^* \land L_a = L^* \}
+$$
+
+ordered by:
+
+$$
+\tau_1 < \tau_2 < \dots < \tau_n
+$$
+
+version is therefore a **temporal projection** over a fixed spatial anchor.
+
+
+---
+
+##### Example
+
+$$
+version(FR-091, srs/auth.md) = [ \langle FR-091, srs/auth.md, v1.0 \rangle, \langle FR-091, srs/auth.md, v1.1 \rangle, \langle FR-091, srs/auth.md, v1.2 \rangle ]
 $$
 
 ---
 
-### 7.3 diff()
+##### Interpretation
 
-Comparison across temporal states.
+version answers:
+
+> What is the structural evolution of this anchor across time?
+
+The result is an ordered sequence of anchors:
 
 $$
-diff(A_{\tau_1}, A_{\tau_2})
+[
+\langle ID^*, L^*, \tau_1 \rangle,
+\langle ID^*, L^*, \tau_2 \rangle,
+\dots,
+\langle ID^*, L^*, \tau_n \rangle
+]
 $$
+
+version does not compute differences.
+
+It returns the immutable structural timeline.
+
+Diff operates across anchors.  
+Version organizes anchors along the temporal axis.
 
 ---
 
-### 7.4 version()
+### 7.3 Structural Summary
 
-Temporal query.
+All structural analysis reduces to two base capabilities:
 
-$$
-version(ID, L, t)
-$$
+- Relation traversal over $R$ and $R^+$
+- Content resolution via coordinate
 
-Returns closest prior anchor.
+Derived operations are projections:
+
+| Operation | Structural Basis     | Return Structure    | Core Question                           |
+| --------- | -------------------- | ------------------- | --------------------------------------- |
+| trace()   | Traversal over $R^+$ | Path set            | Through what chain does this propagate? |
+| impact()  | Traversal over $R^+$ | Anchor set          | What is downstream?                     |
+| diff()    | Content resolution   | Content difference  | What changed?                           |
+| version() | Temporal projection  | Ordered anchor list | What is history?                        |
+
+Operations do not introduce semantics.
+
+They operate on coordinates and relations.
+
+Meaning emerges only at application layer.
 
 ---
 
 ## 8. Comprehensive Example
 
-Scenario
---------
+This section demonstrates Anchor Architecture through a realistic failure scenario.
 
-Requirement FR-091 evolves over time.
+The goal is not to demonstrate functionality,  
+but to demonstrate structural examinability.
 
-### Anchor Instances
+---
 
-```
-FR-091 @ srs.md @ v1.0
-FR-091 @ srs.md @ v1.1
-FR-091 @ srs.md @ v1.2
-```
+### 8.1 Scenario
 
-### Code Anchor
+System: Authentication Module
 
-```
-validatePassword @ auth.py @ v2.1
-```
+Evolution:
 
-### Relationship
+1. Initial requirement: Password ≥ 8
+2. Strengthened: Password ≥ 10
+3. Further strengthened: Password ≥ 12
+4. OAuth introduced
+5. After deployment, some users cannot log in
 
-```
-FR-091@v1.2 → validatePassword@v2.1
-```
+Engineering Question:
 
-### Timeline
+- Which requirement version introduced the issue?
+- Which code artifacts are affected?
+- Has any related code changed after the policy update?
 
-```
-T(FR-091, srs.md) = [v1.0, v1.1, v1.2]
-```
+Anchor Architecture answers these structurally.
 
-### trace()
+---
 
-```
-trace(FR-091@v1.2) → validatePassword@v2.1
-```
+### 8.2 Anchors
 
-### diff()
+#### Requirement Anchors
 
-```
-diff(FR-091@v1.0, FR-091@v1.2)
+```markdown
+<!-- (FR-091, srs/auth.md, v1.0) -->
+Password length must be ≥ 8 characters.
 ```
 
-Structural examinability achieved.
+```markdown
+<!-- (FR-091, srs/auth.md, v1.1) -->
+Password length must be ≥ 10 characters.
+```
+
+```markdown
+<!-- (FR-091, srs/auth.md, v1.2) -->
+Password length must be ≥ 12 characters.
+```
+
+Formal anchors:
+
+$$
+A_{r1} = \langle FR\text{-}091,\; srs/auth.md,\; v1.0 \rangle
+$$
+ 
+$$
+A_{r2} = \langle FR\text{-}091,\; srs/auth.md,\; v1.1 \rangle
+$$
+ 
+$$
+A_{r3} = \langle FR\text{-}091,\; srs/auth.md,\; v1.2 \rangle
+$$
+
+---
+
+#### Code Anchors
+
+Password validation:
+
+```python
+# (FUNC-validate-password, src/auth/password.py, 1.4.0)
+# TRACE: FR-091
+```
+
+OAuth fallback:
+
+```python
+# (FUNC-oauth-fallback, src/auth/oauth.py, 2.1.3)
+# TRACE: FR-091
+```
+
+Login entry point:
+
+```python
+# (FUNC-login, src/auth/login.py, 3.0.1)
+# TRACE: FUNC-validate-password
+# TRACE: FUNC-oauth-fallback
+```
+
+Test anchor:
+
+```python
+# (TEST-auth, tests/test_auth.py, 0.9.2)
+# TRACE: FUNC-login
+```
+
+Formal anchors:
+
+$$
+A_{c1} = \langle FUNC\text{-}validate\text{-}password,\; src/auth/password.py,\; 1.4.0 \rangle
+$$
+ 
+$$
+A_{c2} = \langle FUNC\text{-}oauth\text{-}fallback,\; src/auth/oauth.py,\; 2.1.3 \rangle
+$$
+ 
+$$
+A_{c3} = \langle FUNC\text{-}login,\; src/auth/login.py,\; 3.0.1 \rangle
+$$
+ 
+$$
+A_t = \langle TEST\text{-}auth,\; tests/test_auth.py,\; 0.9.2 \rangle
+$$
+
+---
+
+### 8.3 Relationship Set
+
+Declared structural relation:
+
+$$
+R = \{ (A_{r3}, A_{c1}), (A_{r3}, A_{c2}), (A_{c1}, A_{c3}), (A_{c2}, A_{c3}), (A_{c3}, A_t) \}
+$$
+
+Pure ordered-pair relation:
+
+$$
+R \subseteq \mathcal{A} \times \mathcal{A}
+$$
+
+No embedded semantics.
+
+---
+
+### 8.4 Structural Investigation
+
+Now assume:
+
+Users report login failure after deployment.
+
+We perform structural queries.
+
+---
+
+#### 8.4.1 trace()
+
+**Purpose**
+
+trace() answers:
+
+> Through which structural chain does the requirement reach the failing test?
+
+Targeted traversal:
+
+$$
+trace(A_{r3}, A_t)
+$$
+
+Result:
+
+$$
+\{ (A_{r3}, A_{c1}, A_{c3}, A_t), (A_{r3}, A_{c2}, A_{c3}, A_t) \}
+$$
+
+Interpretation:
+
+- Requirement v1.2 affects both password validator and OAuth fallback
+- Both feed into login
+- Login feeds into test
+
+trace returns **paths**.
+
+It helps:
+
+- Identify the structural chain
+- Locate the problematic segment
+
+---
+
+#### 8.4.2 diff()
+
+**Purpose**
+
+diff() answers:
+
+> What changed between requirement versions?
+
+Compare:
+
+$$
+diff(A_{r2}, A_{r3}) = resolve(A_{r3}) \setminus resolve(A_{r2})
+$$
+
+Structural output:
+
+Change in minimum length from 10 → 12
+
+diff does not assume identity equivalence across arbitrary anchors.  
+It compares resolved content of two anchors.
+
+Engineering use:
+
+- Identify the exact policy shift
+- Determine whether the failure coincides with that change
+
+---
+
+#### 8.4.3 impact()
+
+**Purpose**
+
+impact() answers:
+
+> Which artifacts are structurally downstream of this requirement version?
+
+$$
+impact(A_{r3})
+$$
+
+Result (closure over R):
+
+$$
+\{ A_{c1}, A_{c2}, A_{c3}, A_t \}
+$$
+
+Interpretation:
+
+Requirement v1.2 influences:
+
+- password validator
+- OAuth fallback
+- login function
+- test
+
+impact returns a **set**, not paths.
+
+Use:
+
+- Change propagation analysis
+- Inference creep detection
+- Blast radius estimation
+
+---
+
+#### 8.4.4 version()
+
+**Purpose**
+
+version() answers:
+
+> What is the structural evolution of this requirement?
+
+$$
+version(FR\text{-}091,\; srs/auth.md)
+$$
+
+Result:
+
+$$
+[ \langle FR\text{-}091,\; srs/auth.md,\; v1.0 \rangle, \langle FR\text{-}091,\; srs/auth.md,\; v1.1 \rangle, \langle FR\text{-}091,\; srs/auth.md,\; v1.2 \rangle ]
+$$
+
+Ordered by version.
+
+Engineering use:
+
+- Determine when policy changed
+- Check alignment between policy version and deployment version
+- Audit structural consistency
+
+---
+
+### 8.5 Investigative Flow
+
+Given login failure:
+
+1. trace()  
+   → reveals structural path from requirement to failing test
+2. diff()  
+   → reveals policy tightened from 10 → 12
+3. impact()  
+   → reveals OAuth path also affected
+4. version()  
+   → reveals v1.2 is first appearance of stricter constraint
+
+Conclusion:
+
+Failure coincides with FR-091 v1.2 change.  
+Structural evidence confirms propagation chain.
+
+No semantic guessing required.
+
+---
+
+### 8.6 Structural Integrity Demonstration
+
+Suppose someone writes:
+
+```python
+# TRACE: FR-999
+```
+
+But no anchor:
+
+$$
+\langle FR\text{-}999,\; srs/auth.md,\; v1.0 \rangle
+$$
+
+exists.
+
+Then:
+
+$$
+resolve(\langle FR\text{-}999,\; srs/auth.md,\; v1.0 \rangle) = \varnothing
+$$
+
+Therefore:
+
+$$
+(A_{ghost}, A_{code}) \notin R_{valid}
+$$
+
+The relationship collapses structurally.
+
+---
+
+### 8.7 What This Example Proves
+
+This example demonstrates:
+
+- Anchor as coordinate
+- R as relation
+- trace() → path discovery
+- impact() → affected set
+- diff() → content change detection
+- version() → structural timeline
+- Structural determinism against invalid reference
+
+No graph vocabulary required.  
+No tool binding required.  
+No AI introspection required.
+
+Traceability becomes coordinate geometry over declared relations.
 
 ---
 
