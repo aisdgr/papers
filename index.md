@@ -82,6 +82,13 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
     - [Submitted Version](in-progress/2026-02_ghost-intent-authorless-traceability-collapse.pdf)
     - [Version History](history/2026-02_ghost-intent-authorless-traceability-collapse.history.md)
 
+- **Inference Creep: Decision Expansion and Governance Drift in AI-Assisted Software Engineering**
+  - **Status**:  `Draft`
+  - **Venue**: *arXiv*
+  - **Artifacts**: 
+    - [Draft Manuscript](manuscripts/2026-02_inference-creep-decision-expansion-and-governance-drift_0.6.md)
+    - [Version History](history/2026-02_inference-creep-decision-expansion-and-governance-drift.history.md)
+
 ### Decision Behavior Definitions
 > Presents factors that influence decision behavior during the development stage.
 
