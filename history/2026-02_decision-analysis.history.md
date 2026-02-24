@@ -7,7 +7,7 @@ to prevent analytical and governance misclassification.
 
 ---
 
-## v0.10 — Initial Consolidation (Unreleased Draft)
+## v0.1 — Initial Consolidation (Unreleased Draft)
 
 **Status:** internal working draft  
 **Role:** concept aggregation
@@ -29,7 +29,7 @@ This version was never intended for publication.
 
 ---
 
-## v0.11 — Terminology Stabilization (Semantic Baseline)
+## v0.2 — Terminology Stabilization (Semantic Baseline)
 
 **Status:** semantic baseline  
 **Role:** terminology and conceptual definitions only
@@ -57,12 +57,12 @@ This version was never intended for publication.
 - No notion of observability or anchoring
 
 ### Rationale
-v0.11 fixed *what the words mean*,
+v0.2 fixed *what the words mean*,
 but not *when those words are applicable*.
 
 ---
 
-## v0.12 — Anchoring Preconditions (Applicability Boundary)
+## v0.3 — Anchoring Preconditions (Applicability Boundary)
 
 **Status:** conceptual gatekeeping layer  
 **Role:** defining when analysis and risk discussion are even possible
@@ -87,12 +87,12 @@ but not *when those words are applicable*.
   - analyzable problems
 
 ### Rationale
-v0.12 answered:
+v0.3 answered:
 > *Why some decision-related problems cannot even be surfaced or estimated.*
 
 ---
 
-## v0.13 — Effect-First, Authority-Conditional Analysis (Asymmetric Inference)
+## v0.4 — Effect-First, Authority-Conditional Analysis (Asymmetric Inference)
 
 **Status:** analytical structure stabilized  
 **Role:** defining valid analysis results and their governance transitions
@@ -127,7 +127,7 @@ v0.12 answered:
 - DA-U → no DR classification
 
 ### Rationale
-v0.13 fixed the inference order problem and prevented
+v0.4 fixed the inference order problem and prevented
 authority and governance from contaminating analytical validity.
 
 
