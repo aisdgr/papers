@@ -26,3 +26,37 @@ to prevent analytical and governance misclassification.
   - pre-analytical absence
 
 This version was never intended for publication.
+
+---
+
+## v0.11 — Terminology Stabilization (Semantic Baseline)
+
+**Status:** semantic baseline  
+**Role:** terminology and conceptual definitions only
+
+### Key Contributions
+- Stabilized core terms:
+  - Decision (latent structural commitment)
+  - Effect (observable manifestation)
+  - Over Outcome
+  - Decision Risk (conceptual category)
+- Explicitly excluded:
+  - decision elements
+  - analytical procedures
+  - formulas
+  - governance judgments
+- Established DR categories as **semantic classifications**, not analytical outputs:
+  - DR-N (implicit baseline)
+  - DR-O
+  - DR-V
+  - DR-I
+
+### Explicit Non-Goals
+- No analysis workflow
+- No determinability criteria
+- No notion of observability or anchoring
+
+### Rationale
+v0.11 fixed *what the words mean*,
+but not *when those words are applicable*.
+
