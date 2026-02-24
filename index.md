@@ -100,6 +100,13 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 
 ### Before Decision Behavior Occurs
 
+- **Viewpoint-Driven Specification: Structural Observability for Governing AI-Assisted Software Engineering**
+  - **Status**: `Draft`
+  - **Venue**: *arXiv*
+  - **Artifacts**: 
+    - [Draft Manuscript](manuscripts/2026-02_viewpoint-driven-specification_v0.62.md)
+    - [Version History](history/2026-02_viewpoint-driven-specification.history.md)
+
 ### During Decision Behavior Formation
 
 ### After Decision Behavior Occurs
