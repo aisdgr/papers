@@ -23,13 +23,15 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
     - [Version History](history/2026-01_four-stages-stage-of-ai-governance.history.md)
 
 - **Decision Behavior Governance at the Engineering Stage**
-  - **Status**: `Submitted`
+  - **Status**: `Published`
   - **Venue**: *SSRN*
   - **ID**: 6105226
   - **Submitted**: 2026-01
+  - **Posted**: 2026-02-23
+  - **URL**: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6105226
   - **Artifacts**: 
     - [Draft Manuscript](manuscripts/2026-01_decision-behavior-governance-at-the-engineering-stage_v1.0.md)
-    - [Submitted Version](submitted/2026-01_decision-behavior-governance-at-the-engineering-stage.pdf)
+    - [Published Version](published/2026-01_decision-behavior-governance-at-the-engineering-stage.pdf)
     - [Version History](history/2026-01_decision-behavior-governance-at-the-engineering-stage.history.md)
 
 - **Runtime Governance vs. Development Governance**

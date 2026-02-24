@@ -62,7 +62,7 @@ This repository is organized by **manuscript maturity**, not by topic silos.
   Manuscripts that have been submitted to conferences, journals,
   or public archives.
 
-- `preprints/`  
+- `published/`  
   Publicly accessible preprints (e.g., arXiv) corresponding
   to submitted manuscripts.
 
