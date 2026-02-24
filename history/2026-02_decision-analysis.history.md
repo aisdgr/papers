@@ -60,3 +60,33 @@ This version was never intended for publication.
 v0.11 fixed *what the words mean*,
 but not *when those words are applicable*.
 
+---
+
+## v0.12 — Anchoring Preconditions (Applicability Boundary)
+
+**Status:** conceptual gatekeeping layer  
+**Role:** defining when analysis and risk discussion are even possible
+
+### Key Contributions
+- Introduced **Anchoring Preconditions**:
+  - Scope anchoring
+  - Effect anchoring
+  - Decision admissibility
+- Established that:
+  - Absence of anchors ≠ risk
+  - Absence of anchors ≠ DA-I
+- Clarified that:
+  - Decision Risk requires anchoring
+  - Governance discussion without anchoring is speculative
+
+### Structural Impact
+- Prevented premature escalation from “unknown” to “risk”
+- Formally separated:
+  - non-existent problems
+  - indeterminate problems
+  - analyzable problems
+
+### Rationale
+v0.12 answered:
+> *Why some decision-related problems cannot even be surfaced or estimated.*
+
