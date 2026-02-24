@@ -85,6 +85,13 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 ### Decision Behavior Definitions
 > Presents factors that influence decision behavior during the development stage.
 
+- **Scope as a Governance Primitive**
+  - **Status**: `Draft`
+  - **Venue**: *SSRN*
+  - **Artifacts**: 
+    - [Draft Manuscript](manuscripts/2026-02_scope-as-agovernance-primitive_v0.4.md)
+    - [Version History](history/2026-02_scope-as-agovernance-primitive.history.md)
+
 - **Boundary as an Execution-Time Primitive for AI-Assisted Software Development Governance**
   - **Status**: `In-Progress`
   - **Venue**: *arXiv*
