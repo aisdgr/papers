@@ -66,6 +66,12 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
     - [Draft Manuscript](manuscripts/2026-02_anchor-architecture_v1.0.md)
     - [Submitted Version](in-progress/2026-02_anchor-architecture.pdf)
     - [Version History](history/2026-02_anchor-architecture.history.md)
+- **Decision Behavior Constraint Framework**
+  - **Status**: `Draft`
+  - **Venue**: *arXiv*
+  - **Artifacts**: 
+    - [Draft Manuscript](manuscripts/2026-02_decision-behavior-constraint-framework_v0.6.md)
+    - [Version History](history/2026-02_decision-behavior-constraint-framework.history.md)
 
 ---
 
