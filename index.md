@@ -67,6 +67,13 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
     - [Submitted Version](in-progress/2026-02_anchor-architecture.pdf)
     - [Version History](history/2026-02_anchor-architecture.history.md)
 
+- **Decision Analysis: Effect-First and Authority-Conditional Classification of Decision States**
+  - **Status**: `Draft`
+  - **Venue**: *arXiv*
+  - **Artifacts**: 
+    - [Draft Manuscript](manuscripts/2026-02_decision-analysis_v0.10.md)
+    - [Version History](history/2026-02_decision-analysis.history.md)
+
 ---
 
 ## Definitions
