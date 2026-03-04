@@ -1,6 +1,5 @@
 # Decision Analysis  
 ## Effect-First and Authority-Conditional Classification of Decision States  
-**Version: v0.13**
 
 > **Version Note (v0.13)**  
 > This version stabilizes an *effect-first, asymmetric two-phase inference structure*.  
