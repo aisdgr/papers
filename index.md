@@ -13,20 +13,22 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 ### Core Concept
 
 - **Four Stages of AI Governance: A Stage-Based Framing of Contemporary Practices**
-  - **Status**: `Submitted`
+  - **Status**: `Published`
   - **Venue**: *SSRN*
   - **ID**: 6146666
-  - **Submitted**: 2026-01
+  - **Submitted**: 2026-01-29
+  - **Posted**: 2026-03-03
+  - **URL**: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6146666
   - **Artifacts**: 
     - [Draft Manuscript](manuscripts/2026-01_four-stages-of-ai-governance_v1.0.md)
-    - [Submitted Version](in-progress/2026-01_four-stages-of-ai-governance.pdf)
+    - [Published Version](published/2026-01_four-stages-of-ai-governance.pdf)
     - [Version History](history/2026-01_four-stages-stage-of-ai-governance.history.md)
 
 - **Decision Behavior Governance at the Engineering Stage**
   - **Status**: `Published`
   - **Venue**: *SSRN*
   - **ID**: 6105226
-  - **Submitted**: 2026-01
+  - **Submitted**: 2026-01-21
   - **Posted**: 2026-02-23
   - **URL**: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6105226
   - **Artifacts**: 
@@ -73,13 +75,15 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 > Describe observable decision behavior phenomena in engineering practice as the basis for problem identification and theoretical analysis.
 
 - **From Inference Creep to Risk Acceleration Pipelines**
-  - **Status**: `Submitted`
+  - **Status**: `Published`
   - **Venue**: *SSRN*
   - **ID**: 6146686
-  - **Submitted**: 2026-01
+  - **Submitted**: 2026-01-29
+  - **Posted**: 2026-03-03
+  - **URL**: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6146686
   - **Artifacts**: 
     - [Draft Manuscript](manuscripts/2026-01_from-inference-creep-to-risk-acceleration-pipelines_v1.0.md)
-    - [Submitted Version](submitted/2026-01_from-inference-creep-to-risk-acceleration-pipelines.pdf)
+    - [Published Version](published/2026-01_from-inference-creep-to-risk-acceleration-pipelines.pdf)
     - [Version History](history/2026-01_from-inference-creep-to-risk-acceleration-pipelines.history.md)
 
 - **Ghost Intent: An Effect of Traceability Collapse in GenAI-Assisted SDLCs**
