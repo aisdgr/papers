@@ -1,5 +1,5 @@
 # Boundary as an Execution-Time Primitive for AI-Assisted Software Development Governance
-## Why AI-Assisted Development Fails Before Governance Begins
+> Why AI-Assisted Development Fails Before Governance Begins
 
 **Author:** Spark Tsai  
 **ORCID:** https://orcid.org/0009-0006-8847-4703
@@ -20,7 +20,15 @@ We formalize task execution boundaries as the resolution of visible scope and ex
 
 ---
 
-## Introduction
+## Keywords
+
+AI Governance, AI Accountability, Software Engineering Governance, AI-Assisted Software Development, LLM Agents, Task Execution Boundary, Model Alignment, Boundary Evidence, Decidable Governance, Prohibitive Constraints, Task-Specific Constraints, Execution-Time Constraints, Category Error, Behavioral Drift,
+Decision Provenance, Insecure Code Generation, Auditability, Technical Accountability, Prompt Engineering,
+AI Safety, Code Generation, Runtime Governance
+
+---
+
+## 1. Introduction
 
 AI-assisted software development has rapidly progressed from code completion to autonomous agents capable of modifying production systems. In response, governance efforts have largely focused on improving **model alignment**: safer training data, stronger RLHF, and increasingly sophisticated guardrails.
 
@@ -33,7 +41,7 @@ This paper argues that a critical distinction has been overlooked between two or
 
 We demonstrate that **model alignment boundaries do not—and cannot—automatically inherit task-specific constraints.** Even the most "aligned" AI, like a high-performance car with the best brakes, can still drive the wrong way down a one-way street if the **Task Execution Boundary** is missing.
 
-### From Narrative to Technical Governance
+### 2. From Narrative to Technical Governance
 
 Without an explicitly constructed boundary, governance collapses into interpretation. When an AI agent drifts, the post-mortem becomes an argument over "intent" rather than a verification of "fact." Accountability becomes **narrative** (explaining what went wrong) rather than **technical** (proving what was violated).
 
@@ -41,47 +49,17 @@ This paper proposes a framework to bridge this gap, transforming general model s
 
 ---
 
-## Related Work
-
-### Behavioral Drift and Context Degradation
-
-Recent studies document various forms of behavioral degradation in LLM-based agents, including semantic drift, goal drift, coordination drift, and context degradation over extended interactions [1–5]. These works provide valuable empirical observations and detection techniques.
-
-However, drift is typically treated as a detectable violation of an assumed boundary. Few works examine the prior engineering condition: whether a decidable boundary existed at execution time in the first place.
-
-### Guardrails and Policy Enforcement
-
-Guardrail frameworks and policy-based enforcement mechanisms aim to constrain undesirable outputs via filtering, rejection, or runtime checks [6–9]. In AI-assisted coding, multiple studies report the generation of insecure yet functional code, including hardcoded secrets and weak cryptographic practices [10].
-
-These mechanisms operate post-generation and implicitly assume that a permissible action space has already been defined.
-
-### Agent Frameworks and Context Management
-
-Surveys of LLM-based agents for software engineering emphasize tool orchestration, memory isolation, and context delivery [11–13]. The Model Context Protocol (MCP) standardizes context transport and tool access [14,15].
-
-While these frameworks improve infrastructure-level governance, they do not define the decidable boundaries of the generative action space itself.
-
-### Model Alignment Boundary vs. Task Execution Boundary
-
-A substantial body of work addresses model alignment boundaries through training-time techniques such as RLHF and safety fine-tuning. These establish statistical, soft constraints applicable across tasks.
-
-This literature often assumes that strong model alignment subsumes task-specific execution boundaries. We argue that this is a category error.
-
-Model alignment boundaries and task execution boundaries differ in origin, scope, and nature. They may have little or no intersection in practice. Training-time safety does not imply execution-time governance.
-
----
-
-## The Formalism of Task Execution Boundaries
+## 3. The Formalism of Task Execution Boundaries
 
 To transition from narrative governance to technical accountability, we must define the primitives that constitute a boundary. We argue that a boundary is not a static property of a model, but a dynamic resolution of scope and constraints at execution time.
 
-### Visible Scope
+### 3.1 Visible Scope
 
 Visible scope refers to the set of artifacts accessible to the model at execution time, such as specifications, tests, source code, explicit goals, and context.  
 Scope defines **what the model can observe**, not what it is permitted to do.  
 Scope alone does not bound behavior; it merely sets the possible action space.
 
-### Constraints as Prohibitive Primitives
+### 3.2 Constraints as Prohibitive Primitives
 
 A critical distinction exists between prescriptive goals (MUST) and prohibitive constraints (MUST NOT).
 
@@ -90,7 +68,7 @@ A critical distinction exists between prescriptive goals (MUST) and prohibitive 
 
 In our framework, **decidability in governance emerges primarily from prohibitive constraints.**
 
-### Boundary as Execution-Time Resolution
+### 3.3 Boundary as Execution-Time Resolution
 
 The task execution boundary is the set of actions that the model is both capable of generating (given what it can see) and explicitly permitted to take (given what it is forbidden from doing) in a specific task instance. In other words, it is the effective, permissible action space at execution time—neither the full generative possibility nor a vague safety guideline, but a concrete, decidable subset shaped by the interplay of visibility and hard prohibitions.
 
@@ -122,7 +100,7 @@ When $B(t) = \bot$ (boundary non-existence), the AI agent operates in a **bounda
 
 This explains why even highly "aligned" models frequently produce insecure yet functional code (e.g., hardcoded secrets or weak cryptography): they follow general probabilities because no task-specific boundary was constructed to override them.
 
-### Boundary Evidence
+### 3.4 Boundary Evidence
 
 Boundary evidence records the resolved boundary state at execution time. It represents the minimal auditable unit required for reproducibility and governance.
 
@@ -147,16 +125,16 @@ This representation is illustrative and does not prescribe a specific storage fo
 ---
 
 
-## Model Boundary vs. Task Boundary
+## 4. Model Boundary vs. Task Boundary
 
-### Model Alignment Boundary (Training Time)
+### 4.1 Model Alignment Boundary (Training Time)
 
 - Established during training
 - Statistical, soft constraints
 - Cross-task generalization
 - Example: “Avoid generating malware”
 
-### Task Execution Boundary (Execution Time)
+### 4.2 Task Execution Boundary (Execution Time)
 
 - Constructed per execution
 - Explicit, hard constraints
@@ -167,25 +145,25 @@ Model boundaries reduce the likelihood of harmful outputs. They do not define pe
 
 ---
 
-## Engineering Scenarios
+## 5. Engineering Scenarios
 
 We examine three scenarios involving modification of an existing login system to use JWT authentication.
 
-### 7.1 Scenario A: Prompt Only
+### 5.1 Scenario A: Prompt Only
 
 - Model Alignment Boundary: Present
 - Task Execution Boundary: ⊥
 
 Outcome: Functional but insecure JWT implementation (e.g., hardcoded secrets, weak algorithms). These outputs violate implicit engineering expectations but not model alignment boundaries.
 
-### 7.2 Scenario B: Prompt + SDD
+### 5.2 Scenario B: Prompt + SDD
 
 - Model Alignment Boundary: Present
 - Task Execution Boundary: Partially formed
 
 Outcome: Improved structural coherence but persistent insecure patterns. Functional specifications do not constrain security decisions without explicit prohibitions.
 
-### 7.3 Scenario C: Prompt + SDD + Explicit Constraints
+### 5.3 Scenario C: Prompt + SDD + Explicit Constraints
 
 - Model Alignment Boundary: Present
 - Task Execution Boundary: Resolved
@@ -194,25 +172,55 @@ Explicit constraints such as “MUST NOT hardcode secrets” and “MUST NOT acc
 
 ---
 
-## Discussion
+## 6. Discussion
 
-### Drift as an Epistemic Illusion
+### 6.1 Drift as an Epistemic Illusion
 Behavioral drift is commonly treated as a stochastic property of model behavior. We argue that in the absence of a task execution boundary, drift is **epistemically undefined**. Without a formal boundary, there is no reference baseline against which deviation can be measured. In such cases, apparent drift reflects subjective human reinterpretation of results rather than an objective system violation.
 
-### Limitations and Future Work
+### 6.2 Limitations and Future Work
 This paper focuses on the static resolution of boundaries at execution time. We deliberately exclude dynamic boundary evolution, enforcement mechanisms (e.g., runtime interception), and versioned lifecycle governance. These concerns, while critical, presuppose the existence of a decidable task execution boundary as defined here. 
 
-### Scope of Definition
+### 6.3 Scope of Definition
 
 The primitives defined in this work—visible scope and explicit prohibitive constraints—represent the minimal set of conditions required to construct a decidable boundary. While additional primitives may emerge as AI agents evolve, we establish a necessary foundation: without at least these elements, task-level governance remains undecidable by design.
 
 ---
 
-## Conclusion
+## 7. Conclusion
 
 This paper argues that many failures in AI-assisted software development stem from a fundamental misdiagnosis. The problem is not merely insufficient model alignment, but the **absence of a decidable task execution boundary at runtime**. 
 
 Model alignment boundaries and task execution boundaries are orthogonal; conflating them constitutes a **category error** that undermines the validity of AI governance. By formalizing these boundaries and introducing **boundary evidence** as the minimal auditable unit, this work reframes AI governance as an execution-time engineering problem rather than a training-time alignment deficiency.
+
+---
+
+## 8. Related Work
+
+### 8.1 Behavioral Drift and Context Degradation
+
+Recent studies document various forms of behavioral degradation in LLM-based agents, including semantic drift, goal drift, coordination drift, and context degradation over extended interactions [1–5]. These works provide valuable empirical observations and detection techniques.
+
+However, drift is typically treated as a detectable violation of an assumed boundary. Few works examine the prior engineering condition: whether a decidable boundary existed at execution time in the first place.
+
+### 8.2 Guardrails and Policy Enforcement
+
+Guardrail frameworks and policy-based enforcement mechanisms aim to constrain undesirable outputs via filtering, rejection, or runtime checks [6–9]. In AI-assisted coding, multiple studies report the generation of insecure yet functional code, including hardcoded secrets and weak cryptographic practices [10].
+
+These mechanisms operate post-generation and implicitly assume that a permissible action space has already been defined.
+
+### 8.3 Agent Frameworks and Context Management
+
+Surveys of LLM-based agents for software engineering emphasize tool orchestration, memory isolation, and context delivery [11–13]. The Model Context Protocol (MCP) standardizes context transport and tool access [14,15].
+
+While these frameworks improve infrastructure-level governance, they do not define the decidable boundaries of the generative action space itself.
+
+### 8.4 Model Alignment Boundary vs. Task Execution Boundary
+
+A substantial body of work addresses model alignment boundaries through training-time techniques such as RLHF and safety fine-tuning. These establish statistical, soft constraints applicable across tasks.
+
+This literature often assumes that strong model alignment subsumes task-specific execution boundaries. We argue that this is a category error.
+
+Model alignment boundaries and task execution boundaries differ in origin, scope, and nature. They may have little or no intersection in practice. Training-time safety does not imply execution-time governance.
 
 ---
 

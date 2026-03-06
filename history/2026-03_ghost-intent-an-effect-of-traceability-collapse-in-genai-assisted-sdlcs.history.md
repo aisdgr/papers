@@ -166,55 +166,170 @@ expansion.
 - This history file is maintained as an explicit countermeasure against
   untracked conceptual drift.
 
-## v0.3 (Stabilized) — Current Working Version
+## v0.4 — Editorial Stabilization (Preprint Preparation)
 
-**Status:** Draft (Stabilized, SSRN-Ready)  
+**Status:** Preprint Preparation  
 **Date:** February 2026  
 
-This version retains **all content and structure of v0.3**, with only the
-following **permitted, non-expansive changes** applied:
+This version represents the **final stabilization phase prior to public
+preprint release**.
 
-### Allowed Changes (Strictly Additive / Normalizing)
+### Change Policy
+
+- No new conceptual primitives introduced
+- No structural expansion of the theory
+- Only editorial stabilization and citation normalization
+
+### Changes
 
 1. **Reference Expansion**
-   - Added six additional references (2025–2026) covering:
-     - Empirical studies on GenAI productivity paradox and verification overhead.
-     - Provenance and explainability gaps in generated artifacts.
-     - GenAI-specific governance and risk frameworks (NIST AI 600-1, OECD).
-     - Long-term maintenance outcomes of AI-generated code.
-   - No references removed.
-   - Citation ordering normalized (self-citation first, then external sources).
+
+Additional references were introduced covering:
+
+- empirical studies of GenAI productivity
+- explainability and provenance requirements
+- AI governance frameworks (NIST AI RMF, OECD)
+
+No references were removed.
 
 2. **AI Assistance Disclosure**
-   - Added an explicit disclosure section stating:
-     - AI tools were used for language refinement only.
-     - All conceptual frameworks, definitions, and analysis remain human-authored.
-   - Included to align with emerging SSRN and journal transparency expectations.
+
+A transparency section was introduced specifying:
+
+- AI tools used only for language refinement
+- conceptual frameworks remain human-authored
 
 3. **Terminology Normalization**
-   - Unified wording without altering meaning or structure:
-     - “functional” → “behaviorally coherent”
-     - “reverse engineering” → “interpretive archaeology”
-     - “resists rational reconstruction” → “epistemically opaque”
-   - No sentences removed; no arguments reframed.
 
-### Explicit Non-Changes
+Wording normalization applied without conceptual change.
 
-- No new sections added.
-- No sections reordered.
-- No analytical depth reduced.
-- No new formulas, variables, or theoretical axes introduced.
-- No migration of material from companion papers (Inference Creep, Boundary).
+Examples:
 
-This stabilized v0.3 is the **canonical version for SSRN submission**.
+- "functional" → "behaviorally coherent"
+- "reverse engineering" → "interpretive archaeology"
+- "opaque systems" → "epistemically opaque systems"
 
-## Versioning Policy Going Forward
+### Non-Changes
 
-- v0.3 is the final scope-bearing version.
-- Any future revisions (e.g., journal resubmission) will be:
-  - Editorial only, or
-  - Clearly versioned as venue-specific adaptations.
-- No expansion of conceptual scope will occur within this manuscript.
+- No new theoretical constructs
+- No additional formulas
+- No new risk dimensions
+- No migration of concepts from companion papers
+
+This version marks the **final scope-bearing stabilization** before
+publication-oriented formatting.
+
+---
+
+## v1.0 — Publication Form (Structural Refinement)
+
+**Status:** First Public Manuscript Form  
+**Date:** March 2026  
+
+Version 1.0 reflects the transition from the February stabilization draft
+to the **first publication-form manuscript**.
+
+This version is derived from the differences between the February and
+March manuscript revisions.
+
+### Structural Changes
+
+1. **Title Refinement**
+
+Title revised from:
+
+Ghost Intent: Authorless Traceability Collapse
+
+to
+
+Ghost Intent: An Effect of Traceability Collapse in GenAI-Assisted SDLCs
+
+This change clarifies the causal framing and aligns the paper with
+software engineering research terminology.
+
+---
+
+2. **Section Structure Formalization**
+
+The manuscript moved from narrative sections to a **numbered academic
+structure**, introducing explicit sections such as:
+
+- Introduction
+- Background and Motivation
+- Theoretical Framework
+- Mechanics of ATC
+- Observability and Manifestations
+- Risk Classification
+- Related Work
+
+This improves compatibility with academic submission formats.
+
+---
+
+3. **Related Work Expansion**
+
+The Related Work section was significantly expanded to include:
+
+- empirical GenAI productivity research
+- explainability and traceability literature
+- governance frameworks (NIST AI RMF, OECD)
+- open-source survivability studies of AI-generated code
+
+This positions Ghost Intent within the broader SE research landscape.
+
+---
+
+4. **Governance Framing Strengthening**
+
+The manuscript explicitly reframed Ghost Intent as:
+
+a **first-order governance risk** rather than a documentation or tooling problem.
+
+This aligns the work with governance-oriented venues such as SSRN and AIES.
+
+---
+
+5. **Conceptual Vocabulary Stabilization**
+
+Terminology was normalized across the manuscript:
+
+- Ghost Intent
+- Authorless Traceability Collapse (ATC)
+- Debug Cost Inversion
+- Decision Provenance
+- Epistemic Opacity
+
+These terms are now treated as the canonical vocabulary of the paper.
+
+---
+
+### Conceptual Stability
+
+No new theoretical primitives were introduced in v1.0.
+
+The following remain unchanged:
+
+- definition of Ghost Intent
+- minimal formalization of intent loss
+- ATC structural framing
+- multi-dimensional risk classification
+- non-solution positioning of the paper
+
+---
+
+### Significance of v1.0
+
+v1.0 represents the **first stable academic form** of the Ghost Intent
+manuscript suitable for:
+
+- SSRN publication
+- preprint archiving
+- citation and external reference
+
+Subsequent versions will be:
+
+- venue-specific adaptations, or
+- editorial refinements only.
 
 ---
 
