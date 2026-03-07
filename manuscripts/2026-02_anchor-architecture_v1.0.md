@@ -1,6 +1,5 @@
 # Anchor Architecture
-
-*A Minimal Structural Foundation for Software Traceability*
+> A Minimal Structural Foundation for Software Traceability in AI-Assisted Software Development
 
 **Author:** Spark Tsai  
 **ORCID:** https://orcid.org/0009-0006-8847-4703  
