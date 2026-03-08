@@ -46,8 +46,11 @@ Canonical research content is maintained in `manuscripts/` and `history/`, while
 - `history/`  
   Conceptual and structural evolution records for each paper, documenting key decision points, terminological shifts, and explicit exclusions. These files provide provenance rather than draft recovery.
 
-- `index.md`  
+- [`index.md`](index.md)
   A chronological and thematic index of all manuscripts, indicating status, relationships, and conceptual dependencies.
+
+- [`GLOSSARY.md`](GLOSSARY.md)
+  A controlled glossary of system-defined terms used across manuscripts, including anchor-linked definitions and conceptual origins to ensure terminological consistency.
 
 ---
 
