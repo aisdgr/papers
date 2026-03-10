@@ -7,6 +7,7 @@
 - [Anchor](#anchor)
 - [Anchor Architecture](#anchor-architecture)
 - [Anchor-less State](#anchor-less-state)
+- [Artifact Scope](#artifact-scope)
 - [Authorial Discontinuity](#authorial-discontinuity)
 - [Authorless Traceability Collapse (ATC)](#authorless-traceability-collapse)
 
@@ -23,12 +24,18 @@
 
 ### D
 
+- [DA-I (Indeterminate)](#da-i)
+- [DA-N (Normal)](#da-n)
+- [DA-O (Over Outcome)](#da-o)
+- [DA-U (Unobservable)](#da-u)
+- [DA-V (Decision Vacancy)](#da-v)
 - [Debug Cost Inversion](#debug-cost-inversion)
 - [Decidable Governance](#decidable-governance)
 - [Decision Authorization](#decision-authorization)
 - [Decision Behavior](#decision-behavior)
 - [Decision Behavior Governance](#decision-behavior-governance)
 - [Decision Boundary Collapse](#decision-boundary-collapse)
+- [Decision Effect](#decision-effect)
 - [Decision Formation](#decision-formation)
 - [Decision Friction](#decision-friction)
 - [Decision Premise](#decision-premise)
@@ -41,6 +48,7 @@
 
 ### E
 
+- [Effect-First Principle](#effect-first-principle)
 - [Engineering-Stage Governance](#engineering-stage-governance)
 - [Epistemic Opacity](#epistemic-opacity)
 - [Evidence Sovereignty](#evidence-sovereignty)
@@ -76,6 +84,7 @@
 ### O
 
 - [Operation Governance](#operation-governance)
+- [Outcome Scope](#outcome-scope)
 
 ### P
 
@@ -94,6 +103,7 @@
 - [Semantic Conflict Detection](#semantic-conflict-detection)
 - [Spatiotemporal Coordinate](#spatiotemporal-coordinate)
 - [Structural Examinability](#structural-examinability)
+- [Structural Scope Audit](#structural-scope-audit)
 
 ### T
 
@@ -321,7 +331,7 @@
 
 ---
 
-### Viewpoint-Structured Specification
+#### Viewpoint-Structured Specification
 
 - <a id="viewpoint-structured-specification"></a> Viewpoint-Structured Specification (VSS)
     > A structural framework that decomposes Intent into a versioned, multi-viewpoint Specification prior to AI-assisted code generation. It provides the pre-coding structural basis for governed, traceable generation.
@@ -335,3 +345,39 @@
 - <a id="semantic-conflict-detection"></a> Semantic Conflict Detection
     > The structural observability of incompatible constraints between elements from different Viewpoints, made possible by multi-viewpoint structuring before code generation begins. It surfaces latent Intent conflicts at the point where resolution cost is lowest.
     *Origin*: [Viewpoint-Structured Specification](manuscripts/2026-03_viewpoint-structured-specification_v1.0.md)
+
+---
+
+#### Decision Analysis
+
+- <a id="decision-effect"></a> Decision Effect
+    > A detectable state deviation between system states before and after a generation event. It serves as the unified analytical entry point for scope authorization analysis, independent of intent assumptions or outcome correctness.
+    *Origin*: [Decision Analysis](manuscripts/2026-03_decision-analysis_v1.0.md)
+- <a id="artifact-scope"></a> Artifact Scope
+    > The set of code-layer anchors identified as the intended modification targets for a generation event, established either by direct human specification or by AI derivation through structural relations from the Visible Scope.
+    *Origin*: [Decision Analysis](manuscripts/2026-03_decision-analysis_v1.0.md)
+- <a id="outcome-scope"></a> Outcome Scope
+    > The set of anchors whose content was actually modified during execution, determined after the generation event by observation. It is the structural fact against which scope authorization is evaluated.
+    *Origin*: [Decision Analysis](manuscripts/2026-03_decision-analysis_v1.0.md)
+- <a id="effect-first-principle"></a> Effect-First Principle
+    > The analytical constraint that scope analysis must begin from observable effect rather than intent assumptions or outcome evaluation. It is a structural necessity in AI-assisted environments where generation reasoning is not introspectable.
+    *Origin*: [Decision Analysis](manuscripts/2026-03_decision-analysis_v1.0.md)
+- <a id="structural-scope-audit"></a> Structural Scope Audit
+    > An automated, pre-merge determination of whether a generation event remained within its authorized scope, expressed as set-membership queries over Anchor Sets without requiring semantic understanding of the generated code.
+    *Origin*: [Decision Analysis](manuscripts/2026-03_decision-analysis_v1.0.md)
+- <a id="da-n"></a> DA-N (Normal)
+    > An analytical state in which all observable modifications fall within the Artifact Scope and the Artifact Scope is structurally reachable from the Visible Scope. No scope anomaly is detected.
+    *Origin*: [Decision Analysis](manuscripts/2026-03_decision-analysis_v1.0.md)
+- <a id="da-o"></a> DA-O (Over Outcome)
+    > An analytical state in which observable modifications extend beyond the Artifact Scope. It identifies the structural fact of scope exceedance without evaluating the correctness or governance implications of the excess modifications.
+    *Origin*: [Decision Analysis](manuscripts/2026-03_decision-analysis_v1.0.md)
+- <a id="da-i"></a> DA-I (Indeterminate)
+    > An analytical state in which scope-exceeding modifications can be traced to multiple specification-layer anchors with no unique attribution. It identifies attribution instability without resolving which source drove the modification.
+    *Origin*: [Decision Analysis](manuscripts/2026-03_decision-analysis_v1.0.md)
+- <a id="da-v"></a> DA-V (Decision Vacancy)
+    > An analytical state in which scope-exceeding modifications cannot be traced to any known anchor in the system. It provides the formal structural detection criterion for Ghost Intent.
+    *Origin*: [Decision Analysis](manuscripts/2026-03_decision-analysis_v1.0.md)
+- <a id="da-u"></a> DA-U (Unobservable)
+    > An analytical state in which no observable modification is detected, terminating analysis without state determination. It marks the analytical boundary beyond which scope authorization cannot be assessed.
+    *Origin*: [Decision Analysis](manuscripts/2026-03_decision-analysis_v1.0.md)
+
