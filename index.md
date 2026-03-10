@@ -116,7 +116,9 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 ### Before Decision Behavior Occurs
 > Focuses on pre-decision structures that define intent boundaries, specification clarity, and traceable conditions before AI-assisted decisions are formed.
 
-#### Viewpoint-Driven Specification: Structural Observability for Governing AI-Assisted Software Engineering
+#### Viewpoint-Structured Specification (VSS)
+
+- **Artifacts**: [Manuscript](manuscripts/2026-03_viewpoint-structured-specification_v1.0.md) / [History](history/2026-03_viewpoint-structured-specification.history.md)
 
 ---
 
