@@ -7,12 +7,14 @@
 - [Anchor](#anchor)
 - [Anchor Architecture](#anchor-architecture)
 - [Anchor-less State](#anchor-less-state)
+- [Authorial Discontinuity](#authorial-discontinuity)
 - [Authorless Traceability Collapse (ATC)](#authorless-traceability-collapse)
 
 ### B
 
 - [Behavioral Drift](#behavioral-drift)
 - [Boundary Evidence](#boundary-evidence)
+- [Boundary Formation](#boundary-formation)
 - [Boundary Vacuum](#boundary-vacuum)
 
 ### C
@@ -63,11 +65,13 @@
 - [Inference Creep](#inference-creep)
 - [Intent Anchors](#intent-anchors)
 - [Intent Evaporation](#intent-evaporation)
+- [Intent Fragmentation](#intent-fragmentation)
 
 ### M
 
 - [Model Alignment Boundary](#model-alignment-boundary)
 - [Model Governance](#model-governance)
+- [Multi-Viewpoint](#multi-viewpoint)
 
 ### O
 
@@ -87,6 +91,7 @@
 
 ### S
 
+- [Semantic Conflict Detection](#semantic-conflict-detection)
 - [Spatiotemporal Coordinate](#spatiotemporal-coordinate)
 - [Structural Examinability](#structural-examinability)
 
@@ -97,6 +102,9 @@
 
 ### V
 
+- [Viewpoint](#viewpoint)
+- [Viewpoint-Structured Specification (VSS)](#viewpoint-structured-specification)
+- [Visibility Inversion Principle](#visibility-inversion-principle)
 - [Visible Scope](#visible-scope)
 
 ---
@@ -108,6 +116,15 @@
 - <a id="behavioral-drift"></a> Behavioral Drift
     > A shift in how a model interprets or applies constraints over time without explicit premise changes. Detecting it depends on accumulated governance evidence.
     *Origin*: [Decision Behavior Governance](manuscripts/2026-01_decision-behavior-governance-at-the-engineering-stage_v1.0.md)
+- <a id="authorial-discontinuity"></a> Authorial Discontinuity
+    > The structural absence of a recoverable chain connecting each prompt-driven generation event to the Intent that authorized it. It results from the stateless, single-use nature of prompts as a specification artifact class.
+    *Origin*: [Viewpoint-Structured Specification](manuscripts/2026-03_viewpoint-structured-specification_v1.0.md)
+- <a id="visibility-inversion-principle"></a> Visibility Inversion Principle
+    > The principle that conflict detection probability decreases as generation proceeds deeper into implementation layers, while resolution cost increases proportionally. It motivates pre-coding conflict surfacing as the primary VSS intervention.
+    *Origin*: [Viewpoint-Structured Specification](manuscripts/2026-03_viewpoint-structured-specification_v1.0.md)
+- <a id="intent-fragmentation"></a> Intent Fragmentation
+    > The dispersal of Intent across unrelated artifacts such that it cannot function as a coherent governing constraint over code generation. It compounds upstream governance failure when no structured decomposition precedes generation.
+    *Origin*: [Viewpoint-Structured Specification](manuscripts/2026-03_viewpoint-structured-specification_v1.0.md)
 
 #### Ghost Intent
 
@@ -298,3 +315,23 @@
 - <a id="boundary-vacuum"></a> Boundary Vacuum
     > A state where no decidable task boundary is established for execution. In this condition, model-level preferences dominate and governance claims become hard to verify objectively.
     *Origin*: [Execution Boundary](manuscripts/2026-02_boundary-as-an-execution-time-primitive-v1.0.md)
+- <a id="boundary-formation"></a> Boundary Formation
+    > The emergent capacity to form a human-determined subset selection from a versioned Structured Specification as the governing context for a code generation event. It is a consequence of unitization, not an added mechanism.
+    *Origin*: [Viewpoint-Structured Specification](manuscripts/2026-03_viewpoint-structured-specification_v1.0.md)
+
+---
+
+### Viewpoint-Structured Specification
+
+- <a id="viewpoint-structured-specification"></a> Viewpoint-Structured Specification (VSS)
+    > A structural framework that decomposes Intent into a versioned, multi-viewpoint Specification prior to AI-assisted code generation. It provides the pre-coding structural basis for governed, traceable generation.
+    *Origin*: [Viewpoint-Structured Specification](manuscripts/2026-03_viewpoint-structured-specification_v1.0.md)
+- <a id="viewpoint"></a> Viewpoint
+    > A declared semantic boundary representing a specific concern, constraint, or intent in a system. It is the foundational structural unit through which Intent is decomposed in VSS.
+    *Origin*: [Viewpoint-Structured Specification](manuscripts/2026-03_viewpoint-structured-specification_v1.0.md)
+- <a id="multi-viewpoint"></a> Multi-Viewpoint
+    > The structural requirement in VSS that Intent be expressed across multiple declared Viewpoints, each assumed by an AI acting in a distinct role. The deliberative tension between roles is the mechanism through which latent conflicts in Intent become structurally observable before code generation.
+    *Origin*: [Viewpoint-Structured Specification](manuscripts/2026-03_viewpoint-structured-specification_v1.0.md)
+- <a id="semantic-conflict-detection"></a> Semantic Conflict Detection
+    > The structural observability of incompatible constraints between elements from different Viewpoints, made possible by multi-viewpoint structuring before code generation begins. It surfaces latent Intent conflicts at the point where resolution cost is lowest.
+    *Origin*: [Viewpoint-Structured Specification](manuscripts/2026-03_viewpoint-structured-specification_v1.0.md)
