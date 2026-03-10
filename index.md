@@ -135,14 +135,18 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 - **DOI**: [10.5281/zenodo.18883242](https://doi.org/10.5281/zenodo.18883242)
 - **Preprint**: engrXiv / [6583](https://engrxiv.org/preprint/view/6583) / **Published** / `2026-03-09`
 
-#### Decision Analysis: Effect-First and Authority-Conditional Classification of Decision States
-
 #### Quality Maintenance Collapse
 
 ---
 
 ### After Decision Behavior Occurs
 > Addresses post-decision accountability through auditability, evidence retention, and evaluative mechanisms for governance learning and correction.
+
+#### Decision Analysis: Effect-Oriented Structural Scope Audit for AI-Assisted Software Development
+
+- **Artifacts**: [Manuscript](manuscripts/2026-03_decision-analysis_v1.0.md) / [History](history/2026-03_decision-analysis.history.md)
+- **DOI**: [10.5281/zenodo.18934765](https://doi.org/10.5281/zenodo.18934765)
+- **Preprint**: engrXiv / 6616 / *Submitted*
 
 #### Evidence
 
