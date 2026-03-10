@@ -109,7 +109,7 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 
 - **Artifacts**: [Manuscript](manuscripts/2026-02_anchor-architecture_v1.0.md) / [History](history/2026-02_anchor-architecture.history.md)
 - **DOI**: [10.5281/zenodo.18856781](https://doi.org/10.5281/zenodo.18856781)
-- **Preprint**: engrXiv / 6580 / *Submitted*
+- **Preprint**: engrXiv / [6580](https://engrxiv.org/preprint/view/6580)  / **Published** / `2026-03-09`
 
 ---
 
@@ -129,7 +129,7 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 
 - **Artifacts**: [Manuscript](manuscripts/2026-02_boundary-as-an-execution-time-primitive-v1.0.md) / [History](history/2026-02_boundary-as-an-execution-time-primitive.history.md)
 - **DOI**: [10.5281/zenodo.18883242](https://doi.org/10.5281/zenodo.18883242)
-- **Preprint**: engrXiv / 6583 / *Submitted*
+- **Preprint**: engrXiv / [6583](https://engrxiv.org/preprint/view/6583) / **Published** / `2026-03-09`
 
 #### Decision Analysis: Effect-First and Authority-Conditional Classification of Decision States
 
