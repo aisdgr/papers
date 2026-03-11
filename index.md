@@ -109,7 +109,7 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 
 - **Artifacts**: [Manuscript](manuscripts/2026-02_anchor-architecture_v1.0.md) / [History](history/2026-02_anchor-architecture.history.md)
 - **DOI**: [10.5281/zenodo.18856781](https://doi.org/10.5281/zenodo.18856781)
-- **Preprint**: engrXiv / [6580](https://engrxiv.org/preprint/view/6580)  / **Published** / `2026-03-09`
+- **Preprint**: engrXiv / [10.31224/6580](https://engrxiv.org/preprint/view/6580)  / **Published** / `2026-03-09`
 
 ---
 
@@ -120,7 +120,7 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 
 - **Artifacts**: [Manuscript](manuscripts/2026-03_viewpoint-structured-specification_v1.0.md) / [History](history/2026-03_viewpoint-structured-specification.history.md)
 - **DOI**: [10.5281/zenodo.18930951](https://doi.org/10.5281/zenodo.18930951)
-- **Preprint**: engrXiv / 6612 / *Submitted*
+- **Preprint**: engrXiv / [10.31224/6612](https://engrxiv.org/preprint/view/6612)  / **Published** / `2026-03-10`
 
 ---
 
@@ -133,7 +133,7 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 
 - **Artifacts**: [Manuscript](manuscripts/2026-02_boundary-as-an-execution-time-primitive-v1.0.md) / [History](history/2026-02_boundary-as-an-execution-time-primitive.history.md)
 - **DOI**: [10.5281/zenodo.18883242](https://doi.org/10.5281/zenodo.18883242)
-- **Preprint**: engrXiv / [6583](https://engrxiv.org/preprint/view/6583) / **Published** / `2026-03-09`
+- **Preprint**: engrXiv / [10.31224/6583](https://engrxiv.org/preprint/view/6583) / **Published** / `2026-03-09`
 
 #### Quality Maintenance Collapse
 
@@ -146,7 +146,7 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 
 - **Artifacts**: [Manuscript](manuscripts/2026-03_decision-analysis_v1.0.md) / [History](history/2026-03_decision-analysis.history.md)
 - **DOI**: [10.5281/zenodo.18934765](https://doi.org/10.5281/zenodo.18934765)
-- **Preprint**: engrXiv / 6616 / *Submitted*
+- **Preprint**: engrXiv / [10.31224/6616](https://engrxiv.org/preprint/view/6616)  / **Published** / `2026-03-10`
 
 #### Evidence
 
