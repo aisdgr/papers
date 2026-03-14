@@ -91,7 +91,9 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 
 #### Decision Analysis
 
-#### Decision Risk
+#### Decision Risk: A Structural Governance Framework for AI-Assisted Software Development
+
+- **Artifacts**: [Manuscript](manuscripts/2026-01_realizing-ISO-IEC-42001-through-decision-behavior-governance_v1.0.md) / [History](history/2026-01_realizing-ISO-IEC-42001-through-decision-behavior-governance.history.md)
 
 #### Regulator
 
@@ -144,7 +146,7 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 
 #### Decision Analysis: Effect-Oriented Structural Scope Audit for AI-Assisted Software Development
 
-- **Artifacts**: [Manuscript](manuscripts/2026-03_decision-analysis_v1.0.md) / [History](history/2026-03_decision-analysis.history.md)
+- **Artifacts**: [Manuscript](manuscripts/2026-03_decision-analysis_v1.0.md) / [History](history/2026-03_decision-risk.history.md)
 - **DOI**: [10.5281/zenodo.18934765](https://doi.org/10.5281/zenodo.18934765)
 - **Preprint**: engrXiv / [10.31224/6616](https://engrxiv.org/preprint/view/6616)  / **Published** / `2026-03-10`
 
