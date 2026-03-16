@@ -14,7 +14,10 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 ## Decision Phenomenon
 > Describe observable decision behavior phenomena in engineering practice as the basis for problem identification and theoretical analysis.
 
-### Problem Ontology
+### Structural Degradation
+- **Artifacts**: [Manuscript](manuscripts/2026-03_structural-degradation_v1.0.md) / [History](history/2026-03_structural-degradation.history.md)
+- **DOI**: [10.5281/zenodo.19043086](https://doi.org/10.5281/zenodo.19043086) / `2026-03-16`
+- **Preprint**: SSRN / 6424659 / *Submitted*
 
 ### An Unobservable Phenomenon in the Intent-to-Specification Stage of AI-Assisted Software Development
 
