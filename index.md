@@ -94,6 +94,9 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 - **DOI**: [10.5281/zenodo.18930951](https://doi.org/10.5281/zenodo.18930951)
 - **Preprint**: engrXiv / [10.31224/6612](https://engrxiv.org/preprint/view/6612)  / **Published** / `2026-03-10`
 
+### Behavior Rule Architecture: Rule-Based Governance of AI System Behavior
+- **Artifacts**: [Manuscript](manuscripts/2026-03_behavior-rule-architecture_v1.0.md)  / [History](history/2026-03_behavior-rule-architecture.history.md)
+
 ---
 
 ## EDBF: During Decision Behavior Formation
