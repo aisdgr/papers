@@ -56,7 +56,7 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 ### Toward Decision Behavior Governance: Governance Existence, Invocation, and Decision Formation
 - **Artifacts**: [Manuscript](manuscripts/2026-01_decision-behavior-governance-at-the-engineering-stage_v1.0.md) / [History](history/2026-01_decision-behavior-governance-at-the-engineering-stage.history.md)
 - **DOI**: [10.5281/zenodo.18876165](https://doi.org/10.5281/zenodo.18876165)
-- **Preprint**: SSRN / [6105226](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6105226)  / **Published** / `2026-02-23`
+- **Preprint**: SSRN / [6105226](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6105226) / **Published** / `2026-02-23`
 
 ---
 
@@ -87,12 +87,17 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 ### Anchor Architecture
 - **Artifacts**: [Manuscript](manuscripts/2026-02_anchor-architecture_v1.0.md) / [History](history/2026-02_anchor-architecture.history.md)
 - **DOI**: [10.5281/zenodo.18856781](https://doi.org/10.5281/zenodo.18856781)
-- **Preprint**: engrXiv / [10.31224/6580](https://engrxiv.org/preprint/view/6580)  / **Published** / `2026-03-09`
+- **Preprint**: engrXiv / [10.31224/6580](https://engrxiv.org/preprint/view/6580) / **Published** / `2026-03-09`
 
 ### Viewpoint-Structured Specification (VSS)
 - **Artifacts**: [Manuscript](manuscripts/2026-03_viewpoint-structured-specification_v1.0.md) / [History](history/2026-03_viewpoint-structured-specification.history.md)
 - **DOI**: [10.5281/zenodo.18930951](https://doi.org/10.5281/zenodo.18930951)
-- **Preprint**: engrXiv / [10.31224/6612](https://engrxiv.org/preprint/view/6612)  / **Published** / `2026-03-10`
+- **Preprint**: engrXiv / [10.31224/6612](https://engrxiv.org/preprint/view/6612) / **Published** / `2026-03-10`
+
+### Behavior Rule Architecture: Rule-Based Governance of AI System Behavior
+- **Artifacts**: [Manuscript](manuscripts/2026-03_behavior-rule-architecture_v1.0.md) / [History](history/2026-03_behavior-rule-architecture.history.md)
+- **DOI**: [10.5281/zenodo.19174636](https://doi.org/10.5281/zenodo.19174636)
+- **Preprint**: engrXiv / 6681 / *Submitted*
 
 ---
 
@@ -116,7 +121,7 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 ### Decision Analysis: Effect-Oriented Structural Scope Audit for AI-Assisted Software Development
 - **Artifacts**: [Manuscript](manuscripts/2026-03_decision-analysis_v1.0.md) / [History](history/2026-03_decision-risk.history.md)
 - **DOI**: [10.5281/zenodo.18934765](https://doi.org/10.5281/zenodo.18934765)
-- **Preprint**: engrXiv / [10.31224/6616](https://engrxiv.org/preprint/view/6616)  / **Published** / `2026-03-10`
+- **Preprint**: engrXiv / [10.31224/6616](https://engrxiv.org/preprint/view/6616) / **Published** / `2026-03-10`
 
 ### Evidence
 

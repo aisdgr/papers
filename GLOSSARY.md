@@ -7,12 +7,14 @@
 - [Anchor](#anchor)
 - [Anchor Architecture](#anchor-architecture)
 - [Anchor-less State](#anchor-less-state)
+- [Application Ruleset](#application-ruleset)
 - [Artifact Scope](#artifact-scope)
 - [Authorial Discontinuity](#authorial-discontinuity)
 - [Authorless Traceability Collapse (ATC)](#authorless-traceability-collapse)
 
 ### B
 
+- [Behavior Rule Architecture (BRA)](#behavior-rule-architecture)
 - [Behavioral Drift](#behavioral-drift)
 - [Boundary Evidence](#boundary-evidence)
 - [Boundary Formation](#boundary-formation)
@@ -20,7 +22,10 @@
 
 ### C
 
+- [Category Ruleset](#category-ruleset)
 - [Compliance Vacuum](#compliance-vacuum)
+- [Constraint (MUST NOT)](#constraint-must-not)
+- [Context Overload](#context-overload)
 
 ### D
 
@@ -34,6 +39,7 @@
 - [Decision Authorization](#decision-authorization)
 - [Decision Behavior](#decision-behavior)
 - [Decision Behavior Governance](#decision-behavior-governance)
+- [Decision Behavior Normative Category](#decision-behavior-normative-category)
 - [Decision Boundary Collapse](#decision-boundary-collapse)
 - [Decision Effect](#decision-effect)
 - [Decision Formation](#decision-formation)
@@ -52,6 +58,7 @@
 - [Engineering-Stage Governance](#engineering-stage-governance)
 - [Epistemic Opacity](#epistemic-opacity)
 - [Evidence Sovereignty](#evidence-sovereignty)
+- [Execution View](#execution-view)
 
 ### G
 
@@ -81,6 +88,10 @@
 - [Model Governance](#model-governance)
 - [Multi-Viewpoint](#multi-viewpoint)
 
+### N
+
+- [Normative Natural Language (NNL)](#normative-natural-language)
+
 ### O
 
 - [Operation Governance](#operation-governance)
@@ -88,6 +99,7 @@
 
 ### P
 
+- [Policy (MUST)](#policy-must)
 - [Pre-Analytical Anchoring](#pre-analytical-anchoring)
 - [Prohibitive Constraints](#prohibitive-constraints)
 
@@ -96,11 +108,17 @@
 - [Relationship](#relationship)
 - [Resolvability](#resolvability)
 - [Risk Acceleration Pipeline](#risk-acceleration-pipeline)
+- [Risk Potential](#risk-potential)
+- [Rule (BRA)](#rule-bra)
+- [Rule Library](#rule-library)
+- [Rule Normative Language (RNL)](#rule-normative-language)
 - [Runtime Governance](#runtime-governance)
 
 ### S
 
 - [Semantic Conflict Detection](#semantic-conflict-detection)
+- [Semantic Conflation](#semantic-conflation)
+- [Semantic Drift](#semantic-drift)
 - [Spatiotemporal Coordinate](#spatiotemporal-coordinate)
 - [Structural Examinability](#structural-examinability)
 - [Structural Scope Audit](#structural-scope-audit)
@@ -135,6 +153,15 @@
 - <a id="intent-fragmentation"></a> Intent Fragmentation
     > The dispersal of Intent across unrelated artifacts such that it cannot function as a coherent governing constraint over code generation. It compounds upstream governance failure when no structured decomposition precedes generation.
     *Origin*: [Viewpoint-Structured Specification](manuscripts/2026-03_viewpoint-structured-specification_v1.0.md)
+- <a id="semantic-conflation"></a> Semantic Conflation
+    > The fundamental failure mode of current AI behavior governance approaches, where three distinct concerns—system intent, boundary constraints, and behavior normatives—are merged into natural language expressions. AI cannot reliably distinguish their normative force, leading to semantic drift, context overload, and rule conflicts.
+    *Origin*: [Behavior Rule Architecture](manuscripts/2026-03_behavior-rule-architecture_v1.0.md)
+- <a id="semantic-drift"></a> Semantic Drift
+    > A failure mode where AI interprets behavioral constraints expressed as natural language suggestions as optional guidelines rather than mandatory requirements. Over time, as context accumulates and attention dilutes, AI progressively relaxes these constraints. Root cause is the absence of normative keywords signaling enforcement semantics.
+    *Origin*: [Behavior Rule Architecture](manuscripts/2026-03_behavior-rule-architecture_v1.0.md)
+- <a id="context-overload"></a> Context Overload
+    > A failure mode where accumulated instructions, prompts, and configurations consume the AI's context window capacity, causing attention dilution and critical rules to be ignored. It results from the absence of systematic mechanisms for rule prioritization, conflict resolution, or contextual activation.
+    *Origin*: [Behavior Rule Architecture](manuscripts/2026-03_behavior-rule-architecture_v1.0.md)
 
 #### Ghost Intent
 
@@ -380,4 +407,45 @@
 - <a id="da-u"></a> DA-U (Unobservable)
     > An analytical state in which no observable modification is detected, terminating analysis without state determination. It marks the analytical boundary beyond which scope authorization cannot be assessed.
     *Origin*: [Decision Analysis](manuscripts/2026-03_decision-analysis_v1.0.md)
+
+---
+
+#### Behavior Rule Architecture
+
+- <a id="behavior-rule-architecture"></a> Behavior Rule Architecture (BRA)
+    > A structured framework for defining and managing AI execution behavior through normative rules. BRA establishes a clear separation between Normative Natural Language (NNL) for intent expression and Rule Normative Language (RNL) for behavior enforcement using MUST/MUST NOT semantics. It comprises three layers: Rule Language Layer, Rule Architecture Layer, and Governance Asset Layer.
+    *Origin*: [Behavior Rule Architecture](manuscripts/2026-03_behavior-rule-architecture_v1.0.md)
+- <a id="normative-natural-language"></a> Normative Natural Language (NNL)
+    > Human-readable natural language used to express task intent and operational descriptions. NNL is non-enforceable, serves exclusively as prompt input, and does not participate in behavior control. It accommodates ambiguity and semantic flexibility but is prone to semantic drift.
+    *Origin*: [Behavior Rule Architecture](manuscripts/2026-03_behavior-rule-architecture_v1.0.md)
+- <a id="rule-normative-language"></a> Rule Normative Language (RNL)
+    > A normative language for expressing executable behavior rules using MUST/MUST NOT statements. RNL restricts keywords to MUST and MUST NOT only, prohibits vague terms, and follows the sentence structure: Subject + Normative Keyword + Action + Target + Condition. It constrains AI's interpretation space by reducing degrees of freedom.
+    *Origin*: [Behavior Rule Architecture](manuscripts/2026-03_behavior-rule-architecture_v1.0.md)
+- <a id="rule-bra"></a> Rule (BRA)
+    > The smallest unit that carries governance meaning in Behavior Rule Architecture, formally represented as Rule = ⟨RNL, Metadata, Boundary_Declaration⟩. Each rule encapsulates one explicit behavioral Policy (MUST) or Constraint (MUST NOT), its applicable scope, governance interpretation context, and accountability expectations.
+    *Origin*: [Behavior Rule Architecture](manuscripts/2026-03_behavior-rule-architecture_v1.0.md)
+- <a id="policy-must"></a> Policy (MUST)
+    > A mandatory behavior policy in BRA defining behaviors AI should achieve. Triggering is implicit—compliance is difficult to directly observe or produce evidence for. Enforcement level is medium, requiring post-hoc verification through output review and compliance checks.
+    *Origin*: [Behavior Rule Architecture](manuscripts/2026-03_behavior-rule-architecture_v1.0.md)
+- <a id="constraint-must-not"></a> Constraint (MUST NOT)
+    > A prohibitive behavior constraint in BRA defining behaviors AI must avoid. Triggering is explicit—violations can be detected and produce clear evidence. Enforcement level is high, supporting runtime detection and immediate enforcement through violation evidence generation.
+    *Origin*: [Behavior Rule Architecture](manuscripts/2026-03_behavior-rule-architecture_v1.0.md)
+- <a id="decision-behavior-normative-category"></a> Decision Behavior Normative Category
+    > A classification mechanism for AI decision behavior normatives, not a classification of AI behaviors themselves. It defines decision behavior normative types first, then derives corresponding rules. Primary categories include AR (Artifact Isolation), BD (Boundary & Stop), CN (Constraint Neutrality), TR (Traceability), LG (Logging & Report), ST (Structural Change), and TI (Test Integrity).
+    *Origin*: [Behavior Rule Architecture](manuscripts/2026-03_behavior-rule-architecture_v1.0.md)
+- <a id="category-ruleset"></a> Category Ruleset
+    > A collection of all rules based on the same Decision Behavior Normative Category, with a 1:N cardinality (each rule belongs to exactly one Category). Different Category Rulesets are mutually exclusive, and their union constitutes the complete Rule Library. Category Rulesets only classify rules; they do not compose rules.
+    *Origin*: [Behavior Rule Architecture](manuscripts/2026-03_behavior-rule-architecture_v1.0.md)
+- <a id="application-ruleset"></a> Application Ruleset
+    > A rule collection designed based on arbitrary application principles such as workflow-based, domain-based, risk-based, or compliance-based composition. It has N:N cardinality with rules—one rule can be composed into multiple Application Rulesets, and one Application Ruleset can combine rules from different Decision Behavior Normative Categories.
+    *Origin*: [Behavior Rule Architecture](manuscripts/2026-03_behavior-rule-architecture_v1.0.md)
+- <a id="rule-library"></a> Rule Library
+    > A centralized storage and management system for all rules, serving as an accumulatable governance asset. Mathematically, the library equals the union of all Category Rulesets. It supports cross-boundary sharing (industry, enterprise, project) and evolves through three stages: Rule Pool, Repository, and Marketplace.
+    *Origin*: [Behavior Rule Architecture](manuscripts/2026-03_behavior-rule-architecture_v1.0.md)
+- <a id="execution-view"></a> Execution View
+    > An optional rule structure component that defines the interpretation viewpoint the AI should adopt when processing a rule, such as security, quality assurance, or architecture. It reduces rule interpretation ambiguity without affecting execution control. It is not a responsibility assignment or role-playing instruction.
+    *Origin*: [Behavior Rule Architecture](manuscripts/2026-03_behavior-rule-architecture_v1.0.md)
+- <a id="risk-potential"></a> Risk Potential
+    > An a priori risk assessment within BRA scope, representing the first layer of the Three-Layer Risk Model. It estimates potential impact if something goes wrong, expressed as impact_score and rationale. Distinguished from Risk Signal (runtime detection by BCM) and Realized Risk (actual consequences assessed during audit).
+    *Origin*: [Behavior Rule Architecture](manuscripts/2026-03_behavior-rule-architecture_v1.0.md)
 

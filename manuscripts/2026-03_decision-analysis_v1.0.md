@@ -781,7 +781,7 @@ The external literature converges on the symptoms Decision Analysis formalizes: 
 
 ---
 
-## Response:
+## Reference:
 
 ### Companion Papers in the Present Research Series
 

@@ -1,6 +1,6 @@
 # Papers
 
-**Author:** Spark Tsai  
+**Author:** Spark Tsai
 **ORCID:** https://orcid.org/0009-0006-8847-4703
 
 This repository documents an original and ongoing research program examining how **software engineering must structurally adapt to AI-assisted development**, and what this implies for making **AI governance technically realizable rather than purely declarative**.
@@ -38,19 +38,13 @@ Topics intentionally **out of scope** include:
 
 This repository is organized by **manuscript maturity**, not by topic silos.
 
-Canonical research content is maintained in `manuscripts/` and `history/`, while `index.md` serves as the public-facing status map across publication channels.
+Canonical research content is maintained in dedicated directories, while the index file serves as the public-facing status map across publication channels.
 
-- `manuscripts/`  
-  Early conceptual drafts and exploratory arguments. These documents capture problem formulation and theoretical scaffolding and should not be cited as final positions.
+Early conceptual drafts and exploratory arguments capture problem formulation and theoretical scaffolding. These documents should not be cited as final positions.
 
-- `history/`  
-  Conceptual and structural evolution records for each paper, documenting key decision points, terminological shifts, and explicit exclusions. These files provide provenance rather than draft recovery.
+Conceptual and structural evolution records for each paper document key decision points, terminological shifts, and explicit exclusions. These files provide provenance rather than draft recovery.
 
-- [`index.md`](index.md)
-  A chronological and thematic index of all manuscripts, indicating status, relationships, and conceptual dependencies.
-
-- [`GLOSSARY.md`](GLOSSARY.md)
-  A controlled glossary of system-defined terms used across manuscripts, including anchor-linked definitions and conceptual origins to ensure terminological consistency.
+A controlled glossary defines system-specific terms used across manuscripts, including anchor-linked definitions and conceptual origins to ensure terminological consistency.
 
 ---
 
@@ -58,8 +52,9 @@ Canonical research content is maintained in `manuscripts/` and `history/`, while
 
 For readers encountering this work for the first time:
 
-1. Begin with `index.md` to understand the overall research landscape and how individual papers relate to the broader framework.
-2. Refer to `GLOSSARY.md` to familiarize yourself with the controlled vocabulary used throughout this repository. Core terms are system-defined and may not align with informal or industry usage.
+Begin with the index file to understand the overall research landscape and how individual papers relate to the broader framework.
+
+Refer to the glossary file to familiarize yourself with the controlled vocabulary used throughout this repository. Core terms are system-defined and may not align with informal or industry usage.
 
 ---
 
@@ -67,10 +62,9 @@ For readers encountering this work for the first time:
 
 This repository uses a staged publication workflow to keep manuscript provenance and public status synchronized.
 
-1. A manuscript is finalized in `manuscripts/` with its corresponding conceptual record in `history/`.
-2. The finalized artifact is archived to Zenodo and OSF to secure persistent archival records.
-3. After archival registration, `index.md` is updated with DOI metadata.
-4. After submission to a preprint platform is completed, `index.md` is updated with preprint platform and status (for example: `Submitted`, `Published`).
+Finalized manuscripts are archived to Zenodo and OSF to secure persistent archival records. After archival registration, the index is updated with DOI metadata.
+
+After submission to a preprint platform is completed, the index is updated with platform and status information.
 
 This sequencing avoids premature publication claims and keeps repository metadata auditable.
 
@@ -80,7 +74,7 @@ This sequencing avoids premature publication claims and keeps repository metadat
 
 This repository follows a **traceable manuscript methodology**.
 
-Individual papers are developed on dedicated topic branches and merged into `main` only upon conceptual stabilization. Early drafts are intentionally excluded from `main`, while each finalized manuscript is accompanied by a concise conceptual history documenting its evolution.
+Individual papers are developed on dedicated topic branches and merged into the main branch only upon conceptual stabilization. Early drafts are intentionally excluded from the main branch, while each finalized manuscript is accompanied by a concise conceptual history documenting its evolution.
 
 This structure is designed to support:
 - intellectual provenance
