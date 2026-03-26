@@ -97,7 +97,7 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 ### Behavior Rule Architecture: Rule-Based Governance of AI System Behavior
 - **Artifacts**: [Manuscript](manuscripts/2026-03_behavior-rule-architecture_v1.0.md) / [History](history/2026-03_behavior-rule-architecture.history.md)
 - **DOI**: [10.5281/zenodo.19174636](https://doi.org/10.5281/zenodo.19174636)
-- **Preprint**: engrXiv / 6681 / *Submitted*
+- **Preprint**: engrXiv / [10.31224/6681](https://engrxiv.org/preprint/view/6681) / **Published** / `2026-03-25`
 
 ---
 
