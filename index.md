@@ -66,7 +66,7 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 ### Realizing ISO/IEC 42001 through Decision Behavior Governance
 - **Artifacts**: [Manuscript](manuscripts/2026-01_realizing-ISO-IEC-42001-through-decision-behavior-governance_v1.0.md) / [History](history/2026-01_realizing-ISO-IEC-42001-through-decision-behavior-governance.history.md)
 - **DOI**: [10.5281/zenodo.18877215](https://doi.org/10.5281/zenodo.18877215)
-- **Preprint**: SSRN / 6349958 / *Submitted*
+- **Preprint**: SSRN / [6349958](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6349958) / **Published** / `2026-04-20`
 
 ### Decision Analysis
 
