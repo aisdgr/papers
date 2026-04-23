@@ -24,7 +24,7 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 ### An Effect of Traceability Collapse in GenAI-Assisted SDLCs
 - **Artifacts**: [Manuscript](manuscripts/2026-03_ghost-intent-an-effect-of-traceability-collapse-in-genai-assisted-sdlcs_v1.0.md) / [History](history/2026-03_ghost-intent-an-effect-of-traceability-collapse-in-genai-assisted-sdlcs.history.md)
 - **DOI**: [10.5281/zenodo.18872540](https://doi.org/10.5281/zenodo.18872540) / `2026-03-05`
-- **Preprint**: SSRN / 6348599 / *Submitted*
+- **Preprint**: SSRN / [6348599](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6348599) / **Published** / `2026-04-23`
 
 ### From Inference Creep to Risk Acceleration Pipelines
 - **Artifacts**: [Manuscript](manuscripts/2026-01_from-inference-creep-to-risk-acceleration-pipelines_v1.0.md) / [History](history/2026-01_from-inference-creep-to-risk-acceleration-pipelines.history.md)
@@ -51,7 +51,7 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 ### Runtime Governance vs. Development Governance
 - **Artifacts**: [Manuscript](manuscripts/2026-01_runtime-governance-vs-development-governance_v1.0.md) / [History](history/2026-01_runtime-governance-vs-development-governance.history.md)
 - **DOI**: [10.5281/zenodo.18876913](https://doi.org/10.5281/zenodo.18876913)
-- **Preprint**: SSRN / 6341359 / *Submitted*
+- **Preprint**: SSRN / [6341359](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6341359) / **Published** / `2026-04-23`
 
 ### Toward Decision Behavior Governance: Governance Existence, Invocation, and Decision Formation
 - **Artifacts**: [Manuscript](manuscripts/2026-01_decision-behavior-governance-at-the-engineering-stage_v1.0.md) / [History](history/2026-01_decision-behavior-governance-at-the-engineering-stage.history.md)
