@@ -2,6 +2,8 @@
 > A Three-Layer Taxonomy of Software Decay and Its Governance Implications
 
 **Author:** Spark Tsai  
+            Independent Researcher
+            Taiwan
 **ORCID:** https://orcid.org/0009-0006-8847-4703  
 **Email:** spark.tsai@gmail.com  
 **Date:** March 2026  

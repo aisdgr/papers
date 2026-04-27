@@ -2,6 +2,8 @@
 > Interpreting Decision Analysis Outcomes through Observability, Risk Taxonomy, and Governance Mechanisms
 
 **Author:** Spark Tsai  
+            Independent Researcher
+            Taiwan
 **ORCID:** https://orcid.org/0009-0006-8847-4703  
 **Email:** spark.tsai@gmail.com  
 **Date:** March 2026  
