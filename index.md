@@ -17,7 +17,7 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 ### Structural Degradation
 - **Artifacts**: [Manuscript](manuscripts/2026-03_structural-degradation_v1.0.md) / [History](history/2026-03_structural-degradation.history.md)
 - **DOI**: [10.5281/zenodo.19043086](https://doi.org/10.5281/zenodo.19043086) / `2026-03-16`
-- **Preprint**: SSRN / 6655438 / *Submitted*
+- **Preprint**: SSRN / [6655438](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6655438) / **Published** / `2026-05-07`
 
 ### An Unobservable Phenomenon in the Intent-to-Specification Stage of AI-Assisted Software Development
 
@@ -73,7 +73,7 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 ### Decision Risk: A Structural Governance Framework for AI-Assisted Software Development
 - **Artifacts**: [Manuscript](manuscripts/2026-01_realizing-ISO-IEC-42001-through-decision-behavior-governance_v1.0.md) / [History](history/2026-01_realizing-ISO-IEC-42001-through-decision-behavior-governance.history.md)
 - **DOI**: [10.5281/zenodo.19025533](https://doi.org/10.5281/zenodo.19025533)
-- **Preprint**: SSRN / 6655398 / *Submitted*
+- **Preprint**: SSRN / [6655398](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6655398) / **Published** / `2026-05-07`
 
 ### Regulator
 
