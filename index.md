@@ -126,3 +126,12 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 ### Evidence
 
 ### Auditable
+
+---
+
+## Knowledge Evolution
+
+### Beyond RAG: Knowledge Evolution as the Next Layer of Enterprise AI
+- **Artifacts**: [Manuscript](manuscripts/2026-06_beyond_rag_knowledge_evolution_as_the_next_layer_of_enterprise_ai.md)
+- **DOI**: [10.5281/zenodo.20781734](https://doi.org/10.5281/zenodo.20781734)
+- **Preprint**: SSRN / 6972221 / *Submitted*
