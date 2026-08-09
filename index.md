@@ -75,6 +75,11 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 - **DOI**: [10.5281/zenodo.19025533](https://doi.org/10.5281/zenodo.19025533)
 - **Preprint**: SSRN / [6655398](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6655398) / **Published** / `2026-05-07`
 
+### Beyond HITL: Continuation Readiness as a Governance Requirement for Enterprise AI Workflows
+- **Artifacts**: [Manuscript](manuscripts/2026-08_continuation_readiness_as_a_governance_requirement_for_enterprise_ai_workflows.md)
+- **DOI**: [10.5281/zenodo.21856291](https://doi.org/10.5281/zenodo.21856291)
+- **Preprint**: SSRN / 7252878 / *Submitted*
+
 ### Regulator
 
 ### Auditable
