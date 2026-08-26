@@ -113,6 +113,11 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 - **DOI**: [10.5281/zenodo.19174636](https://doi.org/10.5281/zenodo.19174636)
 - **Preprint**: engrXiv / [10.31224/6681](https://engrxiv.org/preprint/view/6681) / **Published** / `2026-03-25`
 
+### Decision Behavior Constraint Framework
+  - **Artifacts**: [Manuscript](manuscripts/2026-02_decision-behavior-constraint-framework_v0.6.md) / [History](history/2026-02_decision-behavior-constraint-framework.history.md)
+  - **Status**: `Draft`
+  - **Venue**: *engrXiv*
+
 ---
 
 ## EDBF: During Decision Behavior Formation
