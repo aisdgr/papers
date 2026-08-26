@@ -31,6 +31,11 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 - **DOI**: [10.5281/zenodo.18872172](https://doi.org/10.5281/zenodo.18872172) / `2026-03-05`
 - **Preprint**: SSRN / [6146686](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6146686) / **Published** / `2026-03-03`
 
+### Inference Creep: Decision Expansion and Governance Drift in AI-Assisted Software Engineering
+  - **Artifacts**: [Manuscript](manuscripts/2026-02_inference-creep-decision-expansion-and-governance-drift_0.6.md) / [History](history/2026-02_inference-creep-decision-expansion-and-governance-drift.history.md)
+  - **Status**:  `Draft`
+  - **Venue**: *engrXiv*
+
 ### Unauthorized Decision Expansion in AI-Assisted Software Engineering
 
 ### NAP: Non-Accountable Participants
