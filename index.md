@@ -64,7 +64,7 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 ### Scope as a Governance Primitive
 - **Artifacts**: [Manuscript](manuscripts/2026-08_scope-as-a-governance-primitive_v1.0.md) / [History](history/2026-08_scope-as-agovernance-primitive.history.md)
 - **DOI**: [10.5281/zenodo.22108234](https://doi.org/10.5281/zenodo.22108234)
-- **Preprint**: SSRN / 7353398 / *Submitted*
+- **Preprint**: SSRN / [7353398](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7353398) / **Published** / `2026-08-28`
 
 ---
 
