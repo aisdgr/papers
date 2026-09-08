@@ -149,3 +149,8 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 - **Artifacts**: [Manuscript](manuscripts/2026-06_beyond_rag_knowledge_evolution_as_the_next_layer_of_enterprise_ai.md)
 - **DOI**: [10.5281/zenodo.20781734](https://doi.org/10.5281/zenodo.20781734)
 - **Preprint**: SSRN / 6972221 / *Submitted*
+
+### AI Knowledge Architecture: From Repeated Semantic Inference to Persistent Knowledge Structure
+- **Artifacts**: [Manuscript](manuscripts/2026-09_ai_knowledge_architecture_v1.0.md)
+- **DOI**: [10.5281/zenodo.22440965](https://doi.org/10.5281/zenodo.22440965)
+- **Preprint**: SSRN / 7434541 / *Submitted*
