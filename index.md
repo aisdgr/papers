@@ -98,6 +98,11 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 ## EDBF: Before Decision Behavior Occurs
 > Focuses on pre-decision structures that define intent boundaries, specification clarity, and traceable conditions before AI-assisted decisions are formed.
 
+### Engineering Determinacy
+- **Artifacts**: [Manuscript](manuscripts/2026-09_engineering_determinacy.md)
+- **DOI**: [10.5281/zenodo.22718019](https://doi.org/10.5281/zenodo.22718019)
+- **Preprint**: SSRN / 7448559 / *Submitted*
+
 ### Anchor Architecture
 - **Artifacts**: [Manuscript](manuscripts/2026-02_anchor-architecture_v1.0.md) / [History](history/2026-02_anchor-architecture.history.md)
 - **DOI**: [10.5281/zenodo.18856781](https://doi.org/10.5281/zenodo.18856781)
