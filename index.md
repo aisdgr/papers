@@ -159,3 +159,8 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 - **Artifacts**: [Manuscript](manuscripts/2026-09_ai_knowledge_architecture_v1.0.md)
 - **DOI**: [10.5281/zenodo.22440965](https://doi.org/10.5281/zenodo.22440965)
 - **Preprint**: SSRN / [7434541](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7434541) / **Published** / `2026-09-10`
+
+### AI Knowledge Evolution: From Persistent Knowledge Structure to Controlled Knowledge Change
+- **Artifacts**: [Manuscript](manuscripts/2026-09_ai_knowledge_evolution.md)
+- **DOI**: 
+- **Preprint**: 
