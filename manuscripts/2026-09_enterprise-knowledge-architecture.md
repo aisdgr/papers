@@ -1,6 +1,6 @@
-# AI Knowledge Architecture
+# AI Knowledge Architecture for Enterprise Knowledge Management
 
-## Why Organizations Do Not Yet Own the Knowledge Their AI Systems Produce
+## From Semantic Units to Persistent Attribute and Relation States
 
 **Spark Tsai**
 
@@ -10,9 +10,9 @@ ORCID: 0009-0006-8847-4703
 
 ## Abstract
 
-Retrieval-augmented generation has substantially improved organizational access to internal information, but access does not by itself create persistent organizational knowledge. Many AI-enabled knowledge systems operate on documents, chunks, extracted facts, or other semantic units while interpretations produced during AI-assisted work remain transient. This conceptual study proposes AI Knowledge Architecture (AIKA), which distinguishes retrieved information, semantic interpretation, and governed organizational knowledge. AIKA represents accepted interpretations as a persistent semantic network composed of Claims, Attributes, Relations, Qualifiers, Grounding, Viewpoints, and derived Domains. An illustrative enterprise case demonstrates how shared semantic units become reusable organizational knowledge through explicit relationships and governance. The architecture extends RAG-based systems from information retrieval toward persistent enterprise knowledge management.
+Retrieval-augmented generation has substantially improved organizational access to internal information and the production of query-time semantic representations. Yet a semantic representation is not the same as a persistent enterprise knowledge state. In a typical RAG cycle, semantic units and the relationships inferred among them remain dependent on the current retrieval context and model invocation. This conceptual study applies AI Knowledge Architecture (AIKA) to enterprise knowledge management by adding two persistence responsibilities downstream of RAG. First, semantic distinctions that have been explicitly established and accepted are externalized as Attributes rather than repeatedly reconstructed from source material. Second, relationships among semantic units that have been explicitly established and accepted are externalized as persistent Relations rather than repeatedly inferred at each use. Claims provide identity to the semantic units; Qualifiers, Grounding, Viewpoints, and derived Domains make the resulting relational state bounded, inspectable, and reusable. An illustrative enterprise case demonstrates how this two-level persistence converts transient semantic interpretation into governed organizational knowledge.
 
-**Keywords:** Knowledge Management; Organizational Knowledge; Retrieval-Augmented Generation; Generative AI; Knowledge Architecture
+**Keywords:** Enterprise AI; Knowledge Management; Organizational Knowledge; Retrieval-Augmented Generation; Semantic Persistence; Relationship Persistence; Knowledge Architecture
 
 ---
 
@@ -38,19 +38,35 @@ The answer may be useful. A design decision may follow from it.
 
 Three weeks later, however, another employee asks a related question. The same source statement is retrieved again, and the model interprets it again. The interpretation may be identical. It may be slightly different. A different model may emphasize different semantics. A later model version may reach another conclusion.
 
-Nothing in the ordinary RAG cycle requires the organization to retain what it previously accepted.
+Nothing in the ordinary RAG cycle requires the organization to retain which parts of that semantic interpretation it has accepted as stable Attributes.
 
 The source information persists.
 
-The interpretation does not necessarily persist.
+The interpretation does not necessarily persist as an explicit enterprise state.
 
 ## 1.2 The Missing Transition from Semantic Interpretation to Organizational Knowledge
 
 This problem becomes clearer when the unit represented by many AI-enabled knowledge systems is examined.
 
-A contemporary AI knowledge workflow may operate on documents, passages, chunks, embeddings, extracted entities, facts, propositions, summaries, or other semantic units. Such units are useful and often necessary. They allow a system to identify meaningful material rather than treat an enterprise repository as an undifferentiated body of text.
+A contemporary RAG workflow may operate on documents, passages, chunks, embeddings, extracted entities, facts, propositions, summaries, or other semantic units. Such units are useful and often necessary. They allow a system to identify meaningful material rather than treat an enterprise repository as an undifferentiated body of text. In the bounded comparison developed in this paper, this is the **semantic layer**: the system has produced or retrieved a meaningful unit that can participate in inference.
 
-However, a semantic unit should not automatically be equated with complete organizational knowledge.
+Many RAG-oriented implementations effectively stop at this layer. A semantic unit is made retrievable and is then treated as the knowledge element supplied to the model. Any finer meaning within the unit, and any relationship between that unit and another, may still be reconstructed at query time.
+
+AI Knowledge Architecture introduces two additional persistence steps for enterprise knowledge management.
+
+First, when a semantic distinction within a unit has been explicitly established and accepted, it is represented as an **Attribute**. For example, *production* may be persisted as an environment, 10,000 as a target, and *sustain* as a sustained-load condition. The accepted meaning no longer exists only as an interpretation that a later model must reproduce.
+
+Second, when a relationship between two semantic units has been explicitly established and accepted, it is represented as a persistent **Relation**. The relationship becomes part of the enterprise knowledge state rather than a conclusion that must be inferred again whenever the two units are retrieved together.
+
+The distinction can be summarized as follows:
+
+| Layer | Persistent object | What may otherwise be reconstructed |
+|---|---|---|
+| RAG semantic layer | Retrieved or generated semantic unit | Meaning needed for the present query and relationships to other units |
+| AIKA Attribute layer | Accepted meaning within a semantic unit | The same resolved property no longer requires routine reinterpretation |
+| AIKA Relation layer | Accepted relationship between semantic units | The same established relationship no longer requires routine re-inference |
+
+A semantic unit should therefore not automatically be equated with complete organizational knowledge.
 
 The statement that a service must sustain 10,000 transactions per second conveys meaningful information. Representing that statement as an identifiable semantic assertion improves machine use. Nevertheless, an organization frequently needs to know considerably more:
 
@@ -65,7 +81,7 @@ The organizationally consequential knowledge is therefore not contained only in 
 
 This paper adopts a deliberately bounded position:
 
-> **Within AI Knowledge Architecture, a semantic unit is treated as a component of organizational knowledge, not as the complete knowledge structure. Organizational knowledge is represented as a governed semantic network of accepted assertions, relationships, applicability conditions, grounding, and reusable interpretive structures.**
+> **RAG can supply semantic units as knowledge elements for query-time reasoning. AI Knowledge Architecture persists the accepted meaning within those units as Attributes and the accepted relationships among those units as Relations. Organizational knowledge is therefore represented not as semantic units alone, but as a governed persistent state of accepted semantics and accepted relational structure.**
 
 The claim is architectural rather than philosophical. It does not propose a universal definition of knowledge. Knowledge has been treated in the knowledge management literature as an object, a process, a state of knowing, a capability, and a condition of access, among other perspectives (Alavi & Leidner, 2001). The present paper addresses a narrower systems question: **what must an enterprise AI system persist if an organization expects the results of AI-assisted interpretation to remain reusable organizational knowledge rather than transient model output?**
 
@@ -122,27 +138,27 @@ This distinction separates **having access to previous AI output** from **posses
 
 The paper addresses the following research question:
 
-> **RQ: How can RAG-based enterprise AI systems transform accepted semantic interpretations into persistent, governed organizational knowledge rather than repeatedly reconstructing them during inference?**
+> **RQ: How can enterprise AI systems extend RAG semantic units by persisting accepted semantic distinctions as Attributes and accepted relationships among semantic units as Relations, so established knowledge does not require repeated inference?**
 
-The proposed answer is **AI Knowledge Architecture (AIKA)**.
+The proposed answer is **AI Knowledge Architecture (AIKA) for enterprise knowledge management**.
 
 AIKA operates downstream of retrieval. It does not replace RAG, knowledge graphs, provenance models, ontology views, or language-model reasoning. Instead, it defines an architectural boundary between interpretations that remain candidates and interpretations that have become accepted organizational commitments.
 
-Once accepted, those interpretations are externalized into persistent structures rather than left to be reconstructed from source text at every later use.
+Once accepted, semantic distinctions are externalized as Attributes and relational interpretations are externalized as Relations rather than left to be reconstructed from source text and retrieval context at every later use.
 
 ## 1.6 Contributions
 
 The paper makes three primary contributions.
 
-**First, it distinguishes information persistence, semantic persistence, and organizational knowledge persistence.** A document may persist without preserving the interpretation previously derived from it. Likewise, a semantic assertion may persist without preserving how it relates to other assertions or under which conditions a relationship holds.
+**First, it distinguishes semantic availability from semantic persistence.** RAG can retrieve or produce a semantic unit, but the meanings resolved within that unit may still remain implicit. AIKA externalizes the accepted portion of those meanings as Attributes that can be reused directly.
 
-**Second, it proposes AI Knowledge Architecture as a persistent semantic-network architecture for accepted AI-assisted interpretation.** Claims, Attributes, Relations, Qualifiers, Grounding, Viewpoints, and derived Domains externalize different aspects of organizational meaning that would otherwise remain dependent on repeated inference.
+**Second, it distinguishes semantic units from persistent relational knowledge.** The availability of two semantic units does not preserve an accepted relationship between them. AIKA externalizes established semantic-to-semantic relationships as persistent Relations, with Qualifiers and Grounding preserving where they apply and why they were accepted.
 
-**Third, it positions AIKA as a knowledge-management layer downstream of RAG.** RAG retrieves enterprise information. AI reasoning proposes interpretations. An admission process determines which interpretations become organizational commitments. AIKA preserves those commitments for reuse.
+**Third, it positions AIKA as a knowledge-management layer downstream of RAG.** RAG supplies semantic material for present inference. AI reasoning proposes Attributes and Relations. An admission process determines which proposals become organizational commitments. AIKA preserves the accepted Attribute and Relation state for reuse.
 
 The contribution is therefore not a new graph syntax or a claim that semantic units, relations, provenance, qualifiers, or views are individually novel. These mechanisms have substantial prior art. The contribution lies in assigning them a common organizational responsibility:
 
-> **accepted interpretation should become persistent, governed knowledge rather than return unnecessarily to probabilistic reconstruction.**
+> **accepted semantics should become persistent Attributes, and accepted semantic relationships should become persistent Relations, rather than return unnecessarily to probabilistic reconstruction.**
 
 ---
 
@@ -218,7 +234,7 @@ The architecture is effective because it allows the model to reason over enterpr
 
 Graph-based RAG architectures further organize source material into graph structures that improve global summarization, relational retrieval, and sensemaking over large collections (Edge et al., 2024).
 
-These systems improve access and query-time synthesis. They do not necessarily require an interpretation established during one inference cycle to become a governed organizational commitment for the next cycle.
+These systems improve access and query-time synthesis. In the comparison used here, their durable unit may remain the retrievable semantic element, while resolved properties of that element and conclusions about its relationships remain products of the current inference cycle. They do not necessarily require either result to become a governed organizational commitment for the next cycle.
 
 That distinction is central.
 
@@ -232,21 +248,21 @@ Several things may happen:
 - the original documents may remain available;
 - the model response may remain in a conversation log.
 
-Nevertheless, a later RAG query may again retrieve the same materials and ask the model to reconstruct whether the relationship exists, what the relationship means, and where its applicability boundary lies.
+Nevertheless, a later RAG query may again retrieve the same semantic units and ask the model to reconstruct both levels of meaning: what each unit means for the present use and whether a relationship exists between the units, what that relationship means, and where its applicability boundary lies.
 
 The system has retained the **materials** from which the conclusion was derived.
 
-It has not necessarily retained the **accepted conclusion**.
+It has not necessarily retained the accepted semantics as **Attributes** or the accepted conclusion as a persistent **Relation**.
 
 AIKA therefore positions RAG upstream of persistent organizational knowledge rather than as a competing architecture.
 
-Retrieval supplies material.
+Retrieval supplies semantic material.
 
-Interpretation proposes meaning.
+Interpretation proposes Attributes and Relations.
 
 Admission establishes commitment.
 
-Persistent knowledge structure preserves what has been accepted.
+Persistent knowledge structure preserves the accepted Attribute and Relation state.
 
 ## 2.5 Semantic Units and Persistent Knowledge Representation
 
@@ -258,7 +274,11 @@ These mechanisms demonstrate that persistent semantic identity, qualification, h
 
 AIKA claims novelty for none of them individually.
 
-Instead, it draws an architectural distinction between the persistence of individual semantic units and the persistence of **organizational knowledge structure**.
+Instead, it draws an architectural distinction among three states:
+
+1. a semantic unit is available for retrieval;
+2. accepted meanings within that unit are persisted as Attributes; and
+3. accepted relationships among semantic units are persisted as Relations.
 
 A semantic assertion may identify that:
 
@@ -276,13 +296,13 @@ Accepting the two Claims therefore does not imply acceptance of a Relation betwe
 
 The Relation requires its own grounding and applicability boundary.
 
-This is the point at which isolated semantic representation becomes relational knowledge representation.
+This is the point at which isolated semantic representation becomes persistent relational knowledge representation. The relationship no longer has to be regenerated whenever both semantic units appear in a new retrieval context.
 
 ## 2.6 From Semantic Units to Governed Semantic Networks
 
-For the purposes of AIKA, an isolated semantic unit is treated as a **Claim**.
+For the purposes of AIKA, an isolated semantic unit supplied by the semantic layer is given persistent identity as a **Claim**.
 
-A Claim provides stable identity to an assertion. It may also contain semantic Attributes that have been explicitly resolved.
+A Claim provides stable identity to an assertion. Semantic distinctions that have been explicitly resolved and accepted are persisted as its **Attributes**.
 
 Organizational knowledge, however, frequently depends on structures of the form:
 
@@ -300,7 +320,7 @@ and organized for recurring purposes through:
 
 **Viewpoint V**
 
-The resulting knowledge is relational.
+The resulting knowledge is relational and stateful.
 
 This distinction has several implications.
 
@@ -312,7 +332,7 @@ Third, a Relation whose grounding cannot be inspected creates an accountability 
 
 Fourth, different organizational functions may organize the same shared Claims and Relations differently without requiring separate knowledge copies.
 
-Knowledge is therefore represented in AIKA not as a flat collection of independently retrievable facts but as a governed semantic network.
+Knowledge is therefore represented in AIKA not as a flat collection of independently retrievable semantic elements but as a governed persistent state: accepted Attributes preserve established meaning within Claims, while accepted Relations preserve established meaning between Claims.
 
 ## 2.7 Ontology Views and Perspective-Aware Representation
 
@@ -352,19 +372,23 @@ What remains insufficiently explicit in common RAG-based enterprise AI architect
 
 to
 
-**AI-generated semantic interpretation**
+**retrieved or generated semantic units**
 
 to
 
-**accepted organizational knowledge**
+**accepted semantic distinctions persisted as Attributes**
 
 to
 
-**persistent relational reuse**.
+**accepted semantic relationships persisted as Relations**
 
-The gap is therefore not the absence of semantic representation mechanisms.
+to
 
-It is the absence of an architectural responsibility assigning persistent structure to **accepted interpretation as an organizational commitment**.
+**persistent relational reuse without routine re-inference**.
+
+The gap is therefore not the absence of semantic representation mechanisms or the inability of a model to infer relationships.
+
+It is the absence of an architectural responsibility assigning persistent state to **accepted meaning within semantic units and accepted relationships among them**.
 
 AIKA addresses this gap.
 
@@ -382,11 +406,11 @@ The purpose of this paper is therefore not to estimate the performance of a part
 
 It asks a prior architectural question:
 
-> What must be represented persistently if accepted AI-assisted interpretations are to function as reusable organizational knowledge rather than transient query-time inference?
+> What must be represented persistently so that accepted meaning within semantic units and accepted relationships among semantic units can function as reusable organizational knowledge rather than transient query-time inference?
 
 The architecture is derived through problem decomposition.
 
-Repeated inference tasks are identified first.
+Repeated inference tasks within and between semantic units are identified first.
 
 Each repeated interpretive responsibility is then mapped to a corresponding persistent knowledge structure.
 
@@ -396,7 +420,7 @@ Finally, an illustrative enterprise case is used to demonstrate internal operati
 
 ## 3.2 Analytical Units
 
-The analysis distinguishes four levels.
+The analysis distinguishes five levels.
 
 ### Source Information
 
@@ -404,34 +428,39 @@ Source information includes documents, database records, measurements, configura
 
 Source information may contain knowledge, but AIKA does not assume that every source unit is already expressed at the semantic granularity needed for downstream reasoning.
 
-### Semantic Interpretation
+### Semantic Unit
 
-Semantic interpretation is meaning derived from source information.
+A semantic unit is a meaningful assertion retrieved, extracted, or generated from source information for use in inference.
 
 For example, interpreting *production* as an environment, 10,000 as a target, or *sustain* as a sustained-load requirement involves interpretation rather than retrieval.
 
-### Claim
+A Claim provides persistent identity to such a semantic assertion within AIKA. Identity makes the semantic unit addressable, but does not by itself preserve all meaning resolved within the unit or any relationship to another unit.
 
-A Claim is the persistent identity of an explicit semantic assertion.
+### Accepted Attribute State
 
-A Claim is therefore a representable semantic unit within AIKA.
+Accepted Attribute state consists of semantic distinctions within a Claim that have been explicitly established and admitted for reuse.
 
-It is not by itself the entire organizational knowledge structure.
+For example, `environment = production`, `target = 10,000`, and `load mode = sustained` preserve resolved meaning that would otherwise remain dependent on repeated interpretation.
+
+### Accepted Relation State
+
+Accepted Relation state consists of explicitly established and admitted relationships among Claims.
+
+It preserves what the organization has accepted about how semantic units are connected, including the relationship's applicability and grounding, so routine use does not require the connection to be inferred again.
 
 ### Governed Organizational Knowledge
 
-Governed organizational knowledge consists of accepted Claims together with explicit Attributes, accepted Relations, applicability Qualifiers, inspectable Grounding, and persistent Viewpoints through which shared knowledge may be organized for recurring purposes.
+Governed organizational knowledge consists of accepted Claims whose established semantic distinctions are represented as explicit Attributes, together with accepted Relations that preserve established semantic-to-semantic relationships. Applicability Qualifiers, inspectable Grounding, and persistent Viewpoints make that state bounded, accountable, and reusable for recurring purposes.
 
 In simplified form:
 
-**Organizational Knowledge in AIKA  
-= Accepted Claims + Relations + Qualifiers + Grounding + Viewpoints**
+**Organizational Knowledge in AIKA = Identified Semantic Claims + Accepted Attributes + Accepted Relations + Qualifiers + Grounding + Viewpoints**
 
 This expression is not offered as a universal epistemological definition. It states the minimum persistent structure required by the architecture developed here.
 
 ## 3.3 Problem Decomposition
 
-The architecture begins by identifying semantic questions that otherwise return repeatedly to inference.
+The architecture begins by identifying two classes of semantic questions that otherwise return repeatedly to inference: questions about meaning within a semantic unit and questions about relationships between semantic units.
 
 ### Assertion identity
 
@@ -439,13 +468,13 @@ Which knowledge assertion is being referenced?
 
 Text identity is insufficient because different sentences may express equivalent propositions and a single sentence may contain multiple assertions.
 
-### Resolved semantics
+### Resolved meaning within a semantic unit
 
 Which meanings implicit in the source have already been established?
 
 If *production* has already been accepted as the relevant environment, routine reuse should not require every model invocation to rediscover that fact.
 
-### Relational interpretation
+### Resolved relationships between semantic units
 
 How are two accepted assertions related?
 
@@ -481,9 +510,9 @@ The decomposition leads to the following mapping:
 
 | Repeated interpretive problem | Persistent structure | Architectural responsibility |
 |---|---|---|
-| Assertion identity | Claim | Preserve semantic identity |
-| Implicit resolved meaning | Attribute | Preserve explicit semantics |
-| Repeated relational inference | Relation | Preserve accepted relational interpretation |
+| Semantic-unit identity | Claim | Preserve the identity of a semantic element |
+| Repeated inference within a semantic unit | Attribute | Preserve accepted semantic meaning |
+| Repeated inference between semantic units | Relation | Preserve an accepted semantic relationship as state |
 | Implicit applicability | Qualifier | Preserve boundary conditions |
 | Uninspectable justification | Grounding Basis | Preserve basis of acceptance |
 | Repeated perspective reconstruction | Viewpoint | Preserve interpretive organization |
@@ -491,7 +520,7 @@ The decomposition leads to the following mapping:
 
 The architecture therefore follows one construction principle:
 
-> **different forms of repeatedly reconstructed semantic uncertainty are externalized into different forms of persistent structure.**
+> **accepted meaning within a semantic unit is externalized as Attribute state, while accepted meaning between semantic units is externalized as Relation state.**
 
 ## 3.5 Determinacy as a Design Principle
 
@@ -553,11 +582,11 @@ AIKA can be positioned as a layer downstream of RAG-based enterprise AI:
 
 ↓
 
-**RAG — retrieve relevant material**
+**RAG — retrieve or produce relevant semantic units**
 
 ↓
 
-**AI Reasoning — propose semantic interpretations**
+**AI Reasoning — propose semantic Attributes and semantic-to-semantic Relations**
 
 ↓
 
@@ -565,7 +594,7 @@ AIKA can be positioned as a layer downstream of RAG-based enterprise AI:
 
 ↓
 
-**AI Knowledge Architecture — persist accepted semantic structure**
+**AI Knowledge Architecture — persist accepted Attribute and Relation state**
 
 ↓
 
@@ -585,7 +614,7 @@ The architecture therefore distinguishes a **probabilistic interpretation zone**
 
 Before admission, AI may retrieve, interpret, compare, hypothesize, and propose.
 
-After admission, accepted semantics become explicitly addressable structures.
+After admission, accepted meaning within semantic units becomes explicit Attribute state, and accepted meaning between semantic units becomes explicit Relation state.
 
 The distinction is not between AI and non-AI processing.
 
@@ -625,7 +654,7 @@ It identifies what the organization has decided to rely upon under its applicabl
 
 ## 4.3 Claim: Persistent Semantic Identity
 
-A **Claim** is the persistent identity of an identified semantic assertion.
+A **Claim** is the persistent identity of a semantic assertion supplied to or established by the enterprise knowledge process.
 
 For example:
 
@@ -645,13 +674,13 @@ A later version of a document may restate an existing commitment without creatin
 
 Persistent Claim identity therefore separates the semantics being managed from the exact linguistic form in which those semantics originally appeared.
 
-A Claim is a semantic unit.
+A Claim identifies a semantic unit.
 
 It is not, by itself, the full organizational knowledge network.
 
 ## 4.4 Attributes: Externalized Semantic Meaning
 
-Attributes externalize semantic distinctions that have already been resolved about a Claim.
+Attributes externalize semantic distinctions that have already been resolved and accepted about a Claim. They are the first extension beyond a RAG semantic unit: instead of leaving the unit's operational meaning to be reconstructed from its text or embedding, AIKA records the parts that the organization has determined it can rely on.
 
 For C-001, the following semantics might be represented:
 
@@ -664,9 +693,9 @@ For C-001, the following semantics might be represented:
 - priority = high
 - business goal = enterprise service-level commitment
 
-Before externalization, these distinctions remain dependent on natural-language interpretation.
+Before externalization, these distinctions remain dependent on natural-language interpretation in the current retrieval and inference context.
 
-After externalization, routine downstream use can consult the accepted value directly.
+After externalization, routine downstream use can consult the accepted Attribute value directly. This does not prohibit later revision; it prevents ordinary reuse from silently becoming a new interpretation event.
 
 The architecture does not require a universal attribute schema.
 
@@ -701,11 +730,11 @@ AIKA therefore treats Attribute requirements as use-dependent.
 
 Where multiple applications operate over the same Claim, the Claim may accumulate accepted semantic Attributes established for different purposes. Each application can consume the subset relevant to its decision.
 
-This allows semantic knowledge to compound across organizational uses without requiring every application to rebuild interpretation independently.
+This allows accepted semantic meaning to compound across organizational uses without requiring every application to rebuild interpretation independently.
 
 ## 4.5 Relations: From Semantic Units to Knowledge Structure
 
-A **Relation** externalizes an accepted relational interpretation between Claims.
+A **Relation** externalizes an accepted relational interpretation between Claims as persistent enterprise state. It is the second extension beyond a RAG semantic unit: a relationship that has already been established no longer needs to be inferred again merely because a later query retrieves the same units.
 
 Suppose a second Claim states:
 
@@ -725,13 +754,13 @@ This distinction is central to AIKA.
 
 Accepting Claim A and Claim B does not entail accepting Relation R between them.
 
-A Relation must therefore possess its own identity, applicability conditions, and grounding.
+A Relation must therefore possess its own identity, applicability conditions, and grounding. Its persistence records an organizational commitment to the relationship, not merely the fact that a model once predicted an edge.
 
 This is also the point at which the architecture distinguishes a collection of semantic units from a semantic network.
 
-A set of isolated Claims may be useful for retrieval.
+A set of isolated Claims may be useful for retrieval and query-time reasoning.
 
-A network of accepted Relations among Claims begins to express what the organization believes about how those semantic units interact.
+A network of accepted Relations among Claims records what the organization has established about how those semantic units interact. The network is a state that later processes can read, inspect, challenge, or revise without first regenerating every accepted connection.
 
 ## 4.6 Qualifiers: Boundary of Organizational Meaning
 
@@ -1052,35 +1081,35 @@ Without retrieval, the model may not have access to C-001, C-002, C-003, or the 
 
 But retrieval and knowledge persistence answer different questions.
 
-RAG asks:
+At the semantic layer, RAG asks:
 
-> What information is relevant now?
+> Which semantic material is relevant now?
 
 AIKA asks:
 
-> What interpretations has the organization already accepted, and how should they remain available for later use?
+> Which meanings within that semantic material have already been accepted as Attributes, and which relationships among semantic units have already been accepted as Relations?
 
 The two therefore compose naturally.
 
-**Retrieval supplies the material.**
+**Retrieval supplies semantic units.**
 
-**AI reasoning proposes interpretations.**
+**AI reasoning proposes Attributes and Relations.**
 
 **Admission determines commitment.**
 
-**The knowledge architecture retains the conclusions.**
+**The knowledge architecture retains accepted Attribute and Relation state.**
 
 This division avoids requiring every enterprise question to begin from epistemic zero.
 
 An AI system can still retrieve source material when additional context, validation, or revision is required.
 
-But routine downstream work can use accepted knowledge without repeatedly reconstructing semantic commitments already established.
+But routine downstream work can read accepted Attributes and Relations without repeatedly reconstructing semantic commitments already established.
 
 ## 5.4 Semantic Unit Versus Organizational Knowledge
 
 One of the most important distinctions emerging from the architecture is:
 
-**Semantic Unit ≠ Complete Organizational Knowledge**
+**Semantic Unit ≠ Persistent Enterprise Knowledge State**
 
 A Claim may be accurate, persistent, identifiable, and useful.
 
@@ -1092,13 +1121,13 @@ Consider:
 
 **Claim B:** The connection pool has capacity X.
 
-Without a Relation, the system knows two things.
+Without a persistent Relation, the system holds two semantic units and may infer a connection between them at query time.
 
 With an accepted Relation:
 
 **A constrainedBy B**
 
-the system knows something additional.
+the system retains something additional: an accepted relationship that can be reused without repeating the inference.
 
 With Qualifiers:
 
@@ -1125,7 +1154,7 @@ Its organizational meaning emerges partly through governed relational structure.
 
 A concise representation is:
 
-**Semantic Units → Accepted Relations → Qualified Semantic Network → Organizational Knowledge Structure**
+**Semantic Units → Accepted Attributes → Accepted Relations → Qualified Persistent State → Organizational Knowledge Structure**
 
 This distinction also helps clarify why knowledge graphs alone do not automatically solve the problem.
 
@@ -1370,9 +1399,9 @@ Retrieval-augmented generation has transformed organizational access to internal
 
 Documents, requirements, contracts, operational records, and other enterprise materials can now be retrieved and interpreted through natural-language interaction with unprecedented flexibility.
 
-Yet improved information access does not by itself establish persistent organizational knowledge.
+Yet improved access to semantic material does not by itself establish persistent organizational knowledge.
 
-A central limitation appears when semantic interpretations produced during AI-assisted work remain transient.
+A central limitation appears when resolved meaning within semantic units and established relationships between semantic units remain transient.
 
 A source statement may persist.
 
@@ -1380,17 +1409,21 @@ The model may retrieve it repeatedly.
 
 The organization may repeatedly pay for its interpretation.
 
-But unless accepted meaning becomes explicit, the system cannot reliably distinguish a previously established organizational position from a newly generated interpretation.
+But unless accepted meaning becomes Attribute state and accepted relationships become Relation state, the system cannot reliably distinguish a previously established organizational position from a newly generated interpretation.
 
-This paper therefore distinguishes three levels:
+This paper therefore distinguishes five levels:
 
 **information**
 
 **semantic interpretation**
 
+**accepted Attributes**
+
+**accepted Relations**
+
 **governed organizational knowledge**
 
-AI Knowledge Architecture represents the third level as a persistent semantic network.
+AI Knowledge Architecture combines the latter levels as a persistent semantic network for enterprise knowledge management.
 
 Claims provide stable identity to semantic assertions.
 
@@ -1410,23 +1443,23 @@ The contribution is not that any of these representation mechanisms is individua
 
 The contribution is their assignment to a common knowledge-management responsibility:
 
-> **accepted AI-assisted interpretation should become governed organizational knowledge rather than disappear as transient inference.**
+> **accepted meaning within semantic units should become persistent Attribute state, and accepted relationships among semantic units should become persistent Relation state, rather than disappear as transient inference.**
 
 The resulting division of responsibility is straightforward.
 
-**RAG retrieves what the organization has recorded.**
+**RAG retrieves or produces semantic units relevant to the present question.**
 
-**AI reasoning proposes what those materials may mean.**
+**AI reasoning proposes what those units mean and how they may be related.**
 
-**Admission determines what the organization is prepared to accept.**
+**Admission determines which proposed Attributes and Relations the organization is prepared to accept.**
 
-**AI Knowledge Architecture preserves what has been accepted.**
+**AI Knowledge Architecture preserves the accepted Attribute and Relation state.**
 
 In this architecture, a semantic unit is not treated as the complete knowledge asset.
 
-It becomes a Claim within a wider governed semantic network.
+It becomes an identified Claim whose accepted meaning is represented through Attributes and whose accepted connections to other Claims are represented through Relations.
 
-That network allows organizational meaning to persist across queries, sessions, roles, models, and vendors while remaining open to explicit revision when evidence changes.
+That network allows both semantic meaning and semantic relationships to persist across queries, sessions, roles, models, and vendors while remaining open to explicit revision when evidence changes.
 
 Enterprise AI knowledge management can therefore move beyond repeatedly answering questions over stored information.
 
