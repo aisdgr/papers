@@ -101,7 +101,7 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 ### Engineering Determinacy
 - **Artifacts**: [Manuscript](manuscripts/2026-09_engineering_determinacy.md)
 - **DOI**: [10.5281/zenodo.22718019](https://doi.org/10.5281/zenodo.22718019)
-- **Preprint**: SSRN / 7448559 / *Submitted*
+- **Preprint**: SSRN / 7448559 / *Removed* / `2026/09/16`
 
 ### Anchor Architecture
 - **Artifacts**: [Manuscript](manuscripts/2026-02_anchor-architecture_v1.0.md) / [History](history/2026-02_anchor-architecture.history.md)
@@ -153,7 +153,7 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 ### Beyond RAG: Knowledge Evolution as the Next Layer of Enterprise AI
 - **Artifacts**: [Manuscript](manuscripts/2026-06_beyond_rag_knowledge_evolution_as_the_next_layer_of_enterprise_ai.md)
 - **DOI**: [10.5281/zenodo.20781734](https://doi.org/10.5281/zenodo.20781734)
-- **Preprint**: SSRN / 6972221 / *Submitted*
+- **Preprint**: SSRN / 6972221 / *Removed* / `2026/07/11`
 
 ### AI Knowledge Architecture: From Repeated Semantic Inference to Persistent Knowledge Structure
 - **Artifacts**: [Manuscript](manuscripts/2026-09_ai_knowledge_architecture_v1.0.md)
