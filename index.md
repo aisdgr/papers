@@ -36,9 +36,9 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 ### NAP: Non-Accountable Participants
 
 ### Scope as a Governance Primitive
-  - **Artifacts**: [Manuscript](manuscripts/2026-02_scope-as-agovernance-primitive_v0.4.md) / [History](history/2026-02_scope-as-agovernance-primitive.history.md)
-  - **Status**: `Draft`
-  - **Venue**: *SSRN*
+- **Artifacts**: [Manuscript](manuscripts/2026-08_scope-as-a-governance-primitive_v1.0.md) / [History](history/2026-08_scope-as-agovernance-primitive.history.md)
+- **zenodo**: [10.5281/zenodo.22108234](https://doi.org/10.5281/zenodo.22108234) / `2026-08-26`
+- **SSRN**: [7353398](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7353398) / **Published** / `2026-08-28`
 
 ---
 
