@@ -16,20 +16,20 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 
 ### Structural Degradation
 - **Artifacts**: [Manuscript](manuscripts/2026-03_structural-degradation_v1.0.md) / [History](history/2026-03_structural-degradation.history.md)
-- **DOI**: [10.5281/zenodo.19043086](https://doi.org/10.5281/zenodo.19043086) / `2026-03-16`
-- **Preprint**: SSRN / [6655438](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6655438) / **Published** / `2026-05-07`
+- **zenodo**: [10.5281/zenodo.19043086](https://doi.org/10.5281/zenodo.19043086) / `2026-03-16`
+- **SSRN**: [6655438](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6655438) / **Published** / `2026-05-07`
 
 ### An Unobservable Phenomenon in the Intent-to-Specification Stage of AI-Assisted Software Development
 
 ### An Effect of Traceability Collapse in GenAI-Assisted SDLCs
 - **Artifacts**: [Manuscript](manuscripts/2026-03_ghost-intent-an-effect-of-traceability-collapse-in-genai-assisted-sdlcs_v1.0.md) / [History](history/2026-03_ghost-intent-an-effect-of-traceability-collapse-in-genai-assisted-sdlcs.history.md)
-- **DOI**: [10.5281/zenodo.18872540](https://doi.org/10.5281/zenodo.18872540) / `2026-03-05`
-- **Preprint**: SSRN / [6348599](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6348599) / **Published** / `2026-04-23`
+- **zenodo**: [10.5281/zenodo.18872540](https://doi.org/10.5281/zenodo.18872540) / `2026-03-05`
+- **SSRN**: [6348599](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6348599) / **Published** / `2026-04-23`
 
 ### From Inference Creep to Risk Acceleration Pipelines
 - **Artifacts**: [Manuscript](manuscripts/2026-01_from-inference-creep-to-risk-acceleration-pipelines_v1.0.md) / [History](history/2026-01_from-inference-creep-to-risk-acceleration-pipelines.history.md)
-- **DOI**: [10.5281/zenodo.18872172](https://doi.org/10.5281/zenodo.18872172) / `2026-03-05`
-- **Preprint**: SSRN / [6146686](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6146686) / **Published** / `2026-03-03`
+- **zenodo**: [10.5281/zenodo.18872172](https://doi.org/10.5281/zenodo.18872172) / `2026-03-05`
+- **SSRN**: [6146686](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6146686) / **Published** / `2026-03-03`
 
 ### Unauthorized Decision Expansion in AI-Assisted Software Engineering
 
@@ -48,23 +48,23 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 
 ### Four Stages of AI Governance: A Stage-Based Framing of Contemporary Practices
 - **Artifacts**:[Manuscript](manuscripts/2026-01_four-stages-of-ai-governance_v1.0.md) / [History](history/2026-01_four-stages-stage-of-ai-governance.history.md)
-- **DOI**: [10.5281/zenodo.18871083](https://doi.org/10.5281/zenodo.18871083) / `2026-03-05`
-- **Preprint**: SSRN / [6146666](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6146666) / **Published** / `2026-03-03`
+- **zenodo**: [10.5281/zenodo.18871083](https://doi.org/10.5281/zenodo.18871083) / `2026-03-05`
+- **SSRN**: [6146666](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6146666) / **Published** / `2026-03-03`
 
 ### Runtime Governance vs. Development Governance
 - **Artifacts**: [Manuscript](manuscripts/2026-01_runtime-governance-vs-development-governance_v1.0.md) / [History](history/2026-01_runtime-governance-vs-development-governance.history.md)
-- **DOI**: [10.5281/zenodo.18876913](https://doi.org/10.5281/zenodo.18876913)
-- **Preprint**: SSRN / [6341359](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6341359) / **Published** / `2026-04-23`
+- **zenodo**: [10.5281/zenodo.18876913](https://doi.org/10.5281/zenodo.18876913) / `2026-01-10`
+- **SSRN**: [6341359](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6341359) / **Published** / `2026-04-23`
 
 ### Toward Decision Behavior Governance: Governance Existence, Invocation, and Decision Formation
 - **Artifacts**: [Manuscript](manuscripts/2026-01_decision-behavior-governance-at-the-engineering-stage_v1.0.md) / [History](history/2026-01_decision-behavior-governance-at-the-engineering-stage.history.md)
-- **DOI**: [10.5281/zenodo.18876165](https://doi.org/10.5281/zenodo.18876165)
-- **Preprint**: SSRN / [6105226](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6105226) / **Published** / `2026-02-23`
+- **zenodo**: [10.5281/zenodo.18876165](https://doi.org/10.5281/zenodo.18876165) / `2026-01-21`
+- **SSRN**: [6105226](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6105226) / **Published** / `2026-02-23`
 
 ### Scope as a Governance Primitive
 - **Artifacts**: [Manuscript](manuscripts/2026-08_scope-as-a-governance-primitive_v1.0.md) / [History](history/2026-08_scope-as-agovernance-primitive.history.md)
-- **DOI**: [10.5281/zenodo.22108234](https://doi.org/10.5281/zenodo.22108234)
-- **Preprint**: SSRN / [7353398](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7353398) / **Published** / `2026-08-28`
+- **zenodo**: [10.5281/zenodo.22108234](https://doi.org/10.5281/zenodo.22108234) / `2026-08-26`
+- **SSRN**: [7353398](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7353398) / **Published** / `2026-08-28`
 
 ---
 
@@ -73,20 +73,18 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 
 ### Realizing ISO/IEC 42001 through Decision Behavior Governance
 - **Artifacts**: [Manuscript](manuscripts/2026-01_realizing-ISO-IEC-42001-through-decision-behavior-governance_v1.0.md) / [History](history/2026-01_realizing-ISO-IEC-42001-through-decision-behavior-governance.history.md)
-- **DOI**: [10.5281/zenodo.18877215](https://doi.org/10.5281/zenodo.18877215)
-- **Preprint**: SSRN / [6349958](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6349958) / **Published** / `2026-04-20`
-
-### Decision Analysis
+- **zenodo**: [10.5281/zenodo.18877215](https://doi.org/10.5281/zenodo.18877215) / `2026-03-05`
+- **SSRN**: [6349958](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6349958) / **Published** / `2026-04-20`
 
 ### Decision Risk: A Structural Governance Framework for AI-Assisted Software Development
 - **Artifacts**: [Manuscript](manuscripts/2026-01_realizing-ISO-IEC-42001-through-decision-behavior-governance_v1.0.md) / [History](history/2026-01_realizing-ISO-IEC-42001-through-decision-behavior-governance.history.md)
-- **DOI**: [10.5281/zenodo.19025533](https://doi.org/10.5281/zenodo.19025533)
-- **Preprint**: SSRN / [6655398](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6655398) / **Published** / `2026-05-07`
+- **zenodo**: [10.5281/zenodo.19025533](https://doi.org/10.5281/zenodo.19025533) / `2026-03-15`
+- **SSRN**: [6655398](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6655398) / **Published** / `2026-05-07`
 
 ### Beyond HITL: Continuation Readiness as a Governance Requirement for Enterprise AI Workflows
 - **Artifacts**: [Manuscript](manuscripts/2026-08_continuation_readiness_as_a_governance_requirement_for_enterprise_ai_workflows.md)
-- **DOI**: [10.5281/zenodo.21856291](https://doi.org/10.5281/zenodo.21856291)
-- **Preprint**: SSRN / [7252878](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7252878) / **Published** / `2026-08-13`
+- **zenodo**: [10.5281/zenodo.21856291](https://doi.org/10.5281/zenodo.21856291) / `2026-08-09`
+- **SSRN**: [7252878](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7252878) / **Published** / `2026-08-13`
 
 
 ### Regulator
@@ -100,23 +98,23 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 
 ### Engineering Determinacy
 - **Artifacts**: [Manuscript](manuscripts/2026-09_engineering_determinacy.md)
-- **DOI**: [10.5281/zenodo.22718019](https://doi.org/10.5281/zenodo.22718019)
-- **Preprint**: SSRN / 7448559 / *Removed* / `2026/09/16`
+- **zenodo**: [10.5281/zenodo.22718019](https://doi.org/10.5281/zenodo.22718019) / `2026-09-12`
+- **SSRN**: 7448559 / *Removed* / `2026/09/16`
 
 ### Anchor Architecture
 - **Artifacts**: [Manuscript](manuscripts/2026-02_anchor-architecture_v1.0.md) / [History](history/2026-02_anchor-architecture.history.md)
-- **DOI**: [10.5281/zenodo.18856781](https://doi.org/10.5281/zenodo.18856781)
-- **Preprint**: engrXiv / [10.31224/6580](https://engrxiv.org/preprint/view/6580) / **Published** / `2026-03-09`
+- **zenodo**: [10.5281/zenodo.18856781](https://doi.org/10.5281/zenodo.18856781) / `2026-03-04`
+- **engrXiv**: [10.31224/6580](https://engrxiv.org/preprint/view/6580) / **Published** / `2026-03-09`
 
 ### Viewpoint-Structured Specification (VSS)
 - **Artifacts**: [Manuscript](manuscripts/2026-03_viewpoint-structured-specification_v1.0.md) / [History](history/2026-03_viewpoint-structured-specification.history.md)
-- **DOI**: [10.5281/zenodo.18930951](https://doi.org/10.5281/zenodo.18930951)
-- **Preprint**: engrXiv / [10.31224/6612](https://engrxiv.org/preprint/view/6612) / **Published** / `2026-03-10`
+- **zenodo**: [10.5281/zenodo.18930951](https://doi.org/10.5281/zenodo.18930951) / `2026-03-10`
+- **engrXiv**: [10.31224/6612](https://engrxiv.org/preprint/view/6612) / **Published** / `2026-03-10`
 
 ### Behavior Rule Architecture: Rule-Based Governance of AI System Behavior
 - **Artifacts**: [Manuscript](manuscripts/2026-03_behavior-rule-architecture_v1.0.md) / [History](history/2026-03_behavior-rule-architecture.history.md)
-- **DOI**: [10.5281/zenodo.19174636](https://doi.org/10.5281/zenodo.19174636)
-- **Preprint**: engrXiv / [10.31224/6681](https://engrxiv.org/preprint/view/6681) / **Published** / `2026-03-25`
+- **zenodo**: [10.5281/zenodo.19174636](https://doi.org/10.5281/zenodo.19174636) / `2026-03-23`
+- **engrXiv**: [10.31224/6681](https://engrxiv.org/preprint/view/6681) / **Published** / `2026-03-25`
 
 ---
 
@@ -127,8 +125,8 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 
 ### Boundary as an Execution-Time Primitive for AI-Assisted Software Development Governance
 - **Artifacts**: [Manuscript](manuscripts/2026-02_boundary-as-an-execution-time-primitive-v1.0.md) / [History](history/2026-02_boundary-as-an-execution-time-primitive.history.md)
-- **DOI**: [10.5281/zenodo.18883242](https://doi.org/10.5281/zenodo.18883242)
-- **Preprint**: engrXiv / [10.31224/6583](https://engrxiv.org/preprint/view/6583) / **Published** / `2026-03-09`
+- **zenodo**: [10.5281/zenodo.18883242](https://doi.org/10.5281/zenodo.18883242) / `2026-03-06`
+- **engrXiv**: [10.31224/6583](https://engrxiv.org/preprint/view/6583) / **Published** / `2026-03-09`
 
 ### Quality Maintenance Collapse
 
@@ -139,8 +137,8 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 
 ### Decision Analysis: Effect-Oriented Structural Scope Audit for AI-Assisted Software Development
 - **Artifacts**: [Manuscript](manuscripts/2026-03_decision-analysis_v1.0.md) / [History](history/2026-03_decision-risk.history.md)
-- **DOI**: [10.5281/zenodo.18934765](https://doi.org/10.5281/zenodo.18934765)
-- **Preprint**: engrXiv / [10.31224/6616](https://engrxiv.org/preprint/view/6616) / **Published** / `2026-03-10`
+- **zenodo**: [10.5281/zenodo.18934765](https://doi.org/10.5281/zenodo.18934765) / `2026-03-10`
+- **engrXiv**: [10.31224/6616](https://engrxiv.org/preprint/view/6616) / **Published** / `2026-03-10`
 
 ### Evidence
 
@@ -152,15 +150,14 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 
 ### Beyond RAG: Knowledge Evolution as the Next Layer of Enterprise AI
 - **Artifacts**: [Manuscript](manuscripts/2026-06_beyond_rag_knowledge_evolution_as_the_next_layer_of_enterprise_ai.md)
-- **DOI**: [10.5281/zenodo.20781734](https://doi.org/10.5281/zenodo.20781734)
-- **Preprint**: SSRN / 6972221 / *Removed* / `2026/07/11`
+- **zenodo**: [10.5281/zenodo.20781734](https://doi.org/10.5281/zenodo.20781734) / `2026-06-21`
+- **SSRN**: 6972221 / *Removed* / `2026/07/11`
 
 ### AI Knowledge Architecture: From Repeated Semantic Inference to Persistent Knowledge Structure
 - **Artifacts**: [Manuscript](manuscripts/2026-09_ai_knowledge_architecture_v1.0.md)
-- **DOI**: [10.5281/zenodo.22440965](https://doi.org/10.5281/zenodo.22440965)
-- **Preprint**: SSRN / [7434541](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7434541) / **Published** / `2026-09-10`
+- **zenodo**: [10.5281/zenodo.22440965](https://doi.org/10.5281/zenodo.22440965) / `2026-09-06`
+- **SSRN**: [7434541](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7434541) / **Published** / `2026-09-10`
 
 ### AI Knowledge Evolution: From Persistent Knowledge Structure to Controlled Knowledge Change
 - **Artifacts**: [Manuscript](manuscripts/2026-09_ai_knowledge_evolution.md)
-- **DOI**: 
-- **Preprint**: 
+- **zenodo**: [10.5281/zenodo.22892257](https://doi.org/10.5281/zenodo.22892257) / `2026-09-22`
