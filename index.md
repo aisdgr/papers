@@ -158,6 +158,10 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 - **zenodo**: [10.5281/zenodo.22440965](https://doi.org/10.5281/zenodo.22440965) / `2026-09-06`
 - **SSRN**: [7434541](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7434541) / **Published** / `2026-09-10`
 
+### AI Knowledge Architecture for Enterprise Knowledge Management
+- **Artifacts**: [Manuscript](manuscripts/2026-09_enterprise-knowledge-architecture.md) / [History](history/2026-09_enterprise-knowledge-architecture.history.md)
+- **zenodo**: [10.5281/zenodo.22908803](https://doi.org/10.5281/zenodo.22908803) / `2026-09-23`
+
 ### AI Knowledge Evolution: From Persistent Knowledge Structure to Controlled Knowledge Change
 - **Artifacts**: [Manuscript](manuscripts/2026-09_ai_knowledge_evolution.md)
 - **zenodo**: [10.5281/zenodo.22892257](https://doi.org/10.5281/zenodo.22892257) / `2026-09-22`
