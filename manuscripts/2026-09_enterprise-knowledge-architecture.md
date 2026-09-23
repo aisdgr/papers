@@ -62,13 +62,17 @@ First, when a semantic distinction within a unit has been explicitly established
 
 Second, when a relationship between two semantic units has been explicitly established and accepted, it is represented as a persistent **Relation**. The relationship becomes part of the enterprise knowledge state rather than a conclusion that must be inferred again whenever the two units are retrieved together.
 
-The distinction can be summarized as follows:
+The operational contrast can be summarized as follows:
 
-| Layer | Persistent object | What may otherwise be reconstructed |
+| Dimension | RAG-oriented workflow | AIKA-enabled workflow |
 |---|---|---|
-| RAG semantic layer | Retrieved or generated semantic unit | Meaning needed for the present query and relationships to other units |
-| AIKA Attribute layer | Accepted meaning within a semantic unit | The same resolved property no longer requires routine reinterpretation |
-| AIKA Relation layer | Accepted relationship between semantic units | The same established relationship no longer requires routine re-inference |
+| Primary persistent object | Source, chunk, embedding, extracted entity, or graph index | Identified Claim with governed knowledge state |
+| Meaning within a semantic unit | May be reconstructed for the present query | Accepted meaning is persisted as Attributes |
+| Relationship between semantic units | May be extracted or inferred for retrieval and response generation | Accepted relationship is persisted as a Relation with Qualifiers and Grounding |
+| Repeated query | The model may reinterpret the same units and regenerate their connection | Routine reuse reads the accepted Attribute and Relation state |
+| Governance status | Relevance or retrieval does not itself establish organizational acceptance | Admission distinguishes candidate interpretation from accepted commitment |
+
+The comparison is architectural rather than universal: particular RAG implementations may persist entities, edges, summaries, or memory records. AIKA asks the additional question of whether their meaning and relationships have been explicitly admitted as organizational commitments.
 
 A semantic unit should therefore not automatically be equated with complete organizational knowledge.
 
@@ -237,6 +241,10 @@ A standard RAG workflow can be represented conceptually as:
 The architecture is effective because it allows the model to reason over enterprise information at query time.
 
 Graph-based RAG architectures further organize source material into graph structures that improve global summarization, relational retrieval, and sensemaking over large collections (Edge et al., 2024).
+
+Agent-memory architectures address a related but different problem. MemGPT, for example, manages information across memory tiers to extend the effective context available to a language model during long-document analysis and multi-session interaction (Packer et al., 2023). GraphRAG constructs graph-based indexes and community summaries so a model can retrieve and synthesize corpus-level information more effectively (Edge et al., 2024). These approaches improve what information can be retained, selected, or brought into an inference context.
+
+AIKA assigns a different responsibility to persistence. A memory record can remain useful without being an accepted organizational commitment, and a graph edge can support retrieval without recording that the organization has accepted the relationship it represents. AIKA therefore does not compete with agent memory or GraphRAG. Those systems can supply semantic material and candidate structure; AIKA records which meanings and relationships have crossed an explicit Admission boundary, under what conditions, and on what basis. The distinction is between **context continuity** and **governed commitment continuity**.
 
 These systems improve access and query-time synthesis. In the comparison used here, their durable unit may remain the retrievable semantic element, while resolved properties of that element and conclusions about its relationships remain products of the current inference cycle. They do not necessarily require either result to become a governed organizational commitment for the next cycle.
 
@@ -640,6 +648,10 @@ Different organizations and domains may use:
 - risk-sensitive governance rules;
 - or combinations of these mechanisms.
 
+One practical instantiation is a hybrid Admission workflow. An AI system first proposes a candidate Claim, Attribute, or Relation together with Qualifiers and a Grounding Basis. Automated controls then verify schema completeness, identifier integrity, required evidence, and consistency with already accepted knowledge. A policy layer may admit low-risk candidates derived from designated authoritative sources, while routing ambiguous, cross-domain, or high-impact candidates to a domain expert. Successful Admission records the responsible authority, applicable policy, supporting evidence, timestamp, and version. Rejection or deferral preserves the candidate status rather than silently discarding or accepting the proposal.
+
+This workflow is illustrative rather than mandatory. Its purpose is to show that Admission can combine AI proposal, deterministic validation, policy-based routing, and accountable human judgment without assigning acceptance to any one mechanism universally.
+
 The architecture requires only that acceptance be explicit.
 
 This is essential because generation and commitment carry different organizational consequences.
@@ -907,6 +919,8 @@ This avoids maintaining independent knowledge copies for each organizational fun
 If the governed state changes, the relevant Domain can be re-derived.
 
 If the Viewpoint definition changes, the Domain changes accordingly.
+
+A change to accepted knowledge should also propagate explicitly. When **Reconstruction**, the explicit reopening of previously accepted knowledge, revises or supersedes a Claim, Attribute, or Relation, the system can use derivation dependencies to identify affected Viewpoint Domains. Those Domains should be marked stale or invalidated until they are re-derived from the newly accepted state. If the changed element previously occupied a material structural role, such as *bottleneck*, *obligation*, or *risk*, affected consumers can be notified that the prior Domain no longer represents the current governed state. Once Reconstruction and Admission complete, deterministic derivation produces the updated Domain and preserves the earlier version for provenance. This connects Viewpoint reuse to the controlled-change operations developed in the companion AI Knowledge Evolution paper (Tsai, 2026a).
 
 The desirable property is reproducibility:
 
@@ -1374,7 +1388,17 @@ The contribution concerns semantic responsibility rather than a particular stora
 
 The present study does not demonstrate reduced cost, higher retrieval accuracy, improved answer faithfulness, improved employee productivity, or improved decision outcomes.
 
-Such claims require implementation and empirical study.
+Such claims require implementation and empirical study. A prototype evaluation should compare a conventional RAG workflow with an AIKA-enabled workflow over matched repeated-query and knowledge-change tasks. Relevant measures include:
+
+- the number of accepted semantic distinctions and relationships that must be re-inferred;
+- token consumption and latency across repeated uses;
+- consistency of recovered Attributes and Relations across sessions, models, and prompt variants;
+- frequency of stale or invalid accepted knowledge being reused;
+- human and automated effort required for Admission;
+- propagation time from Reconstruction to affected Viewpoint Domains;
+- and the accuracy with which the system distinguishes candidate from accepted knowledge.
+
+The expected benefit is not cost reduction under every workload. Persisting, validating, versioning, and revising governed knowledge introduces its own operational cost. Empirical evaluation must therefore identify the conditions under which reduced repeated inference and improved consistency outweigh the overhead of Admission and knowledge maintenance.
 
 ## 5.9 From Persistent Knowledge to Knowledge Evolution
 
@@ -1723,6 +1747,8 @@ Lewis, P., Perez, E., Piktus, A., Petroni, F., Karpukhin, V., Goyal, N., Küttle
 Nonaka, I. (1994). A dynamic theory of organizational knowledge creation. *Organization Science, 5*(1), 14–37. https://doi.org/10.1287/orsc.5.1.14
 
 Noy, N. F., & Musen, M. A. (2004). Specifying ontology views by traversal. In *Proceedings of the 3rd International Semantic Web Conference* (pp. 713–725). Springer. https://doi.org/10.1007/978-3-540-30475-3_49
+
+Packer, C., Wooders, S., Lin, K., Fang, V., Patil, S. G., Stoica, I., & Gonzalez, J. E. (2023). *MemGPT: Towards LLMs as operating systems* [Preprint]. arXiv. https://doi.org/10.48550/arXiv.2310.08560
 
 Sikos, L. F., & Philp, D. (2020). Provenance-aware knowledge representation: A survey of data models and contextualized knowledge graphs. *Data Science and Engineering, 5*, 293–316.
 

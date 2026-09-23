@@ -455,6 +455,85 @@ self-citations are retained.
 
 ---
 
+## v0.7 — Peer-Review Response and Operational Deepening
+
+**Status:** Major Revision Response
+
+### Purpose
+
+- Make the value difference between a RAG-oriented workflow and AIKA visible
+  at the beginning of the paper.
+- Demonstrate how Admission can operate without imposing one universal
+  governance algorithm.
+- Specify how changes to accepted knowledge propagate into Viewpoint Domains.
+- Distinguish governed commitment persistence from agent memory and GraphRAG
+  context management.
+- Turn the empirical limitation into a concrete prototype evaluation agenda.
+
+### Key Revisions
+
+#### 1. RAG and AIKA Are Compared Directly
+
+The Introduction now compares the two workflows across persistent objects,
+meaning within semantic units, relationships between semantic units, repeated
+queries, and governance status.
+
+The comparison explicitly avoids a universal claim about RAG implementations.
+RAG systems may persist entities, edges, summaries, or memory records; AIKA
+adds the question of whether represented meaning has been admitted as an
+organizational commitment.
+
+#### 2. Admission Receives an Illustrative Hybrid Workflow
+
+The conceptual framework now describes a practical sequence in which:
+
+1. AI proposes a candidate Claim, Attribute, or Relation with Qualifiers and
+   Grounding;
+2. automated controls validate schema, identifiers, evidence, and consistency;
+3. policy admits eligible low-risk candidates from authoritative sources;
+4. ambiguous or high-impact candidates are routed to a domain expert; and
+5. the resulting decision records authority, policy, evidence, time, and
+   version.
+
+This example demonstrates operational feasibility while preserving the
+architecture's domain-specific Admission boundary.
+
+#### 3. Viewpoint Domains Gain Change-Propagation Semantics
+
+When Reconstruction reopens, revises, or supersedes accepted knowledge,
+derivation dependencies identify affected Viewpoint Domains. Those Domains can
+be marked stale or invalidated, relevant consumers can be notified, and the
+Domains can be re-derived after the revised state passes Admission.
+
+Earlier Domain versions remain available for provenance.
+
+#### 4. Agent Memory and GraphRAG Are Distinguished
+
+MemGPT and GraphRAG are incorporated into the literature discussion as systems
+that improve context continuity, retrieval, and synthesis.
+
+AIKA is positioned as complementary: its concern is **governed commitment
+continuity**, not merely the retention or selection of information for model
+inference.
+
+#### 5. Prototype Evaluation Is Specified
+
+Future empirical work should compare matched RAG and AIKA-enabled workflows on:
+
+- repeated-inference frequency;
+- token consumption and latency;
+- cross-session and cross-model consistency;
+- stale-knowledge reuse;
+- Admission effort;
+- Reconstruction-to-Domain propagation time;
+- and candidate-versus-accepted status accuracy.
+
+The paper also recognizes that persistence and governance create maintenance
+cost. The empirical question is therefore when reduced repeated inference and
+greater consistency outweigh Admission and lifecycle overhead.
+
+---
+
 ## Current Status — Persistent Attribute and Relation States
 
 **Status:** Current Manuscript
