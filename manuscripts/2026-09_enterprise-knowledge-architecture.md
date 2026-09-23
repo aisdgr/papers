@@ -10,7 +10,7 @@ ORCID: 0009-0006-8847-4703
 
 ## Abstract
 
-Retrieval-augmented generation has substantially improved organizational access to internal information and the production of query-time semantic representations. Yet a semantic representation is not the same as a persistent enterprise knowledge state. In a typical RAG cycle, semantic units and the relationships inferred among them remain dependent on the current retrieval context and model invocation. This conceptual study applies AI Knowledge Architecture (AIKA) to enterprise knowledge management by adding two persistence responsibilities downstream of RAG. First, semantic distinctions that have been explicitly established and accepted are externalized as Attributes rather than repeatedly reconstructed from source material. Second, relationships among semantic units that have been explicitly established and accepted are externalized as persistent Relations rather than repeatedly inferred at each use. Claims provide identity to the semantic units; Qualifiers, Grounding, Viewpoints, and derived Domains make the resulting relational state bounded, inspectable, and reusable. An illustrative enterprise case demonstrates how this two-level persistence converts transient semantic interpretation into governed organizational knowledge.
+Retrieval-augmented generation has substantially improved organizational access to internal information and the production of query-time semantic representations. Yet a semantic representation is not the same as a persistent enterprise knowledge state. In a typical RAG cycle, semantic units and the relationships inferred among them remain dependent on the current retrieval context and model invocation. This conceptual study applies AI Knowledge Architecture (AIKA) to enterprise knowledge management by adding two persistence responsibilities downstream of RAG. First, semantic distinctions that have been explicitly established and accepted are externalized as Attributes rather than repeatedly reconstructed from source material. Second, relationships among semantic units that have been explicitly established and accepted are externalized as persistent Relations rather than repeatedly inferred at each use. Claims provide identity to the semantic units; Qualifiers, Grounding, Viewpoints, and derived Domains make the resulting relational state bounded, inspectable, and reusable. An illustrative enterprise case demonstrates how this two-level persistence converts transient semantic interpretation into governed organizational knowledge. The paper uses *semantic unit* to mean a meaningful assertion available for inference.
 
 **Keywords:** Enterprise AI; Knowledge Management; Organizational Knowledge; Retrieval-Augmented Generation; Semantic Persistence; Relationship Persistence; Knowledge Architecture
 
@@ -340,8 +340,6 @@ Prior work also addresses views over shared semantic structures.
 
 Noy and Musen (2004) define ontology views through traversal specifications involving concepts, relationships, and constraints. Brinkley et al. (2006) describe architectures in which shared reference ontologies support application-specific views. Such work provides direct prior art for deriving subsets of a shared knowledge structure without maintaining independent copies.
 
-Perspective-aware knowledge representation provides an even closer comparison. Miranda and Nalepa (2026), for example, describe perspective-conditioned knowledge extraction in which stakeholder interpretations can remain epistemically separable.
-
 AIKA builds on these ideas but assigns a specific organizational role to a **Viewpoint**.
 
 A Viewpoint does not merely select knowledge. It persists an interpretive organization over shared knowledge identities. The same accepted Relation may function as a *bottleneck* from an architecture viewpoint and as a *scaling boundary* from an operations viewpoint.
@@ -572,7 +570,7 @@ The purpose of the present analysis is narrower: to evaluate whether the propose
 
 ---
 
-# 4. Results: AI Knowledge Architecture for Enterprise Knowledge Management
+# 4. AI Knowledge Architecture: Conceptual Framework
 
 ## 4.1 From RAG to Persistent Organizational Knowledge
 
@@ -948,7 +946,7 @@ Consider again:
 
 After semantic interpretation and admission, the requirement becomes Claim C-001 with explicit Attributes.
 
-Three further Claims are accepted:
+Four further Claims are accepted:
 
 **C-002:** the connection-pool configuration supports 500 concurrent connections.
 
@@ -956,15 +954,25 @@ Three further Claims are accepted:
 
 **C-004:** the service is positioned for enterprise high-volume workloads.
 
-Two Relations are accepted.
+**C-005:** infrastructure spending for the service must remain within the approved annual operating budget.
+
+Four Relations are accepted.
 
 **R-001:** C-001 is constrained by C-002 under production sustained-load conditions.
 
 **R-002:** increasing the capacity represented by C-002 increases the cost represented by C-003.
 
+**R-003:** the performance commitment represented by C-001 supports the market positioning represented by C-004.
+
+**R-004:** the infrastructure cost represented by C-003 is constrained by the budget represented by C-005 during the current fiscal period.
+
 The first Relation is grounded in the target throughput, load mode, configured capacity, and load-test evidence.
 
 The second is grounded in infrastructure pricing and configuration data.
+
+The third is grounded in the approved product positioning and service-level commitment.
+
+The fourth is grounded in the approved operating budget and fiscal-period controls.
 
 These elements form a shared governed knowledge state.
 
@@ -994,9 +1002,9 @@ The business Viewpoint emphasizes:
 - cost;
 - prioritization.
 
-C-001, C-002, and C-003 become relevant.
+C-001, C-002, C-003, and C-005 become relevant.
 
-R-002 becomes central because satisfying the technical commitment may create economic consequences.
+R-002 and R-004 become central because satisfying the technical commitment may create economic consequences that must remain within the approved budget.
 
 ### Product Viewpoint
 
@@ -1009,7 +1017,7 @@ The product Viewpoint emphasizes:
 
 C-001 and C-004 become prominent.
 
-The same technical performance requirement is interpreted as part of a product promise rather than primarily as an engineering constraint.
+R-003 makes their accepted connection explicit: the technical performance commitment supports the enterprise high-volume market position. The Product Viewpoint therefore does not merely place two disconnected Claims together; it organizes an accepted Relation as part of a product promise rather than primarily as an engineering constraint.
 
 ### Operations Viewpoint
 
@@ -1047,23 +1055,25 @@ A stronger interaction appears between operations and business.
 
 Operations concludes that satisfying the performance target may require capacity expansion.
 
-Business holds that capacity expansion increases infrastructure cost.
+Business holds that capacity expansion increases infrastructure cost and that the resulting cost remains subject to C-005, the approved annual operating budget.
 
-If a budget constraint is also represented, the shared network exposes a cross-functional chain:
+Because C-005 and R-004 are represented in the shared state, the network exposes a cross-functional chain:
 
 **Performance Target**
 
-→ requires
+→ constrained by
 
-**Capacity Increase**
+**Connection-Pool Capacity**
 
-→ increases
+→ capacity expansion increases
 
 **Infrastructure Cost**
 
-→ interacts with
+→ constrained by
 
 **Budget Constraint**
+
+This chain corresponds to C-001, C-002 through R-001, C-003 through R-002, and C-005 through R-004. Every endpoint and relationship is therefore represented in the shared governed knowledge state rather than introduced only in the Viewpoint narrative.
 
 No single source statement necessarily contains that chain.
 
@@ -1202,6 +1212,21 @@ Its grounding becomes inspectable.
 
 Its organizational uses can be represented through Viewpoints.
 
+These mechanisms close the eight ownership conditions introduced in Section 1.4:
+
+| Organizational ownership condition | AIKA mechanism |
+|---|---|
+| Independent identification | Stable Claim and Relation identities |
+| Inspectable semantic commitments | Explicit accepted Attributes |
+| Identifiable relationships | Addressable accepted Relations |
+| Explicit applicability | Relation Qualifiers |
+| Inspectable basis of acceptance | Grounding Basis |
+| Reuse without routine reconstruction | Shared persistent Attribute and Relation state |
+| Explicit revision | Versioned replacement, supersession, or reopening of accepted elements |
+| Distinguishable epistemic status | Admission status separating candidate, accepted, revised, and rejected elements |
+
+AIKA therefore satisfies organizational ownership structurally rather than by retaining a conversation transcript. The architecture does not guarantee that every condition is implemented correctly, but it assigns each condition an explicit representational or governance responsibility.
+
 The knowledge therefore becomes less dependent on:
 
 - a particular model;
@@ -1277,7 +1302,7 @@ It must preserve enough explicit structure to answer:
 
 ## 5.7 Engineering Determinacy Reconsidered
 
-Engineering Determinacy remains useful as a design principle but should not be interpreted as a claim that organizational knowledge can become permanently deterministic.
+Engineering Determinacy remains useful as a design principle but should not be interpreted as a claim that organizational knowledge can become permanently deterministic (Tsai, 2026b).
 
 The principle is:
 
@@ -1315,11 +1340,11 @@ The architecture therefore transfers part of the risk from repeated interpretati
 
 This is intentional but consequential.
 
-### Admission remains underspecified
+### Admission governance patterns require domain-specific instantiation
 
-AIKA identifies Admission as the transition from candidate interpretation to governed knowledge but does not prescribe a universal admission mechanism.
+AIKA intentionally does not prescribe a universal Admission mechanism. Admission is domain-specific because evidential thresholds, authority, validation, and risk controls differ across organizational settings.
 
-Different organizations and risk domains require different controls.
+The limitation is therefore not the absence of one universal algorithm. It is that the present conceptual study does not instantiate or evaluate reusable Admission governance patterns for different domains. Implementation research must show how particular combinations of human approval, authoritative-source policy, deterministic validation, evidence requirements, and risk-sensitive controls perform in practice.
 
 ### Explicit semantics cannot be complete
 
@@ -1349,7 +1374,7 @@ Such claims require implementation and empirical study.
 
 ## 5.9 From Persistent Knowledge to Knowledge Evolution
 
-A persistent knowledge structure creates a subsequent question.
+A persistent knowledge structure creates a subsequent question already recognized in ontology-evolution research: represented knowledge must support controlled change, versioning, and the propagation of revisions rather than remain static (Zablith et al., 2015).
 
 Knowledge cannot remain static.
 
@@ -1367,7 +1392,7 @@ Previously disconnected Claims may become plausibly related.
 
 AIKA defines the persistent state on which such change can operate.
 
-A companion research direction, **AI Knowledge Evolution**, distinguishes four operations:
+A companion paper, **AI Knowledge Evolution**, develops this question through four operations (Tsai, 2026a):
 
 **Construction** establishes explicit Claims and resolved semantic Attributes.
 
@@ -1691,13 +1716,15 @@ Kuhn, T., & Dumontier, M. (2014). Trusty URIs: Verifiable, immutable, and perman
 
 Lewis, P., Perez, E., Piktus, A., Petroni, F., Karpukhin, V., Goyal, N., Küttler, H., Lewis, M., Yih, W., Rocktäschel, T., Riedel, S., & Kiela, D. (2020). Retrieval-augmented generation for knowledge-intensive NLP tasks. *Advances in Neural Information Processing Systems, 33*, 9459–9474.
 
-Miranda, L. D. V., & Nalepa, G. J. (2026). Thesis proposal: A multi-agent system for ontology-based perspective-aware knowledge extraction. In *Proceedings of the 19th Conference of the European Chapter of the Association for Computational Linguistics, Volume 4: Student Research Workshop* (pp. 604–611). Association for Computational Linguistics. https://doi.org/10.18653/v1/2026.eacl-srw.46
-
 Nonaka, I. (1994). A dynamic theory of organizational knowledge creation. *Organization Science, 5*(1), 14–37. https://doi.org/10.1287/orsc.5.1.14
 
 Noy, N. F., & Musen, M. A. (2004). Specifying ontology views by traversal. In *Proceedings of the 3rd International Semantic Web Conference* (pp. 713–725). Springer. https://doi.org/10.1007/978-3-540-30475-3_49
 
 Sikos, L. F., & Philp, D. (2020). Provenance-aware knowledge representation: A survey of data models and contextualized knowledge graphs. *Data Science and Engineering, 5*, 293–316.
+
+Tsai, S. (2026a). *AI knowledge evolution: From persistent knowledge structure to controlled knowledge change*. Zenodo. https://doi.org/10.5281/zenodo.22892257
+
+Tsai, S. (2026b). *Engineering determinacy: Structuring established knowledge so that it need not be reinterpreted*. Zenodo. https://doi.org/10.5281/zenodo.22718019
 
 Vogt, L., Kuhn, T., & Hoehndorf, R. (2024). Semantic units: Organizing knowledge graphs into semantically meaningful units of representation. *Journal of Biomedical Semantics, 15*, Article 7. https://doi.org/10.1186/s13326-024-00310-5
 

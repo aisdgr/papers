@@ -325,6 +325,115 @@ scope and application rather than renaming the architecture.
 
 ---
 
+## v0.6 — Submission Structure and Argument Closure
+
+**Status:** Submission Readiness Revision
+
+### Purpose
+
+- Separate the proposed conceptual framework from the paper's Results and
+  Discussion section.
+- Ensure that every Claim used in the enterprise demonstration participates in
+  an explicit relational structure.
+- Close the Organizational Ownership argument against the eight conditions
+  introduced in the paper.
+- Strengthen citation support for Engineering Determinacy and Knowledge
+  Evolution.
+- Reframe intentionally domain-specific design choices without presenting them
+  as unresolved universal mechanisms.
+
+### Structural Revisions
+
+#### 1. Framework and Results Are Separated
+
+The former dual-Results structure is removed.
+
+Section 4 becomes:
+
+> **AI Knowledge Architecture: Conceptual Framework**
+
+Section 5 remains:
+
+> **Results and Discussion**
+
+The architecture definition is therefore presented as the proposed framework,
+while the conceptual demonstration and its implications remain the analytical
+results.
+
+#### 2. Demonstration Becomes a Closed Relational Network
+
+The enterprise case is expanded from four Claims and two Relations to five
+Claims and four Relations.
+
+The accepted Claims now include:
+
+- C-001 — performance target;
+- C-002 — connection-pool capacity;
+- C-003 — infrastructure-cost consequence;
+- C-004 — enterprise high-volume market position;
+- C-005 — approved annual operating-budget constraint.
+
+Two Relations are added:
+
+- R-003 connects C-001 to C-004, making the Product Viewpoint's market-
+  positioning interpretation explicit.
+- R-004 connects C-003 to C-005, representing the budget constraint as part of
+  the governed shared state.
+
+The cross-Viewpoint chain now contains only defined Claims and Relations:
+
+`Performance Target → Connection-Pool Capacity → Infrastructure Cost → Budget Constraint`
+
+This removes unconnected and narratively introduced elements from the
+demonstration.
+
+#### 3. Organizational Ownership Is Evaluated Explicitly
+
+Section 5.5 now maps the eight conditions introduced in Section 1.4 to AIKA
+mechanisms:
+
+| Ownership Condition | AIKA Responsibility |
+|---|---|
+| Independent identification | Claim and Relation identity |
+| Inspectable semantics | Attributes |
+| Identifiable relationships | Relations |
+| Explicit applicability | Qualifiers |
+| Inspectable basis | Grounding Basis |
+| Reuse without reconstruction | Persistent shared state |
+| Explicit revision | Replacement, supersession, or reopening |
+| Distinguishable status | Admission state |
+
+Organizational Ownership is therefore used as an evaluative closure rather
+than appearing only as an introductory framing device.
+
+#### 4. Admission Limitation Is Reclassified
+
+The absence of a universal Admission algorithm is retained as a deliberate
+architectural decision because authority, evidence, validation, and risk
+thresholds differ by domain.
+
+The actual limitation is narrowed to the lack of instantiated and empirically
+evaluated Admission governance patterns for different organizational settings.
+
+#### 5. Citation Support Is Strengthened
+
+- Engineering Determinacy is linked to its Zenodo publication.
+- AI Knowledge Evolution is identified as a companion paper and linked to its
+  Zenodo publication.
+- Zablith et al. (2015) is cited in the Knowledge Evolution discussion to
+  establish the ontology-evolution context.
+- The Miranda and Nalepa thesis-proposal citation is removed from its prior
+  supporting role; established ontology-view literature remains the primary
+  foundation for Viewpoints.
+
+#### 6. Semantic Unit Is Defined Earlier
+
+The Abstract now defines a semantic unit as a meaningful assertion available
+for inference. This prevents the central term from remaining undefined until
+the methodology section.
+
+---
+
 ## Current Status — Persistent Attribute and Relation States
 
 **Status:** Current Manuscript
@@ -370,9 +479,10 @@ The current manuscript emphasizes seven principles:
    Accepted knowledge may be revised, superseded, or rejected through explicit
    governance processes.
 
-The manuscript includes a conceptual demonstration, literature positioning,
-limitations, declarations, and a structural appendix specifying the principal
-AIKA elements and their relationships.
+The manuscript now includes a closed five-Claim, four-Relation conceptual
+demonstration; an explicit evaluation of Organizational Ownership; literature
+positioning; scoped limitations; declarations; and a structural appendix
+specifying the principal AIKA elements and their relationships.
 
 ---
 
