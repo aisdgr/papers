@@ -64,13 +64,13 @@ Second, when a relationship between two semantic units has been explicitly estab
 
 The operational contrast can be summarized as follows:
 
-| Dimension | RAG-oriented workflow | AIKA-enabled workflow |
-|---|---|---|
-| Primary persistent object | Source, chunk, embedding, extracted entity, or graph index | Identified Claim with governed knowledge state |
-| Meaning within a semantic unit | May be reconstructed for the present query | Accepted meaning is persisted as Attributes |
-| Relationship between semantic units | May be extracted or inferred for retrieval and response generation | Accepted relationship is persisted as a Relation with Qualifiers and Grounding |
-| Repeated query | The model may reinterpret the same units and regenerate their connection | Routine reuse reads the accepted Attribute and Relation state |
-| Governance status | Relevance or retrieval does not itself establish organizational acceptance | Admission distinguishes candidate interpretation from accepted commitment |
+| Dimension                           | RAG-oriented workflow                                                      | AIKA-enabled workflow                                                          |
+| ----------------------------------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| Primary persistent object           | Source, chunk, embedding, extracted entity, or graph index                 | Identified Claim with governed knowledge state                                 |
+| Meaning within a semantic unit      | May be reconstructed for the present query                                 | Accepted meaning is persisted as Attributes                                    |
+| Relationship between semantic units | May be extracted or inferred for retrieval and response generation         | Accepted relationship is persisted as a Relation with Qualifiers and Grounding |
+| Repeated query                      | The model may reinterpret the same units and regenerate their connection   | Routine reuse reads the accepted Attribute and Relation state                  |
+| Governance status                   | Relevance or retrieval does not itself establish organizational acceptance | Admission distinguishes candidate interpretation from accepted commitment      |
 
 The comparison is architectural rather than universal: particular RAG implementations may persist entities, edges, summaries, or memory records. AIKA asks the additional question of whether their meaning and relationships have been explicitly admitted as organizational commitments.
 
@@ -518,15 +518,15 @@ Maintaining separate copies for every organizational function introduces synchro
 
 The decomposition leads to the following mapping:
 
-| Repeated interpretive problem | Persistent structure | Architectural responsibility |
-|---|---|---|
-| Semantic-unit identity | Claim | Preserve the identity of a semantic element |
-| Repeated inference within a semantic unit | Attribute | Preserve accepted semantic meaning |
-| Repeated inference between semantic units | Relation | Preserve an accepted semantic relationship as state |
-| Implicit applicability | Qualifier | Preserve boundary conditions |
-| Uninspectable justification | Grounding Basis | Preserve basis of acceptance |
-| Repeated perspective reconstruction | Viewpoint | Preserve interpretive organization |
-| Duplicated role-specific stores | Derived Domain | Reuse shared knowledge through deterministic derivation |
+| Repeated interpretive problem             | Persistent structure | Architectural responsibility                            |
+| ----------------------------------------- | -------------------- | ------------------------------------------------------- |
+| Semantic-unit identity                    | Claim                | Preserve the identity of a semantic element             |
+| Repeated inference within a semantic unit | Attribute            | Preserve accepted semantic meaning                      |
+| Repeated inference between semantic units | Relation             | Preserve an accepted semantic relationship as state     |
+| Implicit applicability                    | Qualifier            | Preserve boundary conditions                            |
+| Uninspectable justification               | Grounding Basis      | Preserve basis of acceptance                            |
+| Repeated perspective reconstruction       | Viewpoint            | Preserve interpretive organization                      |
+| Duplicated role-specific stores           | Derived Domain       | Reuse shared knowledge through deterministic derivation |
 
 The architecture therefore follows one construction principle:
 
@@ -938,15 +938,15 @@ Routine Domain derivation should rely on explicit, stable selection and organiza
 
 The resulting architecture can be summarized as follows:
 
-| Element | What it persists | Knowledge-management role |
-|---|---|---|
-| Claim | Semantic assertion identity | Persistent semantic unit |
-| Attribute | Resolved meaning | Explicit organizational semantics |
-| Relation | Accepted connection among Claims | Relational knowledge |
-| Qualifier | Applicability conditions | Boundary of meaning |
-| Grounding Basis | Basis of acceptance | Inspectable justification |
-| Viewpoint | Recurring interpretive organization | Organizational perspective |
-| Domain | View-specific derived structure | Reusable contextual knowledge |
+| Element         | What it persists                    | Knowledge-management role         |
+| --------------- | ----------------------------------- | --------------------------------- |
+| Claim           | Semantic assertion identity         | Persistent semantic unit          |
+| Attribute       | Resolved meaning                    | Explicit organizational semantics |
+| Relation        | Accepted connection among Claims    | Relational knowledge              |
+| Qualifier       | Applicability conditions            | Boundary of meaning               |
+| Grounding Basis | Basis of acceptance                 | Inspectable justification         |
+| Viewpoint       | Recurring interpretive organization | Organizational perspective        |
+| Domain          | View-specific derived structure     | Reusable contextual knowledge     |
 
 The elements are not independent inventions.
 
@@ -1232,16 +1232,16 @@ Its organizational uses can be represented through Viewpoints.
 
 These mechanisms close the eight ownership conditions introduced in Section 1.4:
 
-| Organizational ownership condition | AIKA mechanism |
-|---|---|
-| Independent identification | Stable Claim and Relation identities |
-| Inspectable semantic commitments | Explicit accepted Attributes |
-| Identifiable relationships | Addressable accepted Relations |
-| Explicit applicability | Relation Qualifiers |
-| Inspectable basis of acceptance | Grounding Basis |
-| Reuse without routine reconstruction | Shared persistent Attribute and Relation state |
-| Explicit revision | Versioned replacement, supersession, or reopening of accepted elements |
-| Distinguishable epistemic status | Admission status separating candidate, accepted, revised, and rejected elements |
+| Organizational ownership condition   | AIKA mechanism                                                                  |
+| ------------------------------------ | ------------------------------------------------------------------------------- |
+| Independent identification           | Stable Claim and Relation identities                                            |
+| Inspectable semantic commitments     | Explicit accepted Attributes                                                    |
+| Identifiable relationships           | Addressable accepted Relations                                                  |
+| Explicit applicability               | Relation Qualifiers                                                             |
+| Inspectable basis of acceptance      | Grounding Basis                                                                 |
+| Reuse without routine reconstruction | Shared persistent Attribute and Relation state                                  |
+| Explicit revision                    | Versioned replacement, supersession, or reopening of accepted elements          |
+| Distinguishable epistemic status     | Admission status separating candidate, accepted, revised, and rejected elements |
 
 AIKA therefore satisfies organizational ownership structurally rather than by retaining a conversation transcript. The architecture does not guarantee that every condition is implemented correctly, but it assigns each condition an explicit representational or governance responsibility.
 
@@ -1724,25 +1724,25 @@ Generative AI tools were used during preparation of the manuscript to support li
 
 Alavi, M., & Leidner, D. E. (2001). Review: Knowledge management and knowledge management systems: Conceptual foundations and research issues. *MIS Quarterly, 25*(1), 107–136. https://doi.org/10.2307/3250961
 
-Brinkley, J. F., Suciu, D., Detwiler, L. T., & Rosse, C. (2006). A framework for using reference ontologies as a foundation for the Semantic Web. *AMIA Annual Symposium Proceedings, 2006*, 86–90.
+Brinkley, J. F., Suciu, D., Detwiler, L. T., Gennari, J. H., & Rosse, C. (2006). A framework for using reference ontologies as a foundation for the Semantic Web. *AMIA Annual Symposium Proceedings, 2006*, 96–100.
 
 Davenport, T. H., & Prusak, L. (1998). *Working knowledge: How organizations manage what they know*. Harvard Business School Press.
 
-Edge, D., Trinh, H., Cheng, X., Bradley, J., Chao, A., Mody, A., Truitt, S., & Larson, J. (2024). From local to global: A Graph RAG approach to query-focused summarization. *arXiv preprint arXiv:2404.16130*.
+Edge, D., Trinh, H., Cheng, N., Bradley, J., Chao, A., Mody, A., Truitt, S., Metropolitansky, D., Ness, R. O., & Larson, J. (2024). *From local to global: A Graph RAG approach to query-focused summarization* [Preprint]. arXiv. https://doi.org/10.48550/arXiv.2404.16130
 
-Gao, Y., Xiong, Y., Gao, X., Jia, K., Pan, J., Bi, Y., Dai, Y., Sun, J., & Wang, H. (2023). Retrieval-augmented generation for large language models: A survey. *arXiv preprint arXiv:2312.10997*.
+Gao, Y., Xiong, Y., Gao, X., Jia, K., Pan, J., Bi, Y., Dai, Y., Sun, J., Wang, M., & Wang, H. (2023). *Retrieval-augmented generation for large language models: A survey* [Preprint]. arXiv. https://doi.org/10.48550/arXiv.2312.10997
 
 Groth, P., Gibson, A., & Velterop, J. (2010). The anatomy of a nanopublication. *Information Services & Use, 30*(1–2), 51–56. https://doi.org/10.3233/ISU-2010-0613
 
-Hartig, O. (2017). Foundations of RDF* and SPARQL*—An approach for statements about statements. *CEUR Workshop Proceedings, 1912*, 1–12.
+Hartig, O. (2017). Foundations of RDF\* and SPARQL\*: An alternative approach to statement-level metadata in RDF. *CEUR Workshop Proceedings, 1912*, 1–12.
 
-Jaakkola, E. (2020). Designing conceptual articles: Four approaches. *AMS Review, 10*, 18–26. https://doi.org/10.1007/s13162-020-00161-0
+Jaakkola, E. (2020). Designing conceptual articles: Four approaches. *AMS Review, 10*(1–2), 18–26. https://doi.org/10.1007/s13162-020-00161-0
 
 Jabareen, Y. (2009). Building a conceptual framework: Philosophy, definitions, and procedure. *International Journal of Qualitative Methods, 8*(4), 49–62. https://doi.org/10.1177/160940690900800406
 
-Kuhn, T., & Dumontier, M. (2014). Trusty URIs: Verifiable, immutable, and permanent digital assets for the semantic web. In *Proceedings of the 11th Extended Semantic Web Conference* (pp. 395–410). Springer. https://doi.org/10.1007/978-3-319-07443-6_27
+Kuhn, T., & Dumontier, M. (2014). Trusty URIs: Verifiable, immutable, and permanent digital artifacts for Linked Data. In *Proceedings of the 11th Extended Semantic Web Conference* (pp. 395–410). Springer. https://doi.org/10.1007/978-3-319-07443-6_27
 
-Lewis, P., Perez, E., Piktus, A., Petroni, F., Karpukhin, V., Goyal, N., Küttler, H., Lewis, M., Yih, W., Rocktäschel, T., Riedel, S., & Kiela, D. (2020). Retrieval-augmented generation for knowledge-intensive NLP tasks. *Advances in Neural Information Processing Systems, 33*, 9459–9474.
+Lewis, P., Perez, E., Piktus, A., Petroni, F., Karpukhin, V., Goyal, N., Küttler, H., Lewis, M., Yih, W.-t., Rocktäschel, T., Riedel, S., & Kiela, D. (2020). Retrieval-augmented generation for knowledge-intensive NLP tasks. *Advances in Neural Information Processing Systems, 33*, 9459–9474.
 
 Nonaka, I. (1994). A dynamic theory of organizational knowledge creation. *Organization Science, 5*(1), 14–37. https://doi.org/10.1287/orsc.5.1.14
 
@@ -1750,7 +1750,7 @@ Noy, N. F., & Musen, M. A. (2004). Specifying ontology views by traversal. In *P
 
 Packer, C., Wooders, S., Lin, K., Fang, V., Patil, S. G., Stoica, I., & Gonzalez, J. E. (2023). *MemGPT: Towards LLMs as operating systems* [Preprint]. arXiv. https://doi.org/10.48550/arXiv.2310.08560
 
-Sikos, L. F., & Philp, D. (2020). Provenance-aware knowledge representation: A survey of data models and contextualized knowledge graphs. *Data Science and Engineering, 5*, 293–316.
+Sikos, L. F., & Philp, D. (2020). Provenance-aware knowledge representation: A survey of data models and contextualized knowledge graphs. *Data Science and Engineering, 5*(3), 293–316. https://doi.org/10.1007/s41019-020-00118-0
 
 Tsai, S. (2026a). *AI knowledge evolution: From persistent knowledge structure to controlled knowledge change* [Preprint]. Zenodo. https://doi.org/10.5281/zenodo.22892257
 
@@ -1760,6 +1760,6 @@ Vogt, L., Kuhn, T., & Hoehndorf, R. (2024). Semantic units: Organizing knowledge
 
 Vrandečić, D., & Krötzsch, M. (2014). Wikidata: A free collaborative knowledgebase. *Communications of the ACM, 57*(10), 78–85. https://doi.org/10.1145/2629489
 
-Walsh, J. P., & Ungson, G. R. (1991). Organizational memory. *Academy of Management Review, 16*(1), 57–91.
+Walsh, J. P., & Ungson, G. R. (1991). Organizational memory. *Academy of Management Review, 16*(1), 57–91. https://doi.org/10.5465/amr.1991.4278992
 
 Zablith, F., Antoniou, G., d'Aquin, M., Flouris, G., Kondylakis, H., Motta, E., Plexousakis, D., & Sabou, M. (2015). Ontology evolution: A process-centric survey. *The Knowledge Engineering Review, 30*(1), 45–75. https://doi.org/10.1017/S0269888913000349
