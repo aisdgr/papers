@@ -4,15 +4,19 @@
 
 **Spark Tsai**
 
+Independent Researcher
+
+Email: spark.tsai@gmail.com
+
 ORCID: 0009-0006-8847-4703
 
 ---
 
 ## Abstract
 
-Retrieval-augmented generation has substantially improved organizational access to internal information and the production of query-time semantic representations. Yet a semantic representation is not the same as a persistent enterprise knowledge state. In a typical RAG cycle, semantic units and the relationships inferred among them remain dependent on the current retrieval context and model invocation. This conceptual study applies AI Knowledge Architecture (AIKA) to enterprise knowledge management by adding two persistence responsibilities downstream of RAG. First, semantic distinctions that have been explicitly established and accepted are externalized as Attributes rather than repeatedly reconstructed from source material. Second, relationships among semantic units that have been explicitly established and accepted are externalized as persistent Relations rather than repeatedly inferred at each use. Claims provide identity to the semantic units; Qualifiers, Grounding, Viewpoints, and derived Domains make the resulting relational state bounded, inspectable, and reusable. An illustrative enterprise case demonstrates how this two-level persistence converts transient semantic interpretation into governed organizational knowledge. The paper uses *semantic unit* to mean a meaningful assertion available for inference.
+Retrieval-augmented generation improves access to enterprise information but typically leaves query-time semantic interpretations dependent on each model invocation. This conceptual study applies AI Knowledge Architecture (AIKA) to enterprise knowledge management through two persistence responsibilities. First, semantic distinctions that have been explicitly established and accepted are externalized as Attributes. Second, accepted relationships among semantic units are externalized as persistent Relations rather than repeatedly inferred. Claims identify semantic units, while Qualifiers, Grounding, Viewpoints, and derived Domains make the resulting knowledge state bounded, inspectable, and reusable. An enterprise case demonstrates how this architecture converts transient interpretation into governed organizational knowledge across multiple functions. The paper defines a semantic unit as a meaningful assertion available for inference.
 
-**Keywords:** Enterprise AI; Knowledge Management; Organizational Knowledge; Retrieval-Augmented Generation; Semantic Persistence; Relationship Persistence; Knowledge Architecture
+**Keywords:** Enterprise AI; Knowledge Management; Retrieval-Augmented Generation; Semantic Persistence; Relational Knowledge
 
 ---
 
@@ -117,7 +121,7 @@ If all of those results remain only inside a generated response, the organizatio
 
 ## 1.4 Organizational Ownership
 
-The term *ownership* in the title does not refer to intellectual-property ownership.
+As used in this paper, **organizational ownership of knowledge** does not refer to intellectual-property ownership.
 
 In this paper, **organizational ownership of knowledge** is used operationally. An organization can be said to hold an accepted interpretation as an organizational knowledge asset when it can:
 
@@ -1722,9 +1726,9 @@ Noy, N. F., & Musen, M. A. (2004). Specifying ontology views by traversal. In *P
 
 Sikos, L. F., & Philp, D. (2020). Provenance-aware knowledge representation: A survey of data models and contextualized knowledge graphs. *Data Science and Engineering, 5*, 293–316.
 
-Tsai, S. (2026a). *AI knowledge evolution: From persistent knowledge structure to controlled knowledge change*. Zenodo. https://doi.org/10.5281/zenodo.22892257
+Tsai, S. (2026a). *AI knowledge evolution: From persistent knowledge structure to controlled knowledge change* [Preprint]. Zenodo. https://doi.org/10.5281/zenodo.22892257
 
-Tsai, S. (2026b). *Engineering determinacy: Structuring established knowledge so that it need not be reinterpreted*. Zenodo. https://doi.org/10.5281/zenodo.22718019
+Tsai, S. (2026b). *Engineering determinacy: Structuring established knowledge so that it need not be reinterpreted* [Preprint]. Zenodo. https://doi.org/10.5281/zenodo.22718019
 
 Vogt, L., Kuhn, T., & Hoehndorf, R. (2024). Semantic units: Organizing knowledge graphs into semantically meaningful units of representation. *Journal of Biomedical Semantics, 15*, Article 7. https://doi.org/10.1186/s13326-024-00310-5
 

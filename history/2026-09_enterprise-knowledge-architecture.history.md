@@ -432,6 +432,27 @@ The Abstract now defines a semantic unit as a meaningful assertion available
 for inference. This prevents the central term from remaining undefined until
 the methodology section.
 
+#### 7. Target-Journal Format Is Aligned
+
+The manuscript is prepared against the Research Paper requirements of **The
+IUP Journal of Knowledge Management**, whose subject scope covers knowledge
+creation, capture, dissemination, and management processes.
+
+The submission-facing changes include:
+
+- reducing the Abstract to 113 words, below the 120-word limit;
+- reducing the keyword list to five entries;
+- retaining the required Introduction, Literature Review, Methodology, Results
+  and Discussion, and Conclusion structure;
+- adding author email and Independent Researcher affiliation below the title;
+- retaining an alphabetical APA-style reference list;
+- and identifying both Zenodo self-citations explicitly as `[Preprint]`.
+
+The journal's published Author Guidelines and Publication Ethics pages do not
+state a specific policy accepting or prohibiting preprint citations. Editorial
+confirmation therefore remains necessary before final submission if those two
+self-citations are retained.
+
 ---
 
 ## Current Status — Persistent Attribute and Relation States
