@@ -1,0 +1,523 @@
+# Engineering Before Governance: Why AI Governance Depends on Engineering-Visible State
+> From Step-Level Governability to Continuous Workflow Governance
+
+**Author:** Spark Tsai  
+**ORCID:** https://orcid.org/0009-0006-8847-4703  
+**Email:** spark.tsai@gmail.com  
+**Version:** v0.2  
+**Status:** Conceptual synthesis draft  
+
+---
+
+## Abstract
+
+AI governance is commonly expressed through policies, authorization, human oversight, accountability, audit, risk evaluation, and compliance obligations. These mechanisms are necessary, but they do not operate on intention in the abstract. They require identifiable objects of judgment: a scope to which a rule applies, a boundary against which an action can be classified, a structured representation of intended behavior, evidence that can be inspected, authority that can be attributed, and workflow state that can be transferred across actors. This paper argues that effective AI governance therefore depends on a prior engineering condition: the state required for governance judgment must first be made explicit, bounded, inspectable, and traceable.
+
+The central proposition is that engineering creates the state that governance evaluates. Governance requirements may precede implementation by defining what should be governed. Engineering design then determines how the relevant condition will be represented; engineering-visible state makes that condition inspectable; and governance engineering uses that state to implement constraint, evaluation, approval, audit, and attribution. The claim is therefore operational rather than chronological: before a specific governance judgment can be executed, the relevant state must already exist in an engineering-visible form.
+
+The paper develops this proposition at two granularities. At the step level, prior work on Viewpoint-Structured Specification, Scope, Boundary, and Behavior Rule Architecture shows how intent, governed regions, admissibility classifications, and normative rules must be externalized before an individual AI execution can be meaningfully governed. At the workflow level, prior work on continuation readiness shows that individually governed steps do not necessarily compose into a governed workflow unless the handoffs between human and AI actors are also engineered as governance objects. Role State, Work Junctions, Continuation Packages, Receiving Capacity, evidence transfer, and authority compatibility make continuation governable.
+
+The resulting synthesis is the principle of Engineering Before Governance: governance requirements define what should be governed, while engineering design and engineering-visible state provide the basis on which governance engineering can operate. Governability is therefore partly an engineered property.
+
+**Keywords:** AI Governance; Governance Engineering; Engineering-Visible State; Governability; Scope; Boundary; Behavior Rules; Human-in-the-Loop; Continuation Readiness; Enterprise AI Workflow; Auditability
+
+---
+
+## 1. Introduction
+
+AI governance is often described in terms of the rules, obligations, controls, and accountability mechanisms placed around AI systems. A system should remain within authorized scope. A human should review high-impact decisions. A policy should prohibit certain actions. A model's outputs should be auditable. An organization should be able to explain, justify, and attribute consequential AI-assisted work.
+
+These statements are governance requirements. They express what should be true. Yet none of them, by themselves, creates the operational state needed to evaluate whether the requirement has been satisfied. A rule saying that an AI system must remain within scope does not identify the scope. A requirement for human oversight does not guarantee that the human receives enough evidence, authority, or usable work state to perform oversight. A prohibition does not become reliably enforceable merely because it is written in policy language; its applicability, boundary, execution context, and evidence basis must be represented in a form that a governance mechanism can inspect.
+
+This paper argues that a structural dependency is often left implicit in AI governance discussions:
+
+> Engineering creates the state that governance evaluates.
+
+The statement is not a claim that governance is secondary, optional, or created only after engineers finish building systems. Governance requirements may precede implementation. Law, organizational policy, risk appetite, and institutional accountability may define what must be governed before any technical realization exists. The argument is instead about operational governance judgment. Before a governance mechanism can constrain, evaluate, audit, or attribute a concrete AI behavior, the relevant state must already have been made explicit through engineering.
+
+This distinction matters because governance mechanisms frequently assume the existence of objects that engineering has not yet created. A policy assumes an object of applicability. Oversight assumes an inspectable work state. Accountability assumes traceable action and authority. Audit assumes persistent evidence. Handoff governance assumes that the receiving actor can continue work without reconstructing it from incomplete context. When these objects remain implicit, governance is forced to infer the state on which its judgment depends. The result is not simply weak enforcement; it is weak governability.
+
+The paper develops this argument at two levels.
+
+First, at the level of an individual AI execution, governance depends on engineered representations of specification, scope, boundary, behavioral rules, authority, and evidence. The author's prior work on Viewpoint-Structured Specification (VSS), Scope as a Governance Primitive, Boundary as an Execution-Time Primitive, and Behavior Rule Architecture (BRA) can be understood as repeated attempts to externalize state that must exist before a single AI-assisted action can be governed.
+
+Second, at the level of enterprise workflow, governed steps do not automatically compose into governed workflows. Work crosses human and machine actors, organizational roles, temporal discontinuities, accountability discontinuities, and role discontinuities. At these transitions, governance requires a different class of engineered state: Role State, Work Junction, Continuation Package, Receiving Capacity, authority compatibility, and evidence accessibility. The author's prior work on continuation readiness and Beyond HITL shows that handoffs themselves must become governance objects.
+
+These are not two separate governance theories. They are the same dependency principle applied at different granularities:
+
+```
+implicit condition
+    -> engineering externalization
+    -> governance visibility
+    -> governance judgment
+```
+
+At the step level, engineering makes behavior governable. At the workflow level, engineering makes continuation governable.
+
+The paper proceeds as follows. Section 2 states the research question and the structural gap addressed by the paper. Section 3 explains why governance requires observable state. Section 4 synthesizes step-level governability. Section 5 explains why step governance does not automatically become workflow governance. Section 6 introduces handoffs as governance objects. Section 7 develops the principle of continuous workflow governance. Section 8 presents a unified model. Section 9 states the main propositions. Section 10 discusses implications. Section 11 identifies limitations. Section 12 concludes.
+
+---
+
+## 2. Research Question and Structural Gap
+
+The primary research question is:
+
+> What engineering conditions must exist before AI behavior and AI-assisted workflows can be meaningfully governed?
+
+This question does not ask which policies should govern AI, which legal standards should apply, or which organizational accountability model should be adopted. Those questions remain important, but they operate at a different level. The question here concerns the preconditions under which such requirements become operationally evaluable.
+
+Several secondary questions follow:
+
+- How does the engineering prerequisite differ between an individual AI execution and a multi-actor enterprise workflow?
+- Why are policy, oversight, accountability, and audit insufficient when the state on which those mechanisms depend remains implicit?
+- What is lost when governance requirements are treated as if they automatically create their own evaluation surfaces?
+
+The paper's gap is structural rather than polemical. It does not claim that existing AI governance scholarship ignores engineering, nor that governance frameworks are wrong to emphasize policy, risk, oversight, human intervention, accountability, or compliance. Instead, it argues that these governance mechanisms often rely on an engineering dependency that is not always made explicit.
+
+A policy can require an AI system to remain within authorized scope. But if the relevant scope is not represented, what exactly is evaluated? A governance framework can require human oversight. But if the human receives insufficient evidence, unclear authority, or work state that cannot be acted upon, human presence does not produce meaningful oversight. A rule can prohibit an action. But if the action's applicability, context, or boundary condition remains implicit, compliance can be difficult to determine reliably.
+
+The missing issue is not necessarily a lack of governance requirement. It is sometimes a lack of engineering-visible governance state.
+
+This paper therefore distinguishes four connected layers:
+
+**Governance requirement** is a normative expectation: the AI must remain within authorized scope; a human must approve high-impact decisions; a prohibited behavior must not occur; a workflow transfer must preserve accountability.
+
+**Engineering design** determines how the relevant governance condition will be represented and preserved. It selects structures such as Scope, Boundary, Rule, Authority, Evidence, Role State, Work Junction, Continuation Package, and Receiving Capacity.
+
+**Engineering-visible state** is a persistent or retrievable representation that makes a governance-relevant condition identifiable, bounded, inspectable, and attributable to the actor or process responsible for it. It need not formalize every fact or expose all internal model state. It must make the subset of state required for a particular governance judgment available in a usable form.
+
+**Governance engineering** is the implementation and operation of mechanisms that transform engineering-visible state into enforceable, auditable, and attributable governance judgments and controls. It includes mechanisms for constraint, classification, authorization, approval, exception handling, audit, and feedback.
+
+The relation can be stated as:
+
+```
+Governance Requirement
+    -> Engineering Design
+    -> Engineering-Visible State
+    -> Governance Engineering
+```
+
+A governance requirement does not automatically create the state necessary to evaluate that requirement. It informs engineering design, but engineering must still externalize the relevant condition before governance engineering can act on it. Governance engineering may then produce judgments and feedback that refine the requirement, the design, or the represented state. The sequence is therefore a dependency chain with feedback, not a claim that governance policy begins only after engineering is complete.
+
+---
+
+## 3. Governance Requires Observable State
+
+Governance judgment is not performed against pure intention. It requires a state of affairs to which the judgment can be applied. This is true whether the mechanism is automated enforcement, human review, audit, risk scoring, compliance evaluation, or accountability attribution.
+
+Consider five familiar governance mechanisms.
+
+**Policy enforcement** requires an object of applicability. A policy that applies to "customer data," "high-risk decisions," "authorized repositories," or "regulated outputs" depends on a way to identify those objects. If the governed region is implicit, enforcement must infer policy applicability.
+
+**Authorization** requires a representation of actor, authority, action, object, and context. If authority is only implied by role labels or conversational history, a system may perform a decision without a stable basis for determining whether the actor was authorized to make it.
+
+**Human oversight** requires an inspectable work state. A human cannot meaningfully oversee a decision merely by being present. The human must receive enough evidence, assumptions, unresolved questions, authority boundaries, and work context to make a judgment rather than perform ceremonial approval.
+
+**Accountability** requires attribution. It must be possible to identify who or what acted, under which authority, against which scope, using which evidence, and with which effect. If these states are not preserved, accountability becomes retrospective reconstruction.
+
+**Audit** requires persistence and traceability. The state evaluated during or after execution must survive the execution event. If the relevant scope, boundary, rule, authority, or evidence state is transient, audit becomes dependent on logs that may not encode the governance object itself.
+
+In each case, governance is not made effective merely by stating a requirement. The requirement must be connected to an observable representation of the state it governs.
+
+This is the core dependency:
+
+> Governance cannot reliably constrain, evaluate, audit, or attribute a condition that engineering has not first made explicit.
+
+The statement should not be overread. Some governance judgment remains qualitative. Some forms of risk cannot be fully formalized. Some legal and ethical determinations require human interpretation. The argument is not that all governance can be made deterministic. It is that where a governance judgment depends on scope, authority, behavioral constraint, evidence, or transfer state, the absence of explicit engineering representation weakens the judgment.
+
+This is especially consequential for AI-assisted work because AI systems frequently operate through semantic inference. They interpret prompts, infer scope, generalize from examples, select relevant context, invoke tools, and produce outputs that appear complete. If the state governing these actions remains implicit, the AI may reasonably infer it differently from the governance system, the human operator, or a later auditor. Governance then becomes dependent on reconstructing hidden or ambiguous state after the fact.
+
+Engineering-visible state reduces this dependency. It does not remove all interpretation, but it gives governance mechanisms something identifiable to inspect.
+
+This use of *visible* is functional rather than absolute. A state is engineering-visible when the actor or mechanism responsible for governance can retrieve and interpret it for the relevant judgment. Visibility may therefore be role-dependent: evidence visible to an auditor may differ from evidence available to an executing agent, and a continuation package usable by one role may be insufficient for another. The concept concerns governance accessibility, not universal disclosure.
+
+---
+
+## 4. Step-Level Governability
+
+An individual AI execution becomes a governance concern before it becomes an engineering object. Governance first states a requirement: an output should conform to authorized intent, an action should remain within scope, a prohibited behavior should not occur, only an authorized actor should decide or execute, and evidence should support later review. The engineering question follows: what design will make the condition addressed by that requirement visible enough for governance to act on it?
+
+This section therefore does not organize step-level governability as a catalogue of VSS, Scope, Boundary, BRA, authority, and evidence. It begins with governance problems and traces each one through the dependency established in Section 2:
+
+```text
+Governance Problem or Requirement
+    -> Engineering Design
+    -> Engineering-Visible State
+    -> Governance Engineering
+```
+
+The final stage does not imply that engineering automatically resolves a normative question. It means that governance can continue: a mechanism or responsible actor can constrain execution, make a judgment, request approval, escalate uncertainty, preserve a decision, or audit an outcome using explicit state rather than reconstructing an implicit condition.
+
+### 4.1 Conformance Requires a Stable Object of Intent
+
+**Governance problem and requirement.** An AI-produced artifact must conform to the intent under which work was authorized. The governance problem is that intent often remains distributed across prose, conversation, prompt fragments, and tacit assumptions. An output may appear plausible while omitting one viewpoint, expanding another, or satisfying an interpretation that was never authorized. In that condition, a reviewer can judge only whether the result seems reasonable, not whether it conforms to a stable object of intent.
+
+**Engineering design.** The design task is to represent relevant intent as persistent, addressable, and selectable specification. Viewpoint-Structured Specification (VSS) is one realization of this design. It organizes intent through persistent addressability, explicit scope, and viewpoint membership so that requirements do not disappear into transient prompt context. VSS is used here as prior engineering evidence, not as a mandatory governance architecture.
+
+**Engineering-visible state.** The design produces a specification state that identifies which intent elements were active, how they were grouped, which viewpoints they represented, and which constraints were selected for the execution. The governance-relevant object is no longer an assumed meaning reconstructed from the final output; it is an inspectable specification against which the output can be considered.
+
+**How governance continues.** Governance engineering can now compare generated work with selected intent, identify omitted or expanded requirements, route unresolved differences to review, and preserve the basis of the conformance judgment. The specification does not decide whether the output is acceptable by itself. It gives automated controls, human reviewers, and later auditors a stable object on which that decision can be made.
+
+### 4.2 Scope Compliance Requires an Explicit Governed Region
+
+**Governance problem and requirement.** An AI actor must remain within the region in which it is authorized to operate, and governance must determine where a policy, permission, or accountability obligation applies. The problem is that statements such as "within the project," "only customer records," or "limited to this task" assume a governed region without necessarily representing it. If the region remains implicit, both the AI actor and the governance mechanism must infer its extent.
+
+**Engineering design.** The design task is to externalize Scope as the reference region for governance. Prior Scope work distinguishes Visible Scope, Authorized Operable Scope, and Actual Effect Scope because what an actor can see, what it may operate on, and what its actions ultimately affect are not necessarily identical. The design must represent the viewpoints relevant to the governance requirement and preserve their differences rather than compressing them into a single informal notion of access.
+
+**Engineering-visible state.** The resulting state identifies the objects, resources, decisions, workflow stages, or effects included in the governed region. It can also reveal divergence among exposure, authorization, and effect. Governance can therefore inspect not only the nominal task area but also whether execution consumed information or produced consequences outside the authorized operable region.
+
+**How governance continues.** Governance engineering can determine policy applicability, compare actual operation and effect with authorized scope, require approval for scope expansion, or escalate an undefined region. Scope does not enforce a policy by itself. It provides the reference region without which compliance, exception, and effect judgments have no stable object.
+
+### 4.3 Boundary Enforcement Requires an Explicit Classification
+
+**Governance problem and requirement.** Once a governed region exists, an action, item, transition, or effect must be classified relative to it before an allow, deny, or escalation consequence can be applied. The governance problem is not simply that a boundary rule may be absent. It is that the classification connecting a concrete action to the governed region may remain implicit, transient, or unavailable for later review.
+
+**Engineering design.** The design task is to create a Boundary operation relative to an established Scope. Depending on the context, the classification may distinguish inside, outside, overlapping, undefined, allowed, denied, or requiring escalation. Scope and Boundary remain separate: Scope establishes the reference region, while Boundary determines how a particular governance object relates to that region.
+
+**Engineering-visible state.** The design produces a preserved classification with enough context to identify the action or object classified, the Scope used as the reference, the classification result, and any uncertainty or exception condition. This state prevents an execution-time inference such as "this file appears related" or "this action seems within task scope" from disappearing after the action occurs.
+
+**How governance continues.** Governance engineering can translate the classification into a consequence: allow the action, deny it, require approval, record an exception, or trigger further analysis. It can also audit whether the correct Scope and classification logic were used. Boundary does not supply the normative consequence on its own; it supplies the visible classification required to apply that consequence consistently.
+
+### 4.4 Behavioral Compliance Requires Operational Rule State
+
+**Governance problem and requirement.** Governance may require that an AI actor perform an action, refrain from an action, or behave differently under specified conditions. Natural-language policy can state the obligation, but it may leave rule applicability, priority, actor, object, context, and evidence expectations unresolved at execution time. A policy that cannot be connected to a concrete execution remains difficult to enforce or evaluate.
+
+**Engineering design.** The design task is to translate relevant normative intent into structured behavior rules. Behavior Rule Architecture (BRA) is one prior realization using MUST and MUST NOT semantics, rule metadata, reusable rule libraries, and composable rulesets. Its relevance here is not that every system should adopt BRA, but that an execution needs an engineering representation connecting a normative requirement to operational conditions.
+
+**Engineering-visible state.** The design makes the applicable rule, its conditions, its target actor or behavior, its priority or composition context, and the evidence expected for satisfaction or violation inspectable. Governance can identify which rule was active rather than inferring after execution which policy statement might have applied.
+
+**How governance continues.** Governance engineering can constrain execution, detect a violation, request an exception, record satisfaction, or provide a rule-and-evidence basis for human review and audit. Structured rule state does not settle every legal or ethical interpretation. It allows the applicable normative requirement to participate in an operational governance process.
+
+### 4.5 Authorization and Accountability Require Attributable Evidence
+
+**Governance problem and requirement.** Only an appropriately authorized actor should decide, approve, execute, modify, or transfer work, and consequential actions should remain attributable. Even when specification, Scope, Boundary, and rules are explicit, governance fails if it cannot determine who acted under what authority or on what evidence a judgment was made. AI-assisted work can otherwise shift silently from support to decision-making, from recommendation to execution, or from bounded operation to unauthorized change.
+
+**Engineering design.** The design task is to bind actor identity, role, delegated authority, permitted action, governed object, decision context, and validity conditions to the execution. It must also capture the evidence required by the governance purpose, which may include active specification, Scope, Boundary classification, rule applicability, execution trace, approval, tool invocation, and effect analysis.
+
+**Engineering-visible state.** The resulting authority state shows who or what was permitted to act and under which conditions. The resulting evidence state preserves what was known, applied, decided, and produced. Together they connect an execution to responsibility and provide a basis for evaluating compliance, violation, risk, or exception without relying entirely on retrospective reconstruction.
+
+**How governance continues.** Governance engineering can authorize or block execution, route a decision to an accountable approver, attribute an outcome, test compliance, investigate an exception, and conduct an audit. Authority and evidence do not guarantee that the judgment will be correct. They make the judgment attributable and reviewable.
+
+The step-level argument can therefore be summarized by governance dependency rather than framework capability:
+
+| Governance problem or requirement                 | Engineering design                                    | Engineering-visible state                      | Governance can continue through                    |
+| ------------------------------------------------- | ----------------------------------------------------- | ---------------------------------------------- | -------------------------------------------------- |
+| Conformance to authorized intent                  | Persistent, addressable specification design          | Active specification and viewpoint state       | Comparison, review, variance detection, audit      |
+| Operation within an authorized region             | Scope design across visibility, operation, and effect | Governed reference region and scope divergence | Applicability judgment, scope control, escalation  |
+| Consistent treatment of actions relative to scope | Boundary classification design                        | Preserved classification and uncertainty state | Allow, deny, exception, approval, audit            |
+| Compliance with behavioral obligations            | Structured rule design                                | Applicable rule and evaluation state           | Constraint, violation detection, exception, review |
+| Authorized and accountable action                 | Authority binding and evidence capture                | Actor, authority, decision, and evidence state | Authorization, attribution, investigation, audit   |
+
+These states do not eliminate governance judgment, and the engineering designs do not replace governance requirements. They create the explicit objects through which step-level governance can proceed.
+
+---
+
+## 5. Why Step Governance Is Not Workflow Governance
+
+A single AI execution may be well governed. It may have structured specification, explicit scope, boundary classification, behavioral rules, authority, and evidence. Yet the execution may still exist inside a larger enterprise workflow:
+
+```
+Human Product Owner
+    -> AI Business Analyst
+    -> Human Architect
+    -> AI Specification Agent
+    -> Human Reviewer
+    -> Business System
+```
+
+Each node in this chain may be individually constrained. The AI Business Analyst may remain within scope. The AI Specification Agent may apply rules correctly. The Human Architect may have formal authority. The Human Reviewer may receive an output. Still, governance can fail between nodes.
+
+The reason is that workflow governance requires continuity, not merely locally valid behavior. Work must cross actors, roles, tools, evidence states, authority boundaries, and time gaps. What matters is not only whether Actor A was allowed to perform Action X. It is also whether the work produced by Actor A can be legitimately, sufficiently, and operationally continued by Actor B.
+
+The governance question changes:
+
+```
+Step governance:
+Can Actor A perform action X?
+
+Workflow governance:
+Can work produced by Actor A be legitimately and sufficiently continued by Actor B?
+```
+
+This second question requires state that may not exist at the individual-step level.
+
+For example, an AI actor may produce correct code, remain within authorized scope, satisfy behavior rules, and preserve evidence. The next step may require a Product Owner to approve release. If the Product Owner receives only source code and technical logs, the transfer may fail as governance even if every step-level control reports success. The receiving actor does not have the capacity, context, or evidence format needed to continue the workflow.
+
+The reverse can also occur. A human may delegate an underspecified task to an AI agent. The AI infers missing scope, produces a plausible result, and stays internally consistent. The downstream output may appear successful. Yet the workflow may have silently expanded authority at the handoff from human to AI because the transfer failed to externalize scope and intent.
+
+These examples show the central extension:
+
+> Governed steps do not automatically produce a governed workflow.
+
+Enterprise AI governance therefore requires two surfaces:
+
+- step governance: the governance of individual execution states;
+- handoff governance: the governance of transition states between actors.
+
+---
+
+## 6. The Handoff as a Governance Object
+
+A step can be represented as:
+
+```
+Input -> Actor -> Output
+```
+
+A workflow requires another object:
+
+```
+Actor A
+    -> Handoff
+    -> Actor B
+```
+
+The handoff is not merely a message, output, file, approval request, or notification. It is a governance-relevant transfer of work state across an actor boundary. It must carry enough information for the receiving actor to continue the work under appropriate authority and accountability conditions.
+
+The author's prior work on continuation readiness provides the main workflow-level demonstration. It argues that Human-in-the-Loop is insufficient when it only places a human at a checkpoint. Governance requires continuability: the receiving human or machine actor must be able to act on transferred work without reconstructing it. Continuability depends on both what is transferred and who receives it.
+
+Several engineered states become necessary.
+
+**Role State** represents the capability, responsibility, authority, and contextual position of an actor. It identifies what the actor can legitimately continue. A human role, AI role, reviewer role, architect role, or business owner role may require different evidence and may hold different authority.
+
+**Work Junction** represents the transfer point where work crosses actors or roles. It is the place where step output becomes input for another actor and where governance must evaluate whether the transition is valid.
+
+**Continuation Package** represents the transferred work state needed for continuation. It may include output, evidence, assumptions, unresolved decisions, scope, authority basis, risk flags, provenance, and required next actions.
+
+**Receiving Capacity** represents whether the receiving actor can actually act on the transfer. A transfer can be complete from the sender's perspective while unusable from the receiver's perspective. Receiving Capacity is therefore not simply another evidence field. It is a relational condition between package and recipient.
+
+These states support the same dependency pattern:
+
+```
+Implicit handoff condition
+    -> engineering externalization
+    -> governance visibility
+    -> continuation judgment
+```
+
+At the step level, explicit specification, scope, boundary, rules, authority, and evidence make behavior governable. At the workflow level, Role State, Work Junction, Continuation Package, Receiving Capacity, authority compatibility, and evidence transfer make continuation governable.
+
+The handoff should therefore be treated as a governance object. It is a site where work can lose context, authority can silently expand, evidence can fail to transfer, accountability can become ambiguous, and human oversight can become ceremonial.
+
+---
+
+## 7. Continuous Workflow Governance
+
+Enterprise AI workflows are not governed by a single engineering act at the beginning of the lifecycle. Governance judgment recurs at execution points and at the transitions between them. Here, *continuous* does not mean uninterrupted real-time monitoring. It means that governability must be re-established wherever work is executed or transferred.
+
+A step and its outgoing handoff each require their own engineering-visible state and governance judgment:
+
+```
+Step State S1
+    -> Step Judgment Gs1
+    -> Handoff State H1
+    -> Handoff Judgment Gh1
+    -> Step State S2
+    -> Step Judgment Gs2
+```
+
+where:
+
+- **S** is engineering-visible state for an execution step;
+- **Gs** is a governance judgment about that step;
+- **H** is engineering-visible state for a handoff;
+- **Gh** is a governance judgment about that handoff.
+
+The distinction matters because a valid step judgment does not imply a valid handoff judgment. A sender may have acted within scope while still transferring insufficient evidence, incompatible authority, or unusable work state to the receiver. Conversely, a well-formed handoff cannot cure an execution that violated its own scope or rules.
+
+The important proposition is that engineering-visible state precedes each operational governance judgment, not that governance requirements follow engineering as an institutional phase. Governance requirements may exist throughout, but a concrete step or handoff judgment requires corresponding state at the point of judgment.
+
+A workflow can therefore be understood as alternating execution and transfer surfaces:
+
+```
+[Step]
+  Specification
+  Scope
+  Boundary
+  Rules
+  Authority
+  Evidence
+      |
+      v
+[Handoff]
+  Role compatibility
+  Transfer state
+  Authority compatibility
+  Evidence accessibility
+  Continuation readiness
+      |
+      v
+[Step]
+  Specification
+  Scope
+  Boundary
+  Rules
+  Authority
+  Evidence
+```
+
+Enterprise AI governance becomes continuous because the relevant engineering-visible state must be constructed, updated, or transferred at every execution and handoff boundary, and each surface must support its own governance judgment. A governed workflow is therefore not merely the sum of governed actors. It is the composition of governed execution states and governed transition states.
+
+This can be stated informally:
+
+```
+Governed Workflow
+    = governed execution states
+    + governed transition states
+```
+
+The formula is conceptual rather than mathematical. Its purpose is to prevent a common compression: treating a chain of locally constrained AI or human actions as if the chain itself were governed. The workflow is governed only if the transitions are governed as well.
+
+---
+
+## 8. Unified Model
+
+The step-level and handoff-level arguments can be combined in a single model of engineering-visible governance state.
+
+| Governance unit      | Engineering-visible state               | Governance question                            |
+| -------------------- | --------------------------------------- | ---------------------------------------------- |
+| Specification        | VSS / explicit intent                   | What is the AI expected to produce?            |
+| Scope                | Governed reference region               | Where does the judgment apply?                 |
+| Boundary             | Admissibility classification            | Is this action inside the relevant region?     |
+| Rule                 | Structured normative constraint         | What must or must not occur?                   |
+| Authority            | Actor authorization and responsibility  | Who may decide, approve, execute, or transfer? |
+| Evidence             | Inspectable basis                       | On what basis can compliance be assessed?      |
+| Role State           | Actor capability / responsibility state | What can this actor legitimately continue?     |
+| Work Junction        | Transfer point                          | What exactly is being transferred?             |
+| Continuation Package | Transferred work state                  | Is enough state available to continue?         |
+| Receiving Capacity   | Receiver-side capability                | Can the receiver actually act on the transfer? |
+
+The table should not be read as a mandatory implementation stack. Different systems may realize these states through different artifacts, schemas, logs, workflow engines, policy engines, review protocols, or human procedures. The table identifies the kind of state governance needs, not a single architecture for representing it.
+
+The synthesis is:
+
+> Step-level engineering makes behavior governable. Handoff-level engineering makes continuity governable.
+
+The same general principle appears in both cases. A governance condition remains weak when it is only implicit. It becomes governable when engineering externalizes it into a state that can be identified, inspected, constrained, transferred, and audited.
+
+---
+
+## 9. Proposition Set
+
+The paper's argument can be expressed through five propositions.
+
+### P1: Visibility Dependency
+
+A governance judgment depends on an observable representation of the state to which the judgment applies.
+
+This does not mean every relevant fact must be perfectly observable. It means that a judgment about scope, authority, behavioral constraint, evidence, or transfer cannot be reliably made if the relevant object of judgment remains entirely implicit or inaccessible to the responsible governance mechanism.
+
+### P2: Operationalization Dependency
+
+Governance requirements become operational through a dependency chain from governance requirement to engineering design, engineering-visible state, and governance engineering.
+
+If any link is absent, the requirement may remain normatively valid while being weakly enforceable, auditable, or attributable. The chain does not prescribe one implementation architecture; it identifies the dependency between normative expectation and operational judgment.
+
+### P3: Step Governability
+
+At the individual execution level, specification, scope, boundaries, behavioral rules, authority, and evidence constitute engineering prerequisites for governing AI behavior.
+
+Without these states, governance must infer what the AI was expected to do, where it was allowed to operate, how its actions should be classified, which rules applied, who held authority, or what evidence supports evaluation. Step governability therefore weakens as these conditions remain implicit.
+
+### P4: Transition Governability
+
+At workflow transitions, role state, transfer state, authority compatibility, evidence accessibility, and receiving capacity constitute engineering prerequisites for governing continuation.
+
+Without these states, governance cannot reliably determine whether transferred work can be legitimately and operationally continued by the receiving actor. A transfer may appear complete while leaving continuation authority, evidence, or capacity unresolved.
+
+### P5: Workflow Composition
+
+A workflow composed of individually governed AI steps is not necessarily governed unless the handoffs between those steps are also governed.
+
+This is the paper's most important synthesis claim. Governance does not compose automatically across actor boundaries. Step-level correctness can coexist with workflow-level failure.
+
+---
+
+## 10. Implications
+
+The dependency from governance requirement through engineering-visible state to governance engineering has implications for governance system design, AI engineering practice, HITL design, agentic systems, and audit.
+
+### 10.1 Governance System Design
+
+Governance design should not begin only with the question:
+
+> What policy should we enforce?
+
+It should also ask:
+
+> What state must exist for that policy to be evaluated?
+
+It should then ask:
+
+> What governance mechanism will use that state, and what judgment or control must it produce?
+
+These questions connect governance requirement, engineering design, engineering-visible state, and governance engineering. A policy requiring authorized scope becomes a requirement to represent scope and a mechanism for classifying actions against it. A policy requiring human approval becomes a requirement to package evidence and authority in a usable form and a mechanism for recording the resulting decision. A policy requiring accountability becomes a requirement to preserve attribution state and an audit mechanism capable of interpreting it.
+
+### 10.2 AI Engineering
+
+Governability becomes an engineering requirement. AI systems should not be evaluated only by whether they produce correct outputs, but also by whether they produce or preserve the state needed for governance judgment. Specification, scope, boundary, rule, authority, evidence, and transfer state become part of the system's engineering surface.
+
+This does not require every system to become heavy or formal. The amount of externalization should be proportionate to risk, organizational need, and governance purpose. But where governance judgment matters, the relevant state should not remain hidden in prompts, logs, tacit assumptions, or model inference.
+
+### 10.3 HITL
+
+Human presence is not sufficient. A human in the loop may still lack evidence, authority, context, time, tooling, or domain standing. HITL governance should therefore evaluate continuation readiness, not only intervention placement.
+
+The relevant question is not merely whether a human was asked to approve. It is whether the human received a continuation package suitable for their role state and receiving capacity.
+
+### 10.4 Agentic Systems
+
+Multi-agent systems require transition state, not merely per-agent permission. An agent may be authorized to perform its own task, but the transfer to another agent or human may still fail if scope, assumptions, evidence, unresolved decisions, or authority basis do not move with the work.
+
+Agentic governance therefore needs a handoff model as much as it needs tool permissions and action constraints.
+
+### 10.5 Audit
+
+Auditability depends on engineered state persistence. A log of events may show that something happened, but governance audit asks what happened relative to specification, scope, boundary, rule, authority, evidence, and transfer conditions. Those objects must be preserved or reconstructable from preserved state.
+
+The more governance depends on reconstructing implicit state after the fact, the weaker the audit.
+
+---
+
+## 11. Limitations
+
+This paper makes a conceptual synthesis claim. It does not propose a new mandatory architecture, empirical performance result, or universal formal model.
+
+Several limitations should be stated explicitly.
+
+First, the paper does not claim that engineering replaces governance. Governance requirements, organizational accountability, legal duties, and ethical principles remain necessary. Engineering-visible state makes those requirements operationally evaluable; it does not define all normative content.
+
+Second, the paper does not claim that policy is unimportant. Policy expresses governance requirements. The argument is that policy alone does not create the observable state required to evaluate its own satisfaction.
+
+Third, the paper does not claim that all governance can be made deterministic. Many governance judgments remain qualitative, probabilistic, contested, or context-dependent. Engineering-visible state improves the object of judgment; it does not remove judgment.
+
+Fourth, the paper does not claim that all AI state must be observable. Some internal model state may be inaccessible, irrelevant, proprietary, or too costly to externalize. The claim concerns the subset of state required for governance judgments involving scope, authority, behavioral constraints, evidence, or transfer.
+
+Fifth, the paper does not claim that every workflow needs the same structures. A low-risk internal drafting task may require little more than simple evidence and role clarity. A regulated enterprise decision may require explicit scope artifacts, rulesets, authority records, continuation packages, and audit trails.
+
+Sixth, the paper does not claim that VSS, Scope, Boundary, BRA, Role State, Work Junction, Continuation Package, or Receiving Capacity are newly invented here. They are treated as prior work. This paper's contribution is their synthesis into a common dependency principle.
+
+Finally, the paper does not claim that engineering organizationally happens before governance. Governance requirements may initiate and guide engineering design. The argument is about operational dependency: governance engineering cannot execute a specific judgment reliably until the relevant state has been represented in engineering-visible form.
+
+---
+
+## 12. Conclusion
+
+AI governance cannot operate only through rules placed above AI systems. Policies, oversight, accountability, audit, and compliance all require objects of judgment. They require scope, boundary, rules, authority, evidence, role state, and transfer state to exist in forms that can be identified, inspected, constrained, transferred, and preserved.
+
+At the step level, engineering makes behavior governable. It externalizes intent, governed regions, classifications, rules, authority, and evidence before an individual AI execution can be evaluated.
+
+At the workflow level, engineering makes handoffs governable. It externalizes role state, work junctions, continuation packages, receiving capacity, evidence transfer, and authority compatibility before multi-actor work can continue under governance.
+
+The dependency can therefore be stated simply:
+
+```text
+Governance Requirement
+    -> Engineering Design
+    -> Engineering-Visible State
+    -> Governance Engineering
+```
+
+Governance requirements define what should be governed. Engineering design determines how the relevant condition will be represented. Engineering-visible state makes the condition inspectable. Governance engineering turns that state into operational judgment and control.
+
+Engineering does not replace governance. It produces the explicit state through which governance engineering becomes operational.
