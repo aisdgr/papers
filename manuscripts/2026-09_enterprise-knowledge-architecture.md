@@ -1145,7 +1145,137 @@ The knowledge therefore becomes less dependent on:
 
 This is the operational sense in which the organization begins to hold the knowledge produced through AI-assisted work.
 
-## 5.6 Implications for Enterprise Knowledge Management
+## 5.6 Engineering Determinacy Reconsidered
+
+Engineering Determinacy remains useful as a design principle but should not be interpreted as a claim that organizational knowledge can become permanently deterministic (Tsai, 2026b).
+
+The principle is:
+
+> once an interpretation has been explicitly established and accepted, routine reuse should not require that interpretation to be re-inferred.
+
+This creates two zones.
+
+The **probabilistic zone** is where unresolved semantics are interpreted, hypotheses are generated, candidate Relations are proposed, and conflicting meanings may coexist.
+
+The **governed knowledge zone** is where accepted semantic commitments are represented explicitly enough for routine reuse.
+
+The boundary between them is Admission.
+
+The deterministic property therefore concerns reuse of accepted representation.
+
+It does not concern permanent truth.
+
+This distinction is particularly important because knowledge changes.
+
+A Relation accepted today may require revision tomorrow.
+
+Persistent knowledge must therefore support explicit change rather than prevent change.
+
+## 5.7 Limitations
+
+The conceptual architecture has several important limitations.
+
+### Persistence does not establish truth
+
+An incorrect interpretation can be accepted.
+
+Persistence may then propagate the error more consistently than repeated inference would.
+
+The architecture therefore transfers part of the risk from repeated interpretation to admission quality.
+
+This is intentional but consequential.
+
+### Admission governance patterns require domain-specific instantiation
+
+AIKA intentionally does not prescribe a universal Admission mechanism. Admission is domain-specific because evidential thresholds, authority, validation, and risk controls differ across organizational settings.
+
+The limitation is therefore not the absence of one universal algorithm. It is that the present conceptual study does not instantiate or evaluate reusable Admission governance patterns for different domains. Implementation research must show how particular combinations of human approval, authoritative-source policy, deterministic validation, evidence requirements, and risk-sensitive controls perform in practice.
+
+### Explicit semantics cannot be complete
+
+No finite schema can capture every semantic distinction relevant to all future organizational decisions.
+
+AIKA therefore reduces unnecessary inference rather than eliminating interpretation.
+
+### Viewpoint formalization remains incomplete
+
+The paper proposes conditions distinguishing a persistent Viewpoint from a saved query or arbitrary relation set, but it does not provide a complete formal logic for Viewpoint discovery, validation, split, merge, or collapse.
+
+### Cross-viewpoint comparison requires empirical validation
+
+The illustrative case shows how shared identities can expose cross-functional relationships, but it does not establish that such comparison consistently improves enterprise decision making.
+
+### The architecture is representation-agnostic
+
+AIKA does not specify whether implementations should use RDF, RDF-star, labeled property graphs, relational databases, document stores, hybrid representations, or another storage technology.
+
+The contribution concerns semantic responsibility rather than a particular storage platform.
+
+### No empirical performance claim is made
+
+The present study does not demonstrate reduced cost, higher retrieval accuracy, improved answer faithfulness, improved employee productivity, or improved decision outcomes.
+
+Such claims require implementation and empirical study. A prototype evaluation should compare a conventional RAG workflow with an AIKA-enabled workflow over matched repeated-query and knowledge-change tasks. Relevant measures include:
+
+- the number of accepted semantic distinctions and relationships that must be re-inferred;
+- token consumption and latency across repeated uses;
+- consistency of recovered Attributes and Relations across sessions, models, and prompt variants;
+- frequency of stale or invalid accepted knowledge being reused;
+- human and automated effort required for Admission;
+- propagation time from Reconstruction to affected Viewpoint Domains;
+- and the accuracy with which the system distinguishes candidate from accepted knowledge.
+
+The expected benefit is not cost reduction under every workload. Persisting, validating, versioning, and revising governed knowledge introduces its own operational cost. Empirical evaluation must therefore identify the conditions under which reduced repeated inference and improved consistency outweigh the overhead of Admission and knowledge maintenance.
+
+## 5.8 From Persistent Knowledge to Knowledge Evolution
+
+A persistent knowledge structure creates a subsequent question already recognized in ontology-evolution research: represented knowledge must support controlled change, versioning, and the propagation of revisions rather than remain static (Zablith et al., 2015).
+
+Knowledge cannot remain static.
+
+Requirements change.
+
+Policies expire.
+
+Evidence accumulates.
+
+New Claims appear.
+
+Existing relationships may cease to hold.
+
+Previously disconnected Claims may become plausibly related.
+
+AIKA defines the persistent state on which such change can operate.
+
+A companion paper, **AI Knowledge Evolution**, develops this question through four operations (Tsai, 2026a):
+
+**Construction** establishes explicit Claims and resolved semantic Attributes.
+
+**Integration** establishes Relations among existing Claims.
+
+**Reconstruction** explicitly reopens previously accepted Relations when evidence or conditions change.
+
+**Exploration** identifies candidate Relations among Claims not currently connected by an accepted relationship.
+
+These operations do not form a mandatory sequence, and Admission remains orthogonal to them.
+
+The distinction is important because persistence and evolution solve different problems.
+
+AIKA asks:
+
+> **What does accepted organizational knowledge look like when it persists?**
+
+AI Knowledge Evolution asks:
+
+> **How can that accepted knowledge change without allowing every new probabilistic inference to silently redefine what the organization previously accepted?**
+
+Together, they establish a progression from information retrieval to persistent and evolvable enterprise knowledge.
+
+---
+
+# 6. Conclusions and Implications
+
+## 6.1 Implications for Enterprise Knowledge Management
 
 The architecture suggests several broader implications for enterprise AI knowledge management.
 
@@ -1208,135 +1338,7 @@ It must preserve enough explicit structure to answer:
 
 > What did we accept, under what conditions, and why?
 
-## 5.7 Engineering Determinacy Reconsidered
-
-Engineering Determinacy remains useful as a design principle but should not be interpreted as a claim that organizational knowledge can become permanently deterministic (Tsai, 2026b).
-
-The principle is:
-
-> once an interpretation has been explicitly established and accepted, routine reuse should not require that interpretation to be re-inferred.
-
-This creates two zones.
-
-The **probabilistic zone** is where unresolved semantics are interpreted, hypotheses are generated, candidate Relations are proposed, and conflicting meanings may coexist.
-
-The **governed knowledge zone** is where accepted semantic commitments are represented explicitly enough for routine reuse.
-
-The boundary between them is Admission.
-
-The deterministic property therefore concerns reuse of accepted representation.
-
-It does not concern permanent truth.
-
-This distinction is particularly important because knowledge changes.
-
-A Relation accepted today may require revision tomorrow.
-
-Persistent knowledge must therefore support explicit change rather than prevent change.
-
-## 5.8 Limitations
-
-The conceptual architecture has several important limitations.
-
-### Persistence does not establish truth
-
-An incorrect interpretation can be accepted.
-
-Persistence may then propagate the error more consistently than repeated inference would.
-
-The architecture therefore transfers part of the risk from repeated interpretation to admission quality.
-
-This is intentional but consequential.
-
-### Admission governance patterns require domain-specific instantiation
-
-AIKA intentionally does not prescribe a universal Admission mechanism. Admission is domain-specific because evidential thresholds, authority, validation, and risk controls differ across organizational settings.
-
-The limitation is therefore not the absence of one universal algorithm. It is that the present conceptual study does not instantiate or evaluate reusable Admission governance patterns for different domains. Implementation research must show how particular combinations of human approval, authoritative-source policy, deterministic validation, evidence requirements, and risk-sensitive controls perform in practice.
-
-### Explicit semantics cannot be complete
-
-No finite schema can capture every semantic distinction relevant to all future organizational decisions.
-
-AIKA therefore reduces unnecessary inference rather than eliminating interpretation.
-
-### Viewpoint formalization remains incomplete
-
-The paper proposes conditions distinguishing a persistent Viewpoint from a saved query or arbitrary relation set, but it does not provide a complete formal logic for Viewpoint discovery, validation, split, merge, or collapse.
-
-### Cross-viewpoint comparison requires empirical validation
-
-The illustrative case shows how shared identities can expose cross-functional relationships, but it does not establish that such comparison consistently improves enterprise decision making.
-
-### The architecture is representation-agnostic
-
-AIKA does not specify whether implementations should use RDF, RDF-star, labeled property graphs, relational databases, document stores, hybrid representations, or another storage technology.
-
-The contribution concerns semantic responsibility rather than a particular storage platform.
-
-### No empirical performance claim is made
-
-The present study does not demonstrate reduced cost, higher retrieval accuracy, improved answer faithfulness, improved employee productivity, or improved decision outcomes.
-
-Such claims require implementation and empirical study. A prototype evaluation should compare a conventional RAG workflow with an AIKA-enabled workflow over matched repeated-query and knowledge-change tasks. Relevant measures include:
-
-- the number of accepted semantic distinctions and relationships that must be re-inferred;
-- token consumption and latency across repeated uses;
-- consistency of recovered Attributes and Relations across sessions, models, and prompt variants;
-- frequency of stale or invalid accepted knowledge being reused;
-- human and automated effort required for Admission;
-- propagation time from Reconstruction to affected Viewpoint Domains;
-- and the accuracy with which the system distinguishes candidate from accepted knowledge.
-
-The expected benefit is not cost reduction under every workload. Persisting, validating, versioning, and revising governed knowledge introduces its own operational cost. Empirical evaluation must therefore identify the conditions under which reduced repeated inference and improved consistency outweigh the overhead of Admission and knowledge maintenance.
-
-## 5.9 From Persistent Knowledge to Knowledge Evolution
-
-A persistent knowledge structure creates a subsequent question already recognized in ontology-evolution research: represented knowledge must support controlled change, versioning, and the propagation of revisions rather than remain static (Zablith et al., 2015).
-
-Knowledge cannot remain static.
-
-Requirements change.
-
-Policies expire.
-
-Evidence accumulates.
-
-New Claims appear.
-
-Existing relationships may cease to hold.
-
-Previously disconnected Claims may become plausibly related.
-
-AIKA defines the persistent state on which such change can operate.
-
-A companion paper, **AI Knowledge Evolution**, develops this question through four operations (Tsai, 2026a):
-
-**Construction** establishes explicit Claims and resolved semantic Attributes.
-
-**Integration** establishes Relations among existing Claims.
-
-**Reconstruction** explicitly reopens previously accepted Relations when evidence or conditions change.
-
-**Exploration** identifies candidate Relations among Claims not currently connected by an accepted relationship.
-
-These operations do not form a mandatory sequence, and Admission remains orthogonal to them.
-
-The distinction is important because persistence and evolution solve different problems.
-
-AIKA asks:
-
-> **What does accepted organizational knowledge look like when it persists?**
-
-AI Knowledge Evolution asks:
-
-> **How can that accepted knowledge change without allowing every new probabilistic inference to silently redefine what the organization previously accepted?**
-
-Together, they establish a progression from information retrieval to persistent and evolvable enterprise knowledge.
-
----
-
-# 6. Conclusion
+## 6.2 Conclusions
 
 Retrieval-augmented generation has transformed organizational access to internal information.
 

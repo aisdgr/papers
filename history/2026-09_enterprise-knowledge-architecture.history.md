@@ -594,6 +594,54 @@ evaluation as future work.
 
 ---
 
+## v0.9 — IUP Review: Conclusions and Implications Restructuring
+
+**Status:** Final Structural Revision
+
+**Revision Date:** 2026-10-06
+
+**Journal:** The IUP Journal of Knowledge Management
+
+**Article Reference Number:** 524038
+
+### Review Context
+
+The editorial follow-up requested that the content of subsection 5.6 be
+separated from Section 5 and placed under a new section titled
+**Conclusions and Implications**. It also requested corresponding maintenance
+of the content and linked structure in the preceding sections and
+subsections.
+
+### Key Revisions
+
+#### 1. Implications Are Moved Out of Section 5
+
+The content previously presented as **5.6 Implications for Enterprise
+Knowledge Management** is moved to the new concluding section without changing
+its substantive claims. It now appears as **6.1 Implications for Enterprise
+Knowledge Management**.
+
+#### 2. Conclusions and Implications Are Consolidated
+
+The former **6. Conclusion** is retitled **6. Conclusions and Implications**.
+The original concluding synthesis is retained under **6.2 Conclusions**, so
+the implications and conclusions are now presented together in one terminal
+section as requested by the editor.
+
+#### 3. Preceding Subsections Are Renumbered
+
+The remaining discussion subsections are maintained under Section 5 and
+renumbered to preserve a continuous hierarchy:
+
+- **5.7 Engineering Determinacy Reconsidered** becomes **5.6**;
+- **5.8 Limitations** becomes **5.7**; and
+- **5.9 From Persistent Knowledge to Knowledge Evolution** becomes **5.8**.
+
+No substantive argument, limitation, implication, or conclusion is removed by
+this structural revision.
+
+---
+
 ## Current Status — Persistent Attribute and Relation States
 
 **Status:** Current Manuscript
@@ -644,10 +692,12 @@ demonstration; an explicit evaluation of Organizational Ownership; literature
 positioning; scoped limitations; declarations; and a structural appendix
 specifying the principal AIKA elements and their relationships.
 
-The latest revision, v0.8, addresses the IUP journal's minor review comments
-through a continuous Introduction and explanatory opening paragraphs in
-Sections 2, 4, and 5. The revised manuscript is prepared for further review;
-this history does not record a final acceptance or resubmission.
+The latest revision, v0.9, addresses the IUP journal's follow-up structural
+comment by moving the former subsection 5.6 into the new **Conclusions and
+Implications** section, retaining the original conclusion as subsection 6.2,
+and renumbering the remaining Section 5 subsections. The revised manuscript is
+prepared as the requested final version; this history does not record final
+acceptance or resubmission.
 
 ---
 
