@@ -22,155 +22,41 @@ Retrieval-augmented generation improves access to enterprise information but typ
 
 # 1. Introduction
 
-## 1.1 From Enterprise Repositories to RAG-Based Knowledge Access
-
 Organizations have accumulated large bodies of internal information in requirements repositories, policy documents, contracts, specifications, operating procedures, technical records, databases, meeting records, issue histories, and other enterprise systems. Knowledge management technologies have long attempted to make these materials available for organizational use. More recently, large language models and retrieval-augmented generation (RAG) have substantially changed the way employees interact with such material.
 
-Instead of requiring users to know where a document is stored, how it is classified, or which keywords it contains, a RAG-based system can retrieve relevant material and place it into the context of a generative model. The model can then summarize the retrieved information, compare multiple sources, answer questions, identify apparent dependencies, or explain implications in natural language (Lewis et al., 2020; Gao et al., 2023). Graph-based retrieval approaches extend this capability by organizing entities and relationships to support broader query-time synthesis and sensemaking (Edge et al., 2024).
+Instead of requiring users to know where a document is stored, how it is classified, or which keywords it contains, a RAG-based system can retrieve relevant material and place it into the context of a generative model. The model can then summarize the retrieved information, compare multiple sources, answer questions, identify apparent dependencies, or explain implications in natural language (Lewis et al., 2020; Gao et al., 2023). Graph-based retrieval approaches extend this capability by organizing entities and relationships to support broader query-time synthesis and sensemaking (Edge et al., 2024). These developments improve access to information, but access to information and possession of organizational knowledge are not equivalent.
 
-This development addresses an important organizational problem: **access to information**.
+Consider an enterprise AI assistant working over a software requirements repository. A requirement states that the production transaction service shall sustain 10,000 transactions per second. A RAG system can retrieve this statement, and a language model can interpret it competently. It may determine that the statement is a requirement rather than an observation, that *production* identifies an applicability environment, that 10,000 is a target rather than a historical measurement, that transactions per second is the relevant metric, and that *sustain* distinguishes continuous load from a temporary burst. The answer may be useful, and a design decision may follow from it.
 
-Yet access to information and possession of organizational knowledge are not equivalent.
+Three weeks later, however, another employee may ask a related question. The same source statement is retrieved again, and the model interprets it again. The interpretation may be identical or slightly different; a different model or a later model version may reach another conclusion. Nothing in the ordinary RAG cycle requires the organization to retain which parts of that semantic interpretation it has accepted as stable Attributes. The source information persists, but the interpretation does not necessarily persist as an explicit enterprise state.
 
-Consider an enterprise AI assistant working over a software requirements repository. A requirement states:
+This problem becomes clearer when the unit represented by many AI-enabled knowledge systems is examined. A contemporary RAG workflow may operate on documents, passages, chunks, embeddings, extracted entities, facts, propositions, summaries, or other semantic units. Such units allow a system to identify meaningful material rather than treat an enterprise repository as an undifferentiated body of text. In the bounded comparison developed in this paper, this is the semantic layer: the system has produced or retrieved a meaningful unit that can participate in inference. Many RAG-oriented implementations effectively stop at this layer. A semantic unit is made retrievable and is then supplied to the model, while finer meaning within the unit and relationships between units may still be reconstructed at query time.
 
-> The production transaction service shall sustain 10,000 transactions per second.
+AI Knowledge Architecture introduces two additional persistence steps for enterprise knowledge management. First, when a semantic distinction within a unit has been explicitly established and accepted, it is represented as an Attribute. For example, *production* may be persisted as an environment, 10,000 as a target, and *sustain* as a sustained-load condition. Second, when a relationship between two semantic units has been explicitly established and accepted, it is represented as a persistent Relation. Accepted meaning and accepted relationships thereby become part of the enterprise knowledge state rather than interpretations that a later model must reproduce.
 
-A RAG system can retrieve this statement. A language model can interpret it competently. It may determine that the statement is a requirement rather than an observation, that *production* identifies an applicability environment, that 10,000 is a target rather than a historical measurement, that transactions per second is the relevant metric, and that *sustain* distinguishes continuous load from a temporary burst.
+In a RAG-oriented workflow, the primary persistent objects may be sources, chunks, embeddings, extracted entities, or graph indexes. Meaning within a semantic unit and its connections to other units may be reconstructed for each query. In an AIKA-enabled workflow, an identified Claim carries governed knowledge state: accepted meaning is persisted as Attributes, and accepted relationships are persisted as Relations with Qualifiers and Grounding. Routine reuse reads this accepted state, while Admission distinguishes candidate interpretations from organizational commitments. The comparison is architectural rather than universal: particular RAG implementations may persist entities, edges, summaries, or memory records. AIKA asks whether their meaning and relationships have been explicitly admitted as organizational commitments, since relevance or retrieval alone does not establish acceptance.
 
-The answer may be useful. A design decision may follow from it.
+A semantic unit should therefore not automatically be equated with complete organizational knowledge. The statement that a service must sustain 10,000 transactions per second conveys meaningful information, and representing it as an identifiable assertion improves machine use. Nevertheless, an organization frequently needs to know whether another system constraint limits the requirement, under which environment and operating conditions that limitation applies, what evidence established it, and whether the relationship has been accepted or remains speculative. It also needs to understand how architecture, business, product, and operations functions organize the same information and whether earlier interpretations have subsequently been revised. Organizationally consequential knowledge thus exists not only in isolated semantic units but also in their relationships, applicability conditions, supporting evidence, and recurring organizational perspectives.
 
-Three weeks later, however, another employee asks a related question. The same source statement is retrieved again, and the model interprets it again. The interpretation may be identical. It may be slightly different. A different model may emphasize different semantics. A later model version may reach another conclusion.
+The paper adopts a deliberately bounded position: RAG can supply semantic units as knowledge elements for query-time reasoning, while AI Knowledge Architecture persists the accepted meaning within those units as Attributes and the accepted relationships among them as Relations. Organizational knowledge is represented as a governed persistent state of accepted semantics and accepted relational structure. This is an architectural claim rather than a universal definition of knowledge. Knowledge has been treated in the knowledge management literature as an object, a process, a state of knowing, a capability, and a condition of access, among other perspectives (Alavi & Leidner, 2001). The present paper addresses the narrower systems question of what an enterprise AI system must persist if AI-assisted interpretations are to remain reusable organizational knowledge.
 
-Nothing in the ordinary RAG cycle requires the organization to retain which parts of that semantic interpretation it has accepted as stable Attributes.
+Traditional knowledge management research has treated organizational knowledge as something that must be created, retained, transferred, applied, and embedded in organizational structures and processes (Nonaka, 1994; Alavi & Leidner, 2001). Organizational memory research similarly emphasizes storing and retrieving information from an organization's history in forms that can influence subsequent decisions (Walsh & Ungson, 1991). RAG contributes to this tradition by improving access to recorded organizational material. It primarily determines what information should enter the present inference context, after which a language model interprets that information in relation to the current question. For enterprise knowledge management, a further question follows: what interpretation has the organization actually accepted, and how can it persist independently of the model invocation that produced it?
 
-The source information persists.
+This distinction matters because organizationally meaningful work often occurs between retrieval and final action. Locating a requirement is retrieval; determining that another capacity statement constrains it is interpretation. Establishing that the constraint applies only in production under sustained load adds qualification, identifying the supporting measurement adds grounding, and accepting the result for subsequent use is a governance act. If these results remain only inside a generated response, the organization retains the source materials and perhaps the conversation transcript, but lacks an explicit knowledge structure representing what it decided those materials mean.
 
-The interpretation does not necessarily persist as an explicit enterprise state.
+Organizational ownership of knowledge is used here operationally rather than in the sense of intellectual-property ownership. An organization holds an accepted interpretation as a knowledge asset when it can identify that interpretation independently of a past model response, inspect its accepted semantic commitments and relationships, determine their applicability conditions, and examine the basis of acceptance. It must also be able to reuse the interpretation without routine probabilistic reconstruction, revise it explicitly when evidence or conditions change, and distinguish accepted knowledge from proposed, revised, or rejected interpretations. A generated answer may contribute to organizational knowledge without satisfying all these conditions. Access to previous AI output therefore does not by itself establish possession of governed organizational knowledge.
 
-## 1.2 The Missing Transition from Semantic Interpretation to Organizational Knowledge
+The research question is how enterprise AI systems can extend RAG semantic units by persisting accepted semantic distinctions as Attributes and accepted relationships among semantic units as Relations, so established knowledge does not require repeated inference. The proposed answer is AI Knowledge Architecture (AIKA) for enterprise knowledge management. AIKA operates downstream of retrieval and complements RAG, knowledge graphs, provenance models, ontology views, and language-model reasoning. It defines an architectural boundary between candidate interpretations and accepted organizational commitments. Once accepted, semantic distinctions and relational interpretations are externalized as Attributes and Relations for subsequent reuse.
 
-This problem becomes clearer when the unit represented by many AI-enabled knowledge systems is examined.
+The paper makes three primary contributions. First, it distinguishes semantic availability from semantic persistence: retrieving or producing a semantic unit does not necessarily preserve the meanings resolved within it, whereas AIKA externalizes accepted meanings as reusable Attributes. Second, it distinguishes semantic units from persistent relational knowledge: the availability of two units does not preserve an accepted relationship between them, whereas AIKA represents that relationship as a Relation with Qualifiers and Grounding. Third, it positions AIKA as a knowledge-management layer downstream of RAG, in which retrieval supplies semantic material, AI reasoning proposes Attributes and Relations, Admission determines which proposals become organizational commitments, and the architecture preserves the accepted state.
 
-A contemporary RAG workflow may operate on documents, passages, chunks, embeddings, extracted entities, facts, propositions, summaries, or other semantic units. Such units are useful and often necessary. They allow a system to identify meaningful material rather than treat an enterprise repository as an undifferentiated body of text. In the bounded comparison developed in this paper, this is the **semantic layer**: the system has produced or retrieved a meaningful unit that can participate in inference.
-
-Many RAG-oriented implementations effectively stop at this layer. A semantic unit is made retrievable and is then treated as the knowledge element supplied to the model. Any finer meaning within the unit, and any relationship between that unit and another, may still be reconstructed at query time.
-
-AI Knowledge Architecture introduces two additional persistence steps for enterprise knowledge management.
-
-First, when a semantic distinction within a unit has been explicitly established and accepted, it is represented as an **Attribute**. For example, *production* may be persisted as an environment, 10,000 as a target, and *sustain* as a sustained-load condition. The accepted meaning no longer exists only as an interpretation that a later model must reproduce.
-
-Second, when a relationship between two semantic units has been explicitly established and accepted, it is represented as a persistent **Relation**. The relationship becomes part of the enterprise knowledge state rather than a conclusion that must be inferred again whenever the two units are retrieved together.
-
-The operational contrast can be summarized as follows:
-
-| Dimension                           | RAG-oriented workflow                                                      | AIKA-enabled workflow                                                          |
-| ----------------------------------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| Primary persistent object           | Source, chunk, embedding, extracted entity, or graph index                 | Identified Claim with governed knowledge state                                 |
-| Meaning within a semantic unit      | May be reconstructed for the present query                                 | Accepted meaning is persisted as Attributes                                    |
-| Relationship between semantic units | May be extracted or inferred for retrieval and response generation         | Accepted relationship is persisted as a Relation with Qualifiers and Grounding |
-| Repeated query                      | The model may reinterpret the same units and regenerate their connection   | Routine reuse reads the accepted Attribute and Relation state                  |
-| Governance status                   | Relevance or retrieval does not itself establish organizational acceptance | Admission distinguishes candidate interpretation from accepted commitment      |
-
-The comparison is architectural rather than universal: particular RAG implementations may persist entities, edges, summaries, or memory records. AIKA asks the additional question of whether their meaning and relationships have been explicitly admitted as organizational commitments.
-
-A semantic unit should therefore not automatically be equated with complete organizational knowledge.
-
-The statement that a service must sustain 10,000 transactions per second conveys meaningful information. Representing that statement as an identifiable semantic assertion improves machine use. Nevertheless, an organization frequently needs to know considerably more:
-
-- whether another system constraint limits the requirement;
-- under which environment and operating conditions that limitation applies;
-- what evidence established the limitation;
-- whether the relationship has been accepted or remains speculative;
-- how architecture, business, product, and operations functions organize the same information;
-- and whether the organization has subsequently revised its earlier interpretation.
-
-The organizationally consequential knowledge is therefore not contained only in an isolated semantic unit. It also exists in the relationships among semantic units, the conditions delimiting those relationships, the evidence supporting them, and the recurring organizational perspectives through which they are interpreted.
-
-This paper adopts a deliberately bounded position:
-
-> **RAG can supply semantic units as knowledge elements for query-time reasoning. AI Knowledge Architecture persists the accepted meaning within those units as Attributes and the accepted relationships among those units as Relations. Organizational knowledge is therefore represented not as semantic units alone, but as a governed persistent state of accepted semantics and accepted relational structure.**
-
-The claim is architectural rather than philosophical. It does not propose a universal definition of knowledge. Knowledge has been treated in the knowledge management literature as an object, a process, a state of knowing, a capability, and a condition of access, among other perspectives (Alavi & Leidner, 2001). The present paper addresses a narrower systems question: **what must an enterprise AI system persist if an organization expects the results of AI-assisted interpretation to remain reusable organizational knowledge rather than transient model output?**
-
-## 1.3 From Retrieval to Organizational Knowledge
-
-Traditional knowledge management research has treated organizational knowledge as something that must be created, retained, transferred, applied, and embedded in organizational structures and processes (Nonaka, 1994; Alavi & Leidner, 2001). Organizational memory research similarly emphasizes the problem of storing and retrieving information from an organization's history in forms that can influence subsequent decisions (Walsh & Ungson, 1991).
-
-RAG contributes powerfully to this tradition by improving access to recorded organizational material. But the RAG cycle primarily answers:
-
-> **What information should be brought into the present inference context?**
-
-A language model may then answer:
-
-> **What might this information mean in the context of the present question?**
-
-For enterprise knowledge management, another question follows:
-
-> **What interpretation has the organization actually accepted, and how can that interpretation persist independently of the model invocation that produced it?**
-
-This distinction matters because organizationally meaningful work often occurs between retrieval and final action.
-
-Locating a requirement is retrieval.
-
-Determining that another capacity statement constrains that requirement is interpretation.
-
-Determining that the constraint applies only in production, under sustained load, is qualified interpretation.
-
-Determining that the relationship rests on a particular measurement is grounding.
-
-Accepting that interpretation for subsequent organizational use is a governance act.
-
-If all of those results remain only inside a generated response, the organization possesses the source materials and perhaps the conversation transcript, but not an explicit knowledge structure representing what it decided those materials mean.
-
-## 1.4 Organizational Ownership
-
-As used in this paper, **organizational ownership of knowledge** does not refer to intellectual-property ownership.
-
-In this paper, **organizational ownership of knowledge** is used operationally. An organization can be said to hold an accepted interpretation as an organizational knowledge asset when it can:
-
-1. identify the interpretation independently of a past model response;
-2. inspect what semantic commitments were accepted;
-3. identify the relationships among those commitments;
-4. determine the conditions under which those relationships apply;
-5. inspect the basis on which they were accepted;
-6. reuse them without requiring routine probabilistic reconstruction;
-7. revise them explicitly when evidence or conditions change; and
-8. account for the distinction between what is accepted, proposed, revised, or rejected.
-
-A generated answer may contribute to organizational knowledge without itself satisfying these conditions.
-
-This distinction separates **having access to previous AI output** from **possessing governed organizational knowledge**.
-
-## 1.5 Research Question
-
-The paper addresses the following research question:
-
-> **RQ: How can enterprise AI systems extend RAG semantic units by persisting accepted semantic distinctions as Attributes and accepted relationships among semantic units as Relations, so established knowledge does not require repeated inference?**
-
-The proposed answer is **AI Knowledge Architecture (AIKA) for enterprise knowledge management**.
-
-AIKA operates downstream of retrieval. It does not replace RAG, knowledge graphs, provenance models, ontology views, or language-model reasoning. Instead, it defines an architectural boundary between interpretations that remain candidates and interpretations that have become accepted organizational commitments.
-
-Once accepted, semantic distinctions are externalized as Attributes and relational interpretations are externalized as Relations rather than left to be reconstructed from source text and retrieval context at every later use.
-
-## 1.6 Contributions
-
-The paper makes three primary contributions.
-
-**First, it distinguishes semantic availability from semantic persistence.** RAG can retrieve or produce a semantic unit, but the meanings resolved within that unit may still remain implicit. AIKA externalizes the accepted portion of those meanings as Attributes that can be reused directly.
-
-**Second, it distinguishes semantic units from persistent relational knowledge.** The availability of two semantic units does not preserve an accepted relationship between them. AIKA externalizes established semantic-to-semantic relationships as persistent Relations, with Qualifiers and Grounding preserving where they apply and why they were accepted.
-
-**Third, it positions AIKA as a knowledge-management layer downstream of RAG.** RAG supplies semantic material for present inference. AI reasoning proposes Attributes and Relations. An admission process determines which proposals become organizational commitments. AIKA preserves the accepted Attribute and Relation state for reuse.
-
-The contribution is therefore not a new graph syntax or a claim that semantic units, relations, provenance, qualifiers, or views are individually novel. These mechanisms have substantial prior art. The contribution lies in assigning them a common organizational responsibility:
-
-> **accepted semantics should become persistent Attributes, and accepted semantic relationships should become persistent Relations, rather than return unnecessarily to probabilistic reconstruction.**
+The contribution is not a new graph syntax or a claim that semantic units, relations, provenance, qualifiers, or views are individually novel. These mechanisms have substantial prior art. The contribution lies in assigning them a common organizational responsibility: accepted semantics should become persistent Attributes, and accepted semantic relationships should become persistent Relations, so routine reuse does not require unnecessary probabilistic reconstruction.
 
 ---
 
 # 2. Literature Review and Conceptual Positioning
+
+The literature review uses a thematic synthesis of the works cited in this paper to position AIKA within knowledge management, organizational memory, RAG and agent memory, persistent semantic representation, and ontology views. These bodies of work are examined for the responsibilities they assign to knowledge access, interpretation, persistence, and governance. Their contributions are then compared to identify the architectural gap addressed by persistent accepted Attribute and Relation state. This conceptual review provides the foundations for the framework developed in Sections 3 and 4.
 
 ## 2.1 Organizational Knowledge and Knowledge Creation
 
@@ -584,6 +470,8 @@ The purpose of the present analysis is narrower: to evaluate whether the propose
 
 # 4. AI Knowledge Architecture: Conceptual Framework
 
+This section develops the conceptual framework through the problem decomposition described in Section 3. Each recurring interpretive responsibility is mapped to a persistent structure: Claims identify semantic units, Attributes preserve accepted meaning, and Relations preserve accepted connections. Qualifiers, Grounding, Viewpoints, and derived Domains specify how that knowledge is bounded, inspected, and organized for reuse. The analysis then explains how Admission governs the transition from candidate interpretation to accepted organizational knowledge.
+
 ## 4.1 From RAG to Persistent Organizational Knowledge
 
 AIKA can be positioned as a layer downstream of RAG-based enterprise AI:
@@ -955,6 +843,8 @@ Together they establish a governed semantic network in which accepted interpreta
 ---
 
 # 5. Results and Discussion
+
+This section examines the framework through an illustrative enterprise scenario in which a single requirement and its related Claims are interpreted from four organizational perspectives. The analysis follows how accepted Attributes and Relations support shared knowledge reuse and cross-viewpoint comparison, then discusses the implications for knowledge management, governance, and knowledge evolution. The results are conceptual demonstrations of the architecture's operation; implementation performance and organizational outcomes remain questions for empirical evaluation.
 
 ## 5.1 Conceptual Demonstration: One Requirement, Four Organizational Perspectives
 

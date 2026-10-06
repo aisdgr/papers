@@ -534,6 +534,66 @@ greater consistency outweigh Admission and lifecycle overhead.
 
 ---
 
+## v0.8 — IUP Review: Continuous Introduction and Section Opening Notes
+
+**Status:** Minor Revision for Further Review
+
+**Revision Date:** 2026-10-06
+
+**Journal:** The IUP Journal of Knowledge Management
+
+**Article Reference Number:** 524038
+
+### Review Context
+
+The editorial email dated 2026-10-05 requested two minor modifications:
+present the Introduction as a continuous narrative without subheadings, and
+add a brief explanation of the review or analytical procedure immediately
+after the headings of Sections 2, 4, and 5.
+
+The email stated that, subject to these modifications, the paper may be
+considered for publication and requested the revised manuscript for further
+review processing.
+
+### Key Revisions
+
+#### 1. Introduction Becomes a Continuous Narrative
+
+Subheadings 1.1 through 1.6 are removed. The workflow comparison table,
+organizational-ownership conditions, block quotations, research question,
+and contributions are integrated into connected prose.
+
+The revision retains the core argument, the comparison dimensions, the eight
+ownership conditions, the three contributions, and the cited foundations.
+Organizational Ownership is now introduced within Section 1 rather than a
+separately numbered Section 1.4; the earlier version history retains that
+subsection reference as a record of the previous structure.
+
+#### 2. Literature Review Procedure Is Explained
+
+A paragraph immediately after the Section 2 heading describes the review as
+a thematic synthesis of the cited literature on knowledge management,
+organizational memory, RAG and agent memory, persistent semantic
+representation, and ontology views.
+
+It explains how those works are compared by their responsibilities for
+knowledge access, interpretation, persistence, and governance to identify
+the architectural gap addressed by accepted Attribute and Relation state.
+
+#### 3. Framework and Discussion Procedures Are Explained
+
+An opening paragraph in Section 4 explains how the problem decomposition
+developed in Section 3 maps recurring interpretive responsibilities to the
+AIKA structures and how Admission governs acceptance.
+
+An opening paragraph in Section 5 explains the illustrative enterprise
+scenario, its four organizational perspectives, cross-viewpoint comparison,
+and subsequent discussion of knowledge management, governance, and evolution.
+It identifies the results as conceptual demonstrations and retains empirical
+evaluation as future work.
+
+---
+
 ## Current Status — Persistent Attribute and Relation States
 
 **Status:** Current Manuscript
@@ -583,6 +643,11 @@ The manuscript now includes a closed five-Claim, four-Relation conceptual
 demonstration; an explicit evaluation of Organizational Ownership; literature
 positioning; scoped limitations; declarations; and a structural appendix
 specifying the principal AIKA elements and their relationships.
+
+The latest revision, v0.8, addresses the IUP journal's minor review comments
+through a continuous Introduction and explanatory opening paragraphs in
+Sections 2, 4, and 5. The revised manuscript is prepared for further review;
+this history does not record a final acceptance or resubmission.
 
 ---
 
