@@ -16,6 +16,102 @@ version.
 
 ---
 
+## v0.3 — Development-Stage Scope and Governance Requirement Framing
+**Status:** Scope clarification and conceptual reframing
+
+### Purpose
+- Make explicit from the beginning that the paper concerns AI governance at the
+  software development stage, especially AI-assisted software engineering.
+- Prevent behavior, execution, boundary, decision, workflow, and handoff from
+  being read as production-runtime concepts.
+- Replace the prior **Step-Level Governability** framing with a governance
+  requirement chain:
+
+```text
+Governance Problem or Requirement
+    -> Engineering Design
+    -> Engineering-Visible State
+    -> Governance Engineering
+```
+
+### Scope Clarification
+v0.3 adds an explicit stage boundary in the abstract and introduction:
+
+- **Behavior** means AI-assisted development behavior.
+- **Execution** means a development action or tool-mediated development
+  operation.
+- **Boundary** means a development-stage classification of permitted
+  visibility, operation, or modification.
+- **Workflow** means a software development workflow.
+- **Continuation** means transfer of development work between human and AI
+  actors.
+
+The paper therefore does not primarily address runtime governance of deployed
+AI systems, production inference monitoring, or model-level safety governance.
+
+### Governance Requirement Reframing
+Section 4 is renamed from step-level governability to **Development Behavior
+Governance**. It is reorganized around governance needs rather than framework
+names.
+
+Before execution:
+
+- **Behavior constraints** require visibility into applicable constraints,
+  policies, rules, targets, conditions, and priorities. Behavior Rule
+  Architecture is treated as one engineering design.
+- **Execution boundaries** require visibility into allowed boundaries, visible
+  range, operable range, and modifiable range. Scope and Boundary are treated
+  as engineering designs.
+- **Context** requires specification state that can outlive prompt memory and
+  represent multiple viewpoints. Viewpoint-Structured Specification is treated
+  as one engineering design.
+
+After execution:
+
+- **Boundary and risk judgment** require visibility into actual modified scope,
+  actual effect scope, applied constraints and policies, exceptions, and
+  evidence. Decision Analysis and Decision Risk provide the post-execution
+  judgment surface.
+
+### Workflow Governance Clarification
+Workflow discussion is reframed as **development workflow governance**. The
+central claim is preserved but narrowed:
+
+> A software development workflow composed of individually governed
+> AI-assisted actions is not necessarily governed unless the handoffs between
+> those actions are also governed.
+
+Continuation readiness remains the workflow-level evidence for this claim:
+Role State, Work Junction, Continuation Package, Receiving Capacity, authority
+compatibility, and evidence accessibility make handoffs governable.
+
+### Unified Model Revision
+The unified model is revised from a list of governance units to a requirement
+table with five columns:
+
+1. Governance area;
+2. Governance problem or requirement;
+3. Engineering design;
+4. Engineering-visible state;
+5. Governance judgment.
+
+This makes the paper's analytical movement explicit:
+
+```text
+governance need
+    -> required visible state
+    -> possible governance judgment
+```
+
+### Terminology Changes
+- Removed the phrase **Step-Level Governability** from the manuscript.
+- Replaced step-oriented claims with **development action governance**,
+  **development behavior governance**, and **development workflow governance**.
+- Added Decision Analysis and Decision Risk to the synthesis alongside VSS,
+  Scope, Boundary, BRA, and continuation readiness.
+
+---
+
 ## v0.2 — From Governance Requirement to Governance Engineering
 **Status:** Conceptual model refinement
 

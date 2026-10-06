@@ -87,8 +87,8 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 - **SSRN**: [7252878](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7252878) / **Published** / `2026-08-13`
 
 ### Engineering Before Governance: Why AI Governance Depends on Engineering-Visible State
-- **Artifacts**: [Manuscript v0.2](manuscripts/2026-09_engineering-before-governance_v0.2.md) / [v0.1](manuscripts/2026-09_engineering-before-governance_v0.1.md) / [History](history/2026-09_engineering-before-governance.history.md)
-- **Status**: v0.2 Conceptual model refinement / `2026-09-24`
+- **Artifacts**: [Manuscript v0.3](manuscripts/2026-09_engineering-before-governance_v0.3.md) / [v0.2](manuscripts/2026-09_engineering-before-governance_v0.2.md) / [v0.1](manuscripts/2026-09_engineering-before-governance_v0.1.md) / [History](history/2026-09_engineering-before-governance.history.md)
+- **Status**: v0.3 Development-stage scope and governance requirement framing / `2026-09-24`
 
 
 ### Regulator
