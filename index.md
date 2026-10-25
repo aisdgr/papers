@@ -116,6 +116,10 @@ Sub-domain of AI Governance centered on **development-stage decision behavior**.
 - **zenodo**: [10.5281/zenodo.19174636](https://doi.org/10.5281/zenodo.19174636) / `2026-03-23`
 - **engrXiv**: [10.31224/6681](https://engrxiv.org/preprint/view/6681) / **Published** / `2026-03-25`
 
+### Role Architecture
+- **Artifacts**: [Manuscript](manuscripts/2026-10_role-architecture.md) / [History](history/2026-10_role-architecture.history.md)
+- **Status**: Conceptual Draft / `2026-10-25`
+
 ---
 
 ## EDBF: During Decision Behavior Formation
