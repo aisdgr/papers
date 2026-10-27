@@ -2,12 +2,12 @@
 
 ## v0.5 — Role Inference Boundary and Extensible Role Structure
 
-| 項目 | 內容 |
-| --- | --- |
-| 版本 | **v0.5** |
-| 日期 | 2026-10-25 |
-| 性質 | 核心思維與概念架構定義；作為論文稿（`2026-10_role-architecture.md`）的審核基準 |
-| 對應審核 | `2026-10_role-architecture_review.md` v0.5 |
+| 項目     | 內容                                                                           |
+| -------- | ------------------------------------------------------------------------------ |
+| 版本     | **v0.5**                                                                       |
+| 日期     | 2026-10-25                                                                     |
+| 性質     | 核心思維與概念架構定義；作為論文稿（`2026-10_role-architecture.md`）的審核基準 |
+| 對應審核 | `2026-10_role-architecture_review.md` v0.5                                     |
 
 ---
 
@@ -63,14 +63,14 @@ Role Architecture 有兩個目的：
 
 單次 prompt 與 agentic flow 不是本質上互斥的兩種系統；下列是常見的風險放大條件，而不是絕對差異。
 
-| 放大條件 | 較受控情境 | 較高風險情境 |
-| --- | --- | --- |
-| 修正迴路 | 每一步有人檢視並修正 | 多步自主執行，錯誤在人工介入前已傳遞 |
-| 輸出效果 | 輸出只供人閱讀 | 輸出觸發工具、修改 artifact 或成為下游前提 |
-| 角色數量 | 單一 Actor／單次解讀 | 多 Agent 分別重建同一 Role label |
-| 重複使用 | 一次性使用 | 同一 Role 在多次 execution 中反覆重建 |
-| 模型替換 | Role meaning 由外部 Definition 固定 | Role meaning 隨 model interpretation 改變 |
-| 流程位置 | 任務與權責由人即時說明 | workflow position 被模型用來推論未宣告權責 |
+| 放大條件 | 較受控情境                          | 較高風險情境                               |
+| -------- | ----------------------------------- | ------------------------------------------ |
+| 修正迴路 | 每一步有人檢視並修正                | 多步自主執行，錯誤在人工介入前已傳遞       |
+| 輸出效果 | 輸出只供人閱讀                      | 輸出觸發工具、修改 artifact 或成為下游前提 |
+| 角色數量 | 單一 Actor／單次解讀                | 多 Agent 分別重建同一 Role label           |
+| 重複使用 | 一次性使用                          | 同一 Role 在多次 execution 中反覆重建      |
+| 模型替換 | Role meaning 由外部 Definition 固定 | Role meaning 隨 model interpretation 改變  |
+| 流程位置 | 任務與權責由人即時說明              | workflow position 被模型用來推論未宣告權責 |
 
 **結論：在缺少 Role Inference Boundary 時，context variation 會轉化為 Role meaning variation；在 agentic flow 中，這種 variation 更容易累積為可執行的 Decision-Right Expansion。**
 
@@ -88,15 +88,15 @@ Role Definition 不是封閉欄位清單，而是：
 
 Stable Core 保存不能在每次使用時重新推論的 Role meaning：
 
-| 元素 | 作用 |
-| --- | --- |
-| **Identity** | 提供可解析的 Role identifier |
-| **Version** | 區分已接受的 Role Definition state |
-| **Description** | 說明 Role 的組織目的與語義定位 |
-| **Required Viewpoints** | 限制 Role 必須採取的 interpretive perspectives |
-| **Responsibilities** | 明定 Role 必須承擔的 outcomes、judgments 或 obligations |
-| **Authority** | 引用 BRA 的 Policy (MUST) 與 Constraint (MUST NOT) 結構 |
-| **Decision Rights** | 明定 Role 可以決定、核准、拒絕、接受或觸發什麼 |
+| 元素                       | 作用                                                                     |
+| -------------------------- | ------------------------------------------------------------------------ |
+| **Identity**               | 提供可解析的 Role identifier                                             |
+| **Version**                | 區分已接受的 Role Definition state                                       |
+| **Description**            | 說明 Role 的組織目的與語義定位                                           |
+| **Required Viewpoints**    | 限制 Role 必須採取的 interpretive perspectives                           |
+| **Responsibilities**       | 明定 Role 必須承擔的 outcomes、judgments 或 obligations                  |
+| **Authority**              | 引用 BRA 的 Policy (MUST) 與 Constraint (MUST NOT) 結構                  |
+| **Decision Rights**        | 明定 Role 可以決定、核准、拒絕、接受或觸發什麼                           |
 | **Extension Declarations** | 宣告可附加的 extension type、schema、default state 與 compatibility rule |
 
 Stable Core 建立 Role Inference Boundary。Context 可以在此邊界內具體化 Role，但不能自行增加 Required Viewpoint、Responsibility、Authority 或 Decision Right。
@@ -105,13 +105,13 @@ Stable Core 建立 Role Inference Boundary。Context 可以在此邊界內具體
 
 Scope、Work 與其他 domain-specific structures 屬於可擴充區段，類似 Rule Schema 的 extensibility：
 
-| Extension | 可能內容 |
-| --- | --- |
-| **Scope Extension** | Visible Scope、Artifact Scope、domain-specific Scope、parameterized Scope |
-| **Work Extension** | activities、inputs、outputs、completion conditions、escalation conditions |
-| **Evidence Extension** | required evidence、produced evidence、retention and grounding requirements |
-| **Interaction Extension** | produces-for、escalates-to、separates-from 等關係與 contract |
-| **Capability Extension** | Required Capabilities；Actor actual capability 仍在 binding 時判定 |
+| Extension                 | 可能內容                                                                   |
+| ------------------------- | -------------------------------------------------------------------------- |
+| **Scope Extension**       | Visible Scope、Artifact Scope、domain-specific Scope、parameterized Scope  |
+| **Work Extension**        | activities、inputs、outputs、completion conditions、escalation conditions  |
+| **Evidence Extension**    | required evidence、produced evidence、retention and grounding requirements |
+| **Interaction Extension** | produces-for、escalates-to、separates-from 等關係與 contract               |
+| **Capability Extension**  | Required Capabilities；Actor actual capability 仍在 binding 時判定         |
 
 新的 extension type 可以事後加入，但必須明確、可解析、schema-governed、具版本與來源。Role Architecture 不預先封閉所有可能的 Scope 或 Work schema。
 
@@ -138,14 +138,14 @@ Scope、Work 與其他 domain-specific structures 屬於可擴充區段，類似
 
 ### 4. 核心物件
 
-| 物件 | OO 類比 | 定義 |
-| --- | --- | --- |
-| **Role Definition** | Class／Interface | 持久、版本化、可解析的 Stable Core 與 extension declarations |
-| **Role Extension** | Schema-governed module | 依宣告 extension point 附加的 Scope、Work、Evidence、Interaction 或 Capability structure |
-| **Binding** | Instantiation | 把 Role Definition 的特定版本、extensions 綁定到 Actor、model、flow、task context，可附帶明確 override |
-| **Role State** | Instance | Binding 後的 contextual state；保留 CR canonical fields 與 binding metadata |
-| **Actor** | Implementation subject | 佔用 Role 的人、Agent 或 service；實際 capability 屬於 Actor／Role State |
-| **Role Library** | Package／Registry | 管理 Role Definition、version、extension、dependency 與 compatibility metadata |
+| 物件                | OO 類比                | 定義                                                                                                   |
+| ------------------- | ---------------------- | ------------------------------------------------------------------------------------------------------ |
+| **Role Definition** | Class／Interface       | 持久、版本化、可解析的 Stable Core 與 extension declarations                                           |
+| **Role Extension**  | Schema-governed module | 依宣告 extension point 附加的 Scope、Work、Evidence、Interaction 或 Capability structure               |
+| **Binding**         | Instantiation          | 把 Role Definition 的特定版本、extensions 綁定到 Actor、model、flow、task context，可附帶明確 override |
+| **Role State**      | Instance               | Binding 後的 contextual state；保留 CR canonical fields 與 binding metadata                            |
+| **Actor**           | Implementation subject | 佔用 Role 的人、Agent 或 service；實際 capability 屬於 Actor／Role State                               |
+| **Role Library**    | Package／Registry      | 管理 Role Definition、version、extension、dependency 與 compatibility metadata                         |
 
 Role State 保留 Continuation Readiness 的 canonical fields：
 
@@ -165,17 +165,17 @@ Role Specialization 建立 child Role Definition，但 child 是否可替代 par
 
 > **A specialized Role may substitute for its parent only when every parent requirement remains satisfiable and every affected interface remains compatible.**
 
-| 元素 | 安全 specialization 原則 |
-| --- | --- |
-| Required Viewpoints | 不可移除；新增 required viewpoint 必須證明不改變 parent consumer 所依賴的語義，否則建立 sibling／new major version |
-| Constraint (MUST NOT) | 可新增；不可移除或放寬 |
-| Policy (MUST) | 不可移除；新增不得與 parent Responsibility 或 contract 衝突 |
-| Responsibility | child 必須自行保留 parent Responsibility；移轉給其他 Role 屬 composition／binding，不是 substitutability 例外 |
-| Decision Right | 不得因 specialization 自動擴張；擴張需獨立授權與新 Definition version |
-| Artifact Scope | 可縮小；擴大不是安全替代，需新 version 或 sibling Role |
-| Visible Scope | 不得無條件擴大；擴張需符合 data authorization、parameterized Scope 與新版本／顯式 binding 規則 |
-| Input Contract | 不得要求 parent consumer 無法提供的更強 precondition |
-| Output Contract | 只允許 receiver-compatible 的 covariance；必須通過 schema compatibility test |
+| 元素                  | 安全 specialization 原則                                                                                           |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Required Viewpoints   | 不可移除；新增 required viewpoint 必須證明不改變 parent consumer 所依賴的語義，否則建立 sibling／new major version |
+| Constraint (MUST NOT) | 可新增；不可移除或放寬                                                                                             |
+| Policy (MUST)         | 不可移除；新增不得與 parent Responsibility 或 contract 衝突                                                        |
+| Responsibility        | child 必須自行保留 parent Responsibility；移轉給其他 Role 屬 composition／binding，不是 substitutability 例外      |
+| Decision Right        | 不得因 specialization 自動擴張；擴張需獨立授權與新 Definition version                                              |
+| Artifact Scope        | 可縮小；擴大不是安全替代，需新 version 或 sibling Role                                                             |
+| Visible Scope         | 不得無條件擴大；擴張需符合 data authorization、parameterized Scope 與新版本／顯式 binding 規則                     |
+| Input Contract        | 不得要求 parent consumer 無法提供的更強 precondition                                                               |
+| Output Contract       | 只允許 receiver-compatible 的 covariance；必須通過 schema compatibility test                                       |
 
 Responsibility transfer 可以形成新的 Role composition，但不能用來宣稱 child 仍完全替代 parent。
 
@@ -240,11 +240,11 @@ Role Library 是 Role Definition、Role Extension 與依賴關係的治理 regis
 
 **定義**：Role meaning 在沒有對應版本、明確 binding／extension record 或 attributable change 的情況下改變。
 
-| Locus | 說明 |
-| --- | --- |
+| Locus                | 說明                                                                          |
+| -------------------- | ----------------------------------------------------------------------------- |
 | **Definition Drift** | 同一 identifier／version 下 Stable Core 或 referenced extension identity 改變 |
-| **Binding Drift** | 實例化時發生未宣告、違反 schema 或超出 override 規則的改變 |
-| **Enactment Drift** | 實際行為、輸出或 decision effect 超出 Role State |
+| **Binding Drift**    | 實例化時發生未宣告、違反 schema 或超出 override 規則的改變                    |
+| **Enactment Drift**  | 實際行為、輸出或 decision effect 超出 Role State                              |
 
 Drift dimensions 可包括 Viewpoint、Responsibility、Authority、Decision Right、Scope、Work、Evidence 與 Interaction。
 
@@ -254,15 +254,15 @@ Role Drift 是缺少 Role Inference Boundary 或違反其 extension／binding ru
 
 ### 8. 與既有研究的關係
 
-| 構件 | 關係 |
-| --- | --- |
-| **Engineering Determinacy** | 上位原則；已確立的 Role meaning 不應因 consuming model 改變而重新推論 |
-| **BRA** | 提供 Authority 的 Policy／Constraint 與 Application Ruleset；Role Library 引用而不取代 Rule composition |
-| **VSS** | 提供 Viewpoint structure；viewpoint 不等於 Role，也不授予 Decision Right |
+| 構件                                        | 關係                                                                                                                            |
+| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| **Engineering Determinacy**                 | 上位原則；已確立的 Role meaning 不應因 consuming model 改變而重新推論                                                           |
+| **BRA**                                     | 提供 Authority 的 Policy／Constraint 與 Application Ruleset；Role Library 引用而不取代 Rule composition                         |
+| **VSS**                                     | 提供 Viewpoint structure；viewpoint 不等於 Role，也不授予 Decision Right                                                        |
 | **Boundary as an Execution-Time Primitive** | Task Execution Boundary 位於下游；Role Architecture 提供 Role 層宣告，不宣稱 Role label 缺失等於整體 execution boundary absence |
-| **Scope as a Governance Primitive** | Scope Extension 可引用 Visible、Artifact 或其他 viewpoint-dependent Scope |
-| **DA／DR** | 未承接的 Responsibility reduction 可造成 DR-V；超出 Decision Right 的 enactment 可造成 DR-O |
-| **Continuation Readiness** | Role State 保持 canonical 定義；Role Definition 與 Binding 提供其可重用來源 |
+| **Scope as a Governance Primitive**         | Scope Extension 可引用 Visible、Artifact 或其他 viewpoint-dependent Scope                                                       |
+| **DA／DR**                                  | 未承接的 Responsibility reduction 可造成 DR-V；超出 Decision Right 的 enactment 可造成 DR-O                                     |
+| **Continuation Readiness**                  | Role State 保持 canonical 定義；Role Definition 與 Binding 提供其可重用來源                                                     |
 
 ---
 
@@ -270,12 +270,12 @@ Role Drift 是缺少 Role Inference Boundary 或違反其 extension／binding ru
 
 > 本文不提出新的通用角色理論，而是提出 Role 在 LLM Agent 條件下的工程化形式：以 Role Inference Boundary 固定 Stable Core，並透過 schema-governed extensions、specialization、composition、binding 與 Role Library 支援明確擴充和共享。
 
-| 前作 | 已具備 | 本文聚焦差異 |
-| --- | --- | --- |
-| **RBAC／role engineering** | permissions、hierarchy、constraints、SSD／DSD | 不否定既有繼承與限制；增加 Viewpoint、Work、model binding 與 Role Inference Boundary |
-| **Gaia／MOISE+／OperA** | structured roles、responsibilities、permissions／norms、activities／missions、protocols | 不宣稱其 Agent 必然 deterministic；聚焦 LLM context-based reconstruction、versioned extension 與 cross-model binding |
-| **Agent specifications／AgentCard** | identity、version、skills、capabilities、security／interface metadata | 不視為純 persona；指出其未必包含完整 Responsibility、Decision Right、Role specialization invariants 與 Role Library semantics |
-| **BRA Rule Library** | versioned atomic Rules 與 Application Ruleset composition | Role Library 是上層 Role assembly；只引用 Application Ruleset，不重做 Rule composition |
+| 前作                                | 已具備                                                                                  | 本文聚焦差異                                                                                                                  |
+| ----------------------------------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| **RBAC／role engineering**          | permissions、hierarchy、constraints、SSD／DSD                                           | 不否定既有繼承與限制；增加 Viewpoint、Work、model binding 與 Role Inference Boundary                                          |
+| **Gaia／MOISE+／OperA**             | structured roles、responsibilities、permissions／norms、activities／missions、protocols | 不宣稱其 Agent 必然 deterministic；聚焦 LLM context-based reconstruction、versioned extension 與 cross-model binding          |
+| **Agent specifications／AgentCard** | identity、version、skills、capabilities、security／interface metadata                   | 不視為純 persona；指出其未必包含完整 Responsibility、Decision Right、Role specialization invariants 與 Role Library semantics |
+| **BRA Rule Library**                | versioned atomic Rules 與 Application Ruleset composition                               | Role Library 是上層 Role assembly；只引用 Application Ruleset，不重做 Rule composition                                        |
 
 ---
 
@@ -298,3 +298,73 @@ Role Drift 是缺少 Role Inference Boundary 或違反其 extension／binding ru
 5. **Minimum completeness**：semantic completeness、bindable completeness 與 executable completeness 是否需要分層？
 6. **Role relations**：`escalates-to`、`produces-for`、`separates-from` 是否足以作為最小集合？
 7. **Inference evidence**：如何保留足夠證據證明模型對 Role 的實際理解，而不依賴不可觀察的 internal reasoning？
+
+
+---
+
+## 12. v0.6 修改目標
+
+> 參照：`rule.schema.yaml`（dev-scr-rule-schema v1.0.0）
+
+### 12.1 Schema 最小核心
+
+**設計原則：** 對應 BRA rule schema 的精神——`normative` 是唯一強制行為欄位，其餘 governance 欄位全為選填延伸。Role Definition schema 應只強制最小的身份識別欄位，其餘一律歸入可擴展的 binding。
+
+**必要欄位（四項）：**
+
+| 欄位          | 說明                                               |
+| ------------- | -------------------------------------------------- |
+| `id`          | 唯一識別符，用於引用、版本比對、漂移追蹤           |
+| `description` | 人類可讀的角色說明，為 binding 的語意錨點          |
+| `version`     | 版本號，確保引用方知道綁定的是哪一個語意版本       |
+| `status`      | 生命週期狀態（draft / active / deprecated 等）     |
+
+其餘欄位（viewpoints、responsibilities、authority、scope、work、skills 等）**不在 required 列表中**，作為具名 binding 類型存在。導入企業可依治理需求自行新增 binding 類型。
+
+### 12.2 Binding 可擴展性
+
+新增 `skills` 為預定義 binding 類型：
+
+| Binding 類型       | 說明                                                   |
+| ------------------ | ------------------------------------------------------ |
+| `viewpoints`       | 角色應從哪些專業視角解讀任務與回應                     |
+| `responsibilities` | 角色負有哪些責任（聲明式，非 RBAC 的 permission 設定） |
+| `authority`        | 角色的規則集與決策範圍（對應 BRA Authority 定義）      |
+| `work`             | 角色應執行的工作定義與輸出合約                         |
+| `scope`            | Visible Scope 與 Artifact Scope                        |
+| `skills`           | 明確綁定至此角色的技能或能力單元（**新增**）           |
+
+導入企業可自行新增額外 binding 類型（如 `risk_profile`、`data_classification`、`regulatory_scope`），不受 schema 約束。
+
+### 12.3 Binding 類型的範例用途
+
+Paper 應為每個預定義 binding 類型說明具體使用情境：
+
+**`viewpoints`——Chat 回應視角**
+
+在對話情境中，指定模型回應時應採用的專業視角。
+
+> Role: PM，viewpoints: ["product strategy", "user value", "feasibility trade-off"]
+
+當用戶詢問功能優先序，模型從產品策略與使用者價值角度回應，而非從工程技術或法規角度——同一「PM」標籤在不同 viewpoints binding 下產生不同回應邊界，這正是 Role Drift 問題的解方。
+
+**`responsibilities` / `authority`——Agent Governance 稽核**
+
+在 agentic flow 中，提供聲明式的權責邊界，作為**非 RBAC 的抽象授權層**，可供治理稽核使用。
+
+> Role: Implementation Agent  
+> responsibilities: ["write code", "run tests", "propose architecture"]  
+> authority: MUST NOT merge to production branch without approval
+
+稽核時比對 Evidence Record：Implementation Agent 選擇 caching strategy 是否超出 `responsibilities`（對應 DR-O）；直接 merge 是否違反 `authority` constraint（對應 Authority Drift）。無需 RBAC 的 permission 設定，仍可提供可稽核的授權語意。
+
+**`skills`——明確技能綁定**
+
+將特定 skill 單元明確綁定至角色，使技能可用性成為 Role Definition 的顯式宣告，而非 prompt 的隱含假設。
+
+> Role: Code Reviewer  
+> skills: ["anthropic-skills:code-review", "engineering:testing-strategy"]
+
+- binding 時可驗證 skill 是否存在（Capacity check）；
+- skill 升版時，引用此 Role Definition 的 binding 可追蹤能力邊界是否改變；
+- 跨組織分享時，接收方可依 skill type/capability 做在地化對應。

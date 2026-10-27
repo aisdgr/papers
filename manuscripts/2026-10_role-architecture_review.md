@@ -1,4 +1,4 @@
-# Role Architecture — 核心思維與架構調整建議
+﻿# Role Architecture — 核心思維與架構調整建議
 
 > 對象：`2026-10_role-architecture.md`（概念稿）
 > 範圍：只處理核心論點、概念模型與章節架構；不含文字潤飾、引用格式與文獻補齊細節。
@@ -558,13 +558,13 @@ Minimum completeness = L1 + L2 + L3 必要；L4 依流程而定。
 
 # v0.5 — Revised Review（2026-10-25）
 
-| 項目 | 內容 |
-| --- | --- |
-| 版本 | **v0.5** |
-| 審核基準 | `2026-10_role-architecture_concept.md` v0.5 revised baseline |
-| 審核對象 | `2026-10_role-architecture.md` v0.4 conceptual manuscript |
+| 項目       | 內容                                                                                   |
+| ---------- | -------------------------------------------------------------------------------------- |
+| 版本       | **v0.5**                                                                               |
+| 審核基準   | `2026-10_role-architecture_concept.md` v0.5 revised baseline                           |
+| 審核對象   | `2026-10_role-architecture.md` v0.4 conceptual manuscript                              |
 | Issue 處理 | 本節依使用者要求，不以 `2026-10_role-architecture_issue.md` 的未決研究問題否決 Concept |
-| 審核性質 | 只列 Concept v0.5 與 manuscript v0.4 的有效差異 |
+| 審核性質   | 只列 Concept v0.5 與 manuscript v0.4 的有效差異                                        |
 
 ---
 
@@ -578,64 +578,64 @@ Concept v0.5 是一次新的 thesis refocusing：
 
 Role Drift 仍保留，但由 architecture purpose 改為主要 failure condition。v0.5 manuscript 的工作不是重做 v0.3／v0.4，而是保留既有成果並改變其組織中心。
 
-| 優先級 | 項目數 | 說明 |
-| --- | --- | --- |
-| P0 — Thesis | 4 | 不處理會使 v0.5 manuscript 與 Concept 主軸不一致 |
-| P1 — Architecture | 7 | Stable Core、Extension、specialization、composition、library 的必要模型 |
-| P2 — Structure | 6 | 章節、案例、命題、標題與研究關係調整 |
+| 優先級            | 項目數 | 說明                                                                    |
+| ----------------- | ------ | ----------------------------------------------------------------------- |
+| P0 — Thesis       | 4      | 不處理會使 v0.5 manuscript 與 Concept 主軸不一致                        |
+| P1 — Architecture | 7      | Stable Core、Extension、specialization、composition、library 的必要模型 |
+| P2 — Structure    | 6      | 章節、案例、命題、標題與研究關係調整                                    |
 
 ---
 
 ## A. Thesis Refocusing（P0）
 
-| ID | Manuscript 現況 | Concept v0.5 要求 | 調整方向 |
-| --- | --- | --- | --- |
-| A-01 | Title、Abstract、§1、§5 與 Conclusion 以 Role Drift 為 primary architecture problem | Architecture purpose 是 Role Inference Boundary 工程化及 Role 的可擴展／可共享；Drift 是 failure condition | 改寫 title、research question、contributions 與 conclusion；保留 drift model 作為驗證 architecture 必要性的分析工具 |
-| A-02 | Role Definition 被描述為 persistent comparison target | Role Definition 首先是限制 context-based role reconstruction 的 inference boundary | 新增 Role Inference Boundary 定義，明確區分 Role meaning inference 與 Task Execution Boundary |
-| A-03 | 問題開場是 Verification Role 的跨模型 release recommendation drift | 動機應先展示 Role label 的意義全部來自 context，再說明 agentic flow 如何放大 variation | 以 `PM`／`Reviewer` label 為起點，加入 context sources 與 Implicit Decision-Right Expansion causal chain；cross-model validator case 可保留為後段 drift evidence |
-| A-04 | Reuse 主要是 versioned binding | Reuse 還包括 specialization、composition、schema-governed extension 與 Role Library | 將 extensibility／shareability 升為 contribution，不只當 future work |
+| ID   | Manuscript 現況                                                                     | Concept v0.5 要求                                                                                          | 調整方向                                                                                                                                                         |
+| ---- | ----------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| A-01 | Title、Abstract、§1、§5 與 Conclusion 以 Role Drift 為 primary architecture problem | Architecture purpose 是 Role Inference Boundary 工程化及 Role 的可擴展／可共享；Drift 是 failure condition | 改寫 title、research question、contributions 與 conclusion；保留 drift model 作為驗證 architecture 必要性的分析工具                                              |
+| A-02 | Role Definition 被描述為 persistent comparison target                               | Role Definition 首先是限制 context-based role reconstruction 的 inference boundary                         | 新增 Role Inference Boundary 定義，明確區分 Role meaning inference 與 Task Execution Boundary                                                                    |
+| A-03 | 問題開場是 Verification Role 的跨模型 release recommendation drift                  | 動機應先展示 Role label 的意義全部來自 context，再說明 agentic flow 如何放大 variation                     | 以 `PM`／`Reviewer` label 為起點，加入 context sources 與 Implicit Decision-Right Expansion causal chain；cross-model validator case 可保留為後段 drift evidence |
+| A-04 | Reuse 主要是 versioned binding                                                      | Reuse 還包括 specialization、composition、schema-governed extension 與 Role Library                        | 將 extensibility／shareability 升為 contribution，不只當 future work                                                                                             |
 
 ---
 
 ## B. Architecture Model（P1）
 
-| ID | Manuscript 現況 | Concept v0.5 要求 | 調整方向 |
-| --- | --- | --- | --- |
-| B-01 | §3 使用 L1 Identity／L2 Semantic Core／L3 Governance Boundary／L4 Interface 四層 | `Role Definition = Stable Core + Extension Declarations + Referenced Extensions` | 以新模型取代四層作為 primary representation；可在討論中說明四層元素如何遷移到 Core 或 Extension |
-| B-02 | Scope、Work、Evidence、Interaction 為 Definition 的固定 elements | Scope、Work 等屬 schema-governed Extension Sections，可事後擴充 | 新增 extension identity、schema、version、source、compatibility 與 unresolved semantics |
-| B-03 | §3.5 直接把 Artifact Scope 與 Authority 組成 preliminary Behavior Space | Role Inference Boundary 不等同 Task Execution Boundary；Behavior Space 不是本 Concept 的必要 canonical 公式 | 移除或降為 future formalization；Scope Extension 只提供 Role-level declaration，runtime boundary 由既有 Boundary Architecture 解析 |
-| B-04 | Prompt、tool policy、workflow node 已被視為 binding artifacts | Concept 要求更強的 interface／implementation 區分 | 保留並前移：Role Definition／Binding 是 source，prompt／agent config／tool policy 是 model-specific implementation artifacts |
-| B-05 | Binding invariants 已明確，但 Definition 被視為封閉元素集合 | Override 必須同時符合 Stable Core 不可漂移與 Extension Schema 的允許方向 | 重寫 binding table：Core change → new version；Extension value → schema／parameter binding；undeclared completion → Binding Drift |
-| B-06 | Role State canonical fields 已保留 | Concept 新增 extension／binding metadata 但不改寫 CR | 保留現稿 §3.1 的 canonical alignment；加入 extensions、dependency versions 與 generated implementation artifacts references |
-| B-07 | Evidence 以 Definition／Binding／Enactment drift detection 為中心 | 仍需 evidence，但最小 binding record 應支持 Role Inference Boundary reconstruction | 保留三類 evidence，補上 Role ID、version、extension locks、model、flow、time、override；避免擴張成新的 accountability theory |
+| ID   | Manuscript 現況                                                                  | Concept v0.5 要求                                                                                           | 調整方向                                                                                                                           |
+| ---- | -------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| B-01 | §3 使用 L1 Identity／L2 Semantic Core／L3 Governance Boundary／L4 Interface 四層 | `Role Definition = Stable Core + Extension Declarations + Referenced Extensions`                            | 以新模型取代四層作為 primary representation；可在討論中說明四層元素如何遷移到 Core 或 Extension                                    |
+| B-02 | Scope、Work、Evidence、Interaction 為 Definition 的固定 elements                 | Scope、Work 等屬 schema-governed Extension Sections，可事後擴充                                             | 新增 extension identity、schema、version、source、compatibility 與 unresolved semantics                                            |
+| B-03 | §3.5 直接把 Artifact Scope 與 Authority 組成 preliminary Behavior Space          | Role Inference Boundary 不等同 Task Execution Boundary；Behavior Space 不是本 Concept 的必要 canonical 公式 | 移除或降為 future formalization；Scope Extension 只提供 Role-level declaration，runtime boundary 由既有 Boundary Architecture 解析 |
+| B-04 | Prompt、tool policy、workflow node 已被視為 binding artifacts                    | Concept 要求更強的 interface／implementation 區分                                                           | 保留並前移：Role Definition／Binding 是 source，prompt／agent config／tool policy 是 model-specific implementation artifacts       |
+| B-05 | Binding invariants 已明確，但 Definition 被視為封閉元素集合                      | Override 必須同時符合 Stable Core 不可漂移與 Extension Schema 的允許方向                                    | 重寫 binding table：Core change → new version；Extension value → schema／parameter binding；undeclared completion → Binding Drift  |
+| B-06 | Role State canonical fields 已保留                                               | Concept 新增 extension／binding metadata 但不改寫 CR                                                        | 保留現稿 §3.1 的 canonical alignment；加入 extensions、dependency versions 與 generated implementation artifacts references        |
+| B-07 | Evidence 以 Definition／Binding／Enactment drift detection 為中心                | 仍需 evidence，但最小 binding record 應支持 Role Inference Boundary reconstruction                          | 保留三類 evidence，補上 Role ID、version、extension locks、model、flow、time、override；避免擴張成新的 accountability theory       |
 
 ---
 
 ## C. Extensibility and Sharing（P1）
 
-| ID | 缺少內容 | Concept v0.5 要求 | 調整方向 |
-| --- | --- | --- | --- |
-| C-01 | 沒有 Role Specialization model | child Role 必須通過逐元素 substitution compatibility | 新增 specialization 專章；處理 Required Viewpoints、Policy／Constraint、Responsibility、Decision Right、Scope 與 contract variance |
-| C-02 | Responsibility transfer 目前只存在 binding invariant | Responsibility transfer 不等於 child 可替代 parent | 把 transfer 放在 composition／binding；specialization 必須保留 parent Responsibility |
-| C-03 | 沒有 Role Extension object | Scope／Work／Evidence／Interaction／Capability 可由 schema 擴充 | 定義 Extension Declaration、Extension Instance、dependency lock 與 compatibility result |
-| C-04 | Role composition 僅以 relations 表示 | Role 由 Core、Extensions 與 referenced Application Ruleset 組合 | 新增 composition model；直接規則矛盾判為 unsatisfiable，不以 MUST NOT 自動覆蓋 MUST |
-| C-05 | 沒有 Role Library | 共享需 identifier、version、dependencies、pinning 與 migration | 新增 Role Library 專章，並與 BRA Rule Library／Application Ruleset 分工 |
-| C-06 | 跨組織 reuse 僅在 Limitations 提及 | 可共享完整 Definition、parameterized template 或 abstract Role | 新增 locality／parameterization；在地化涵蓋 Scope、Authority、Decision Right、Responsibility、Evidence、ontology、legal context |
+| ID   | 缺少內容                                             | Concept v0.5 要求                                               | 調整方向                                                                                                                           |
+| ---- | ---------------------------------------------------- | --------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| C-01 | 沒有 Role Specialization model                       | child Role 必須通過逐元素 substitution compatibility            | 新增 specialization 專章；處理 Required Viewpoints、Policy／Constraint、Responsibility、Decision Right、Scope 與 contract variance |
+| C-02 | Responsibility transfer 目前只存在 binding invariant | Responsibility transfer 不等於 child 可替代 parent              | 把 transfer 放在 composition／binding；specialization 必須保留 parent Responsibility                                               |
+| C-03 | 沒有 Role Extension object                           | Scope／Work／Evidence／Interaction／Capability 可由 schema 擴充 | 定義 Extension Declaration、Extension Instance、dependency lock 與 compatibility result                                            |
+| C-04 | Role composition 僅以 relations 表示                 | Role 由 Core、Extensions 與 referenced Application Ruleset 組合 | 新增 composition model；直接規則矛盾判為 unsatisfiable，不以 MUST NOT 自動覆蓋 MUST                                                |
+| C-05 | 沒有 Role Library                                    | 共享需 identifier、version、dependencies、pinning 與 migration  | 新增 Role Library 專章，並與 BRA Rule Library／Application Ruleset 分工                                                            |
+| C-06 | 跨組織 reuse 僅在 Limitations 提及                   | 可共享完整 Definition、parameterized template 或 abstract Role  | 新增 locality／parameterization；在地化涵蓋 Scope、Authority、Decision Right、Responsibility、Evidence、ontology、legal context    |
 
 ---
 
 ## D. Existing Content Disposition（P2）
 
-| ID | 現有內容 | 處置 |
-| --- | --- | --- |
-| D-01 | §2 partial representations and repeated inference | 保留；加入 context sources 與 agentic risk amplification，並刪除「LLM 是唯一會 drift 的 actor」暗示 |
-| D-02 | §4 Binding and Versioning | 保留並重寫為 Core／Extension binding；保留四種 binding outcomes 與 explicit Responsibility acceptance |
-| D-03 | §5 locus × dimension drift model | 保留但降為 failure analysis；evolution、substitution compatibility、drift 必須分開判定 |
-| D-04 | §5.4 Five Fidelity Checks | 縮短為 binding／enactment conformance checks；不得重新擴張為 accountability theory |
-| D-05 | §6 Role Relations | 移至 extension／future work；正文只保留 `produces-for`、`escalates-to`、`separates-from` 等支持 composition 的最小關係 |
-| D-06 | §7 Failure Modes | 大幅精簡；保留 Role Label Substitution、Persona–Standing Confusion、Role Drift，DR-V／DR-O 只作既有後果引用 |
-| D-07 | §8 Verification Role case | 保留跨模型 drift 部分，前置加入 PM label → PM Definition → Technical-PM specialization → model bindings 的完整案例 |
-| D-08 | §9 Evidence and Conformance | 保留可檢查性，但聚焦 inference boundary、binding 與 extension identity，不宣稱觀察 internal reasoning |
+| ID   | 現有內容                                          | 處置                                                                                                                   |
+| ---- | ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| D-01 | §2 partial representations and repeated inference | 保留；加入 context sources 與 agentic risk amplification，並刪除「LLM 是唯一會 drift 的 actor」暗示                    |
+| D-02 | §4 Binding and Versioning                         | 保留並重寫為 Core／Extension binding；保留四種 binding outcomes 與 explicit Responsibility acceptance                  |
+| D-03 | §5 locus × dimension drift model                  | 保留但降為 failure analysis；evolution、substitution compatibility、drift 必須分開判定                                 |
+| D-04 | §5.4 Five Fidelity Checks                         | 縮短為 binding／enactment conformance checks；不得重新擴張為 accountability theory                                     |
+| D-05 | §6 Role Relations                                 | 移至 extension／future work；正文只保留 `produces-for`、`escalates-to`、`separates-from` 等支持 composition 的最小關係 |
+| D-06 | §7 Failure Modes                                  | 大幅精簡；保留 Role Label Substitution、Persona–Standing Confusion、Role Drift，DR-V／DR-O 只作既有後果引用            |
+| D-07 | §8 Verification Role case                         | 保留跨模型 drift 部分，前置加入 PM label → PM Definition → Technical-PM specialization → model bindings 的完整案例     |
+| D-08 | §9 Evidence and Conformance                       | 保留可檢查性，但聚焦 inference boundary、binding 與 extension identity，不宣稱觀察 internal reasoning                  |
 
 ---
 
