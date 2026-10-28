@@ -1,5 +1,37 @@
 ﻿# Role Architecture — 核心思維與架構調整建議
 
+---
+
+## Review Context（適用全文所有版本）
+
+| 項目             | 說明                                                                                              |
+| ---------------- | ------------------------------------------------------------------------------------------------- |
+| **投稿目標**     | SSRN（Social Science Research Network）Working Paper / Preprint                                   |
+| **發表性質**     | 預印本庫，無正式同儕審查門檻；定位為研究者與從業者可引用的工作文件                               |
+| **論文類型**     | **Conceptual / Framework paper**：提出架構、定義、機制與原則；不含 empirical study 或實作原型    |
+| **主要受眾**     | 企業 AI 治理從業者（架構師、治理負責人）＋ AI/MAS 研究者                                         |
+| **不適用的評審標準** | 量化驗證、實驗數據、empirical 效果量；這些不是此類論文的要求                                 |
+
+### 評審基準（按優先序）
+
+| 優先序 | 基準                           | 說明                                                                                                  |
+| ------ | ------------------------------ | ----------------------------------------------------------------------------------------------------- |
+| 1      | **概念嚴謹性**                 | 定義是否清楚、非循環、內部一致；機制是否能支撐所主張的效果                                            |
+| 2      | **新穎性定位**                 | 與先行工作（Gaia、MOISE+、RBAC、BRA 等）的差異是否清楚且正確；不能主張他人未做過的事而對方其實已做   |
+| 3      | **論證完整性**                 | 每個 contribution 的因果鏈是否封閉；核心命題是否能被框架內的機制所支撐                               |
+| 4      | **對從業者的可操作性**         | 框架是否給出可在企業 AI 專案中落地使用的結構性建議，而非純理論宣示                                    |
+| 5      | **限制與非目標誠實性**         | 非目標、開放問題、未驗證主張是否明確標示，不過度主張                                                  |
+
+### 新穎性的衡量方式
+
+本文的新穎性主張不在於「發明了結構化角色」，而在於：
+
+> **在 probabilistic AI 執行條件下，為 Role meaning 的持久化、binding、跨模型重用與 drift 偵測指定明確的架構責任。**
+
+審查時應以此為準，而非以「Role 有沒有人定義過」作為判斷依據。
+
+---
+
 > 對象：`2026-10_role-architecture.md`（概念稿）
 > 範圍：只處理核心論點、概念模型與章節架構；不含文字潤飾、引用格式與文獻補齊細節。
 
@@ -687,3 +719,172 @@ Role Drift 仍保留，但由 architecture purpose 改為主要 failure conditio
 - minimal Role relation set。
 
 本次重新檢核未發現 Concept v0.5 內部需要額外追加的 blocking issue；未決事項已記錄於 issue 文件與 Concept open questions。
+
+
+---
+
+---
+
+
+---
+
+---
+
+# v0.6 Review — 依 SSRN Conceptual/Framework Paper 標準（2026-10-28）
+
+| 項目       | 內容                                                                         |
+| ---------- | ---------------------------------------------------------------------------- |
+| 版本       | **v0.6 Review**（依 Review Context 重寫）                                    |
+| 日期       | 2026-10-28                                                                   |
+| 審核基準   | `concept.md` v0.5 + §12 v0.6 修改目標                                        |
+| 審核對象   | `2026-10_role-architecture.md`（目前 manuscript）                            |
+| 評審框架   | SSRN Working Paper；Conceptual/Framework paper；依 Review Context 五項基準   |
+
+---
+
+## 整體評估
+
+Manuscript 在結構、機制與先行研究定位上完成度高。核心物件（Role Definition、Binding、Role State、Role Library）有清楚定義；限制誠實；novelty claim 已明確劃界。主要問題集中在**概念精確性**（兩個定義缺口）與**論證完整性**（動機鏈有一個薄弱環節）；可操作性方面缺少一個組合結構範例。
+
+| 評審標準         | 評估        | 最關鍵問題         |
+| ---------------- | ----------- | ------------------ |
+| 概念嚴謹性       | ★★★★☆       | 三路操作分類缺失   |
+| 新穎性定位       | ★★★★☆       | MOISE+ 挑戰未預先處理 |
+| 論證完整性       | ★★★☆☆       | 風險放大條件未結構化呈現 |
+| 可操作性         | ★★★☆☆       | 組合結構範例缺失   |
+| 限制誠實性       | ★★★★★       | 無需調整           |
+
+---
+
+## 評審一：概念嚴謹性（優先序 1）
+
+### R1-01 — Explicit Extension / Contextual Binding / Implicit Inference 三路分類缺失
+
+**位置：** §4 Binding、§5 Role Drift
+
+**問題：** 「什麼算是合法的角色細化」與「什麼是 drift candidate」之間的操作性區分不夠精確。目前 §4.3 只區分 Governed Evolution 與 Role Drift，缺少中間的 **Contextual Binding** 類別。
+
+Concept §3.4 定義了三種語意上不同的操作：
+
+| 操作類型              | 定義                                                    | 需要版本或記錄？ |
+| --------------------- | ------------------------------------------------------- | ---------------- |
+| Explicit Extension    | 透過已宣告 extension point 加入，有 identifier、schema、version、來源 | 是（extension record） |
+| Contextual Binding    | 在既有 binding schema 中解析此次 execution 的值          | 否（屬合法細化） |
+| Implicit Inference    | 模型自行補出未宣告元素，無 version 或 binding record     | —（drift candidate） |
+
+沒有這個分類，讀者無法判斷「模型在 context 中具體化某 viewpoint」是合法行為還是 drift。Paper 的 fidelity check 機制依賴這個分類才能完整運作。
+
+**調整方向：** 在 §4（Binding and Versioning）或 §5.1（Drift Loci）前補充此三路分類，並用一句話連結到 drift 的可觀測條件：**只有 Implicit Inference 是 drift candidate；Contextual Binding 在 binding schema 允許範圍內是合法的。**
+
+---
+
+### R1-02 — Substitution Compatibility 作為獨立判定軸未命名
+
+**位置：** §4.3、§6.2
+
+**問題：** Concept §5.4 明確將三種判定分開：Versioned Evolution（有新版本）、**Substitution Compatibility**（child 能否安全替代 parent）、Role Drift（無版本、無記錄的意義改變）。三者可對同一 Role 變更分別成立或不成立。
+
+Manuscript §4.3 只對比 Evolution vs Drift；§6.2 以散文討論 specialization 替代條件，但未將其命名為獨立判定概念。這造成定義空間不完整：一個 child Role 可能既非 Evolution（沒有新版本）也非 Drift（有明確 specialization record），卻因為缺少 Substitution Compatibility 概念而無處分類。
+
+**調整方向：** 在 §4.3 末尾或 §6.2 開頭，以一段明確定義 Substitution Compatibility：「*Whether a specialized or bound Role State can safely substitute the parent Role Definition in all contexts that reference it.*」並說明這是第三個獨立判定，不隱含於 Evolution 或 Drift 之中。
+
+---
+
+## 評審二：新穎性定位（優先序 2）
+
+### R2-01 — MOISE+ / OperA 挑戰未預先處理
+
+**位置：** §2.3、Abstract、§1
+
+**問題：** §2.3 已有比較表，MOISE+ 的差異欄說明「未處理 LLM context-based reconstruction、versioned extension 與 cross-model binding」。這個答案是正確的，但在 Abstract 與 §1 未出現，只在 §2.3 中一行帶過。
+
+熟悉 MOISE+ 的審閱者可能提出：「deontic norms + structural/functional organization 已足以描述 Role boundary；你的 Role Inference Boundary 和 deontic norm 有何本質差異？」目前 paper 對此沒有預防性回應。
+
+**調整方向：** 在 §1 或 §2.3 增加一段明確說明：**deontic norms 定義 what an agent must/may/must-not do（行為的許可性），而 Role Inference Boundary 定義 how a model should reconstruct role meaning（推論的約束）。** 在 deterministic agent 系統中兩者結果相近；在 LLM agent 中，norm 仍可違反，但 Role Inference Boundary 決定模型的起點詮釋是否正確。
+
+---
+
+### R2-02 — Role Library 與 BRA Rule Library 的獨立性論述可前置
+
+**位置：** §6.3、§10.3
+
+**問題：** 「Role Library 不取代 BRA Rule Library；Authority binding 只引用 Application Ruleset，不在 Role 層重做 Rule composition」這個重要設計決策目前出現在 §6.3 和 §10.3，但 Abstract 和 §1 未提及。對於同時使用 BRA 的讀者，這是一個容易引發混淆的疑問，應在更早的位置澄清。
+
+**調整方向：** 在 Abstract 末尾或 §1 末段，加一句話說明 Role Architecture 在 BRA 之上運作而非替代它。
+
+---
+
+## 評審三：論證完整性（優先序 3）
+
+### R3-01 — 「Agentic flow 的風險放大」論證結構薄弱
+
+**位置：** §1、§2.2
+
+**問題：** 全文的動機起點是「在 agentic flow 中，Role Drift 比 prompt 中更嚴重」。這是核心說服工作，但目前論述散佈在 §1（隱含）與 §2.2（以散文帶過），沒有一個可供引用的結構性論證。
+
+Concept §2.1 有六條風險放大條件（修正迴路、輸出效果、角色數量、重複使用、模型替換、流程位置），每一條對比「較受控」與「較高風險」兩端。這六條是「為何 prompt 中可接受、agentic flow 中不可接受」的因果支撐。
+
+**調整方向：** 在 §2（Why Role Meaning Drifts）新增 **§2.2 Risk Amplification Conditions** 子節（現 §2.2 可後移或合併），以表格或列表呈現六條放大條件，並以一句結論連結：「缺少 Role Inference Boundary 時，context variation 在這些條件下轉化為可執行的 Decision-Right Expansion。」
+
+---
+
+### R3-02 — 四項 contribution 的例子覆蓋不均
+
+**位置：** §8
+
+**問題：** §8 的跨模型 verification case 清楚支撐了 Contribution 1（Role Drift 的三 loci）與 Contribution 4（Structural Role Fidelity）。但 Contribution 2（minimal core + extensible bindings）和 Contribution 3（type-specific binding invariants）在 §8 中未獨立展示。
+
+對於 SSRN 受眾（尤其是從業者），如果 §8 只展示 drift detection 而不展示「binding 如何阻止 drift」，framework 的防禦性機制就少了一個具體案例。
+
+**調整方向：** 可在 §8 現有內容後加入 **§8.5 Prevented Case**：描述一個因正確 binding + fidelity check 而阻止 drift 的情境（例如：binding 時拒絕了 Model B 因 skill 不符合要求的部署，或 override 因缺乏 approving Decision Right 被拒絕）。
+
+---
+
+## 評審四：可操作性（優先序 4）
+
+### R4-01 — Role Composition / Specialization 缺少結構範例
+
+**位置：** §6.2
+
+**問題：** 「可擴展」是本文兩大目的之一，但 §6.2 以散文和清單呈現 specialization 規則，無任何結構範例。從業者需要一個具體的 extends + override 範例才能理解「如何建立 Technical-PM 繼承 PM」的操作形式。
+
+Concept §5.2 有 YAML 範例（`extends: PM@1.0`、版本化 extension 引用、Application Ruleset 引用）。
+
+**調整方向：** 在 §6.2 後加入一個簡化的偽結構範例，展示：
+- `extends: PM@1.0`
+- 新增 viewpoint extension 的引用語法
+- Authority 引用 Application Ruleset（而非直接寫 rule）
+- override 記錄的最小欄位
+
+不需要完整 schema；目的是讓讀者看到「繼承」在這個架構中長什麼樣子。
+
+---
+
+### R4-02 — §6.2 Specialization 規則以散文呈現，可結構化
+
+**位置：** §6.2
+
+**問題：** specialization 的九項規則以 bullet list 呈現，難以快速比對。Concept §5.1 有一張完整的元素×規則表。
+
+**調整方向：** 改為表格，欄位為：元素 / 允許的 specialization / 備註。可與 §4.2 binding invariants 表格使用相同格式，強化一致性。
+
+---
+
+## 評審五：限制誠實性（優先序 5）
+
+§12 Limitations 整體誠實充分，明確說明：無 empirical 驗證、Fidelity 無量化 score、model-assisted drift detection 的遞迴問題。以下兩點可補充：
+
+- **R5-01**：可明確說明「本文未驗證在哪些 binding type 組合下，drift detection 的可靠性最高或最低」——此為 empirical 後續工作，先點名更誠實。
+- **R5-02**：法規環境自主變更（如 GDPR 修訂影響 Scope 定義）的因應，目前 §12 未提及。Role Definition 的 Version 機制能處理此類外部驅動變更，但應說明誰負責觸發升版。
+
+---
+
+## 附：Concept 文件後續維護事項
+
+以下問題存在於 Concept 文件，不影響 Manuscript 當前品質，但若不更新將造成版本對齊困難：
+
+| 項目 | 說明 |
+| ---- | ---- |
+| Concept §3 Stable Core 結構 | 仍是 v0.5 的 8 元素結構；Manuscript 已按 v0.6 改為 4 欄最小核心 + named binding types；Concept 應同步更新，移除 Stable Core / Extension Sections 二層術語 |
+| Concept §5.2 YAML 範例 | 確認在 v0.6 架構下仍適用，或更新 extends / extensions 語法 |
+| Concept 版本欄 | 應更新為 v0.6，並標注 §12 已整合進正文 |
