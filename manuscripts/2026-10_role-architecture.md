@@ -11,11 +11,11 @@
 
 Enterprise AI systems increasingly reuse roles across language models, agent configurations, workflow stages, and repeated executions. Yet a role is commonly preserved only as an abstract label—*architect*, *reviewer*, *analyst*, *validator*—or as a prompt persona, workflow lane, access-control group, or responsibility category. The label persists, while the meaning needed to enact it does not. Each consuming model or workflow must reconstruct what the role is for, which viewpoints it applies, what work it performs, which responsibilities it carries, what it may decide, and where its applicability ends. Under probabilistic model execution, the same label can therefore produce materially different Role States without an explicit role change.
 
-This paper defines that condition as **Role Drift** and proposes **Role Architecture** as an engineering response. Applying Engineering Determinacy, it adopts the principle that once role meaning has been explicitly established, it should not change merely because the model, workflow, or execution consuming it changes. Role Architecture externalizes that meaning as a persistent, versioned **Role Definition**, separates the definition from both the Actor and its contextual **Role State**, and governs reuse through explicit binding, constrained adaptation, and structural fidelity checks. Drift is made observable along two axes: its locus—Definition, Binding, or Enactment—and its affected dimension, such as Viewpoint, Responsibility, Decision Right, Scope, Work, Interaction, or Evidence.
+This paper defines that condition as **Role Drift** and proposes **Role Architecture** as an engineering response. Applying Engineering Determinacy, it adopts the principle that once role meaning has been explicitly established, it should not change merely because the model, workflow, or execution consuming it changes. Role Architecture externalizes that meaning as a persistent, versioned **Role Definition**, separates the definition from both the Actor and its contextual **Role State**, and governs reuse through explicit, extensible bindings and structural fidelity checks. The schema requires only `id`, `description`, `version`, and `status`; viewpoints, responsibilities, authority, work, scope, skills, and domain-specific structures are named binding types rather than a closed universal field list. Drift is made observable along two axes: its locus—Definition, Binding, or Enactment—and its affected dimension, such as Viewpoint, Responsibility, Decision Right, Scope, Work, Skill, Interaction, or Evidence.
 
 The contribution is not the invention of structured roles, permissions, organizational relations, or separation of duties. Those mechanisms have substantial prior art in role-based access control and multi-agent organization models. The contribution is their use under a different architectural responsibility: preserving established role meaning across probabilistic models and heterogeneous workflows, distinguishing versioned evolution from implicit drift, and retaining a comparison basis against which drift can be detected. An illustrative cross-model verification case shows how one validator begins issuing release recommendations outside its defined Decision Right, while an identical role label provides no basis for detecting the change.
 
-**Keywords:** Role Architecture; Role Drift; Persistent Role Definition; Enterprise AI Governance; Agentic Workflow; Role State; Responsibility; Decision Right; Scope; Engineering Determinacy
+**Keywords:** Role Architecture; Role Inference Boundary; Role Drift; Persistent Role Definition; Extensible Binding; Skills; Enterprise AI Governance; Agentic Workflow; Role State; Engineering Determinacy
 
 ---
 
@@ -33,7 +33,11 @@ The paper applies Engineering Determinacy through one governing principle:
 
 > **Once role meaning has been explicitly established, it should not change merely because the model, workflow, or execution consuming it changes.**
 
-The proposed architectural object is a persistent **Role Definition**. It makes explicit the role's identity, description, viewpoints, work, responsibilities, bound behavioral rules, Decision Rights, Scopes, required capabilities, interfaces, interaction rules, escalation conditions, and evidence requirements. A human or AI Actor does not become the role merely by receiving its name. The Role Definition must be bound to the Actor and context to form a **Role State**, and that binding must preserve declared invariants.
+Role Architecture establishes a **Role Inference Boundary**, not a complete Task Execution Boundary. The former constrains how a model may interpret and instantiate Role meaning; the latter constrains what a particular Actor may observe, modify, or affect during one task. Their dependency is:
+
+> **Role Definition → Role Inference Boundary → Role State → Task Execution Boundary**
+
+The proposed architectural object is a persistent **Role Definition** with a minimal identity core and extensible named bindings. Its required core makes the role resolvable and lifecycle-aware; bindings may make viewpoints, work, responsibilities, Authority, Decision Rights, Scopes, skills, interfaces, interaction rules, escalation conditions, and evidence requirements explicit. A human or AI Actor does not become the role merely by receiving its name. The Role Definition must be bound to the Actor and context to form a **Role State**, and every applicable binding must preserve its declared invariants.
 
 The research question is:
 
@@ -41,7 +45,7 @@ The research question is:
 
 This paper makes four contributions.
 
-First, it identifies **Role Drift** as divergence from an identified Role Definition occurring at one of three loci: the Definition, its Binding, or its Enactment. Second, it proposes a four-layer Role Definition that separates semantic meaning from governance boundary and interaction structure. Third, it introduces asymmetric binding invariants: some dimensions may only narrow, prohibitive rules may only strengthen, while Responsibility cannot be removed unless another Role explicitly accepts it. Fourth, it defines structural Role Fidelity as a pass/fail comparison and demonstrates how version, binding, and execution evidence provide a basis for detecting drift.
+First, it identifies **Role Drift** as divergence from an identified Role Definition occurring at one of three loci: the Definition, its Binding, or its Enactment. Second, it proposes a minimal Role Definition core plus schema-governed, extensible bindings, avoiding a closed universal role schema. Third, it introduces type-specific binding invariants: some dimensions may only narrow, prohibitive rules may only strengthen, while Responsibility cannot be removed unless another Role explicitly accepts it. Fourth, it defines structural Role Fidelity as a categorical comparison and demonstrates how version, binding, and execution evidence provide a basis for detecting drift.
 
 The novelty claim is deliberately bounded. Gaia, MOISE+, OperA, RBAC, role engineering, and contemporary agent specifications already represent roles, permissions, objectives, activities, protocols, norms, capabilities, or constraints in substantial ways [1–8]. This paper does not claim otherwise. Its contribution concerns the persistence, binding, and drift control of established role meaning when probabilistic AI systems repeatedly instantiate roles across heterogeneous execution contexts.
 
@@ -118,18 +122,24 @@ The separation is essential:
 - the **Actor** supplies actual capacity and performs action; and
 - the **Role State** records what the role means in this bounded execution context.
 
-## 3.2 Four-Layer Role Definition
+## 3.2 Minimal Core and Extensible Bindings
 
-The Role Definition is organized into four layers rather than one flat field list.
+Role Architecture does not prescribe one closed list of fields for every domain. A Role Definition has a minimal identity core and a set of named bindings:
 
-| Layer                              | Elements                                                                                         | Architectural responsibility                                     |
-| ---------------------------------- | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------- |
-| **L1 — Identity**                  | Identity, Version, Description                                                                   | Makes the Role resolvable and supplies the anchor for comparison |
-| **L2 — Semantic Core**             | Viewpoints, Work Definition, Responsibilities                                                    | Preserves meaning most exposed to probabilistic reconstruction   |
-| **L3 — Governance Boundary**       | Bound Rule Set, Decision Right, Visible Scope, Artifact Scope, Required Capabilities             | Defines admissible binding and behavioral limits                 |
-| **L4 — Interface and Interaction** | Input Contract, Output Contract, Interaction Rules, Escalation Conditions, Evidence Requirements | Makes the Role composable and its enactment examinable           |
+> **Role Definition = Minimal Core + Binding Declarations + Referenced Bindings**
 
-**Minimum completeness** requires L1, L2, and L3. Without Identity and Version, there is no stable comparison target. Without a Semantic Core, the named role still requires reconstruction. Without a Governance Boundary, an Actor may perform the work without a determinable behavioral or decision boundary. L4 is context-required rather than universally optional: every Role that exchanges work, delegates, reviews, authorizes, escalates, or supplies a reusable output must declare the applicable interface and interaction elements. Only a Role with no governed interaction may omit an inapplicable L4 field, and that omission must itself be explicit.
+The schema requires four fields.
+
+| Required field | Architectural responsibility |
+| -------------- | ---------------------------- |
+| **`id`** | Supplies the stable identifier used by references, version comparison, and drift tracking |
+| **`description`** | Provides a human-readable semantic anchor for binding and review |
+| **`version`** | Identifies the admitted semantic state consumed by a binding |
+| **`status`** | Records lifecycle state such as `draft`, `active`, or `deprecated` |
+
+All other content is expressed through named binding types. The architecture predefines `viewpoints`, `responsibilities`, `authority`, `work`, `scope`, and `skills`, while organizations may add types such as `risk_profile`, `data_classification`, or `regulatory_scope`. Each binding type has an identifier, schema, version, source, applicability rule, and compatibility rule. A Role Definition can therefore remain structurally resolvable without pretending that every role needs the same semantic, governance, or domain fields.
+
+Minimal schema validity is not executable completeness. A role with only the four required fields is identifiable but leaves its enactment boundary unresolved. Before use, the applicable binding profile must declare which binding types are required and resolve them, restrict the Role's use, or escalate the unresolved condition. An absent binding never means unrestricted scope, arbitrary work, implicit authority, or permission to infer missing responsibility.
 
 ## 3.3 Identity and Description
 
@@ -145,7 +155,7 @@ Role identity should be anchored to a resolvable artifact and version. A prompt 
 
 **Responsibilities** state the outcomes, judgments, or obligations for which the role must answer. Responsibility answers *what must the role ensure or account for?* Work and Responsibility are distinct. A role may perform analysis without being responsible for accepting its conclusion, or execute a change without owning the decision that authorized it.
 
-These three elements form the Semantic Core because a role label commonly leaves them implicit and because their local reconstruction can change the practical meaning of every governance field around them.
+These binding types commonly carry the semantic content most exposed to probabilistic reconstruction. They are predefined for interoperability, but are not mandatory schema fields for every Role Definition.
 
 ## 3.5 Bound Rule Set, Decision Right, and Scope
 
@@ -168,11 +178,21 @@ The Role's preliminary **Behavior Space** is:
 
 Decision Right then determines which consequential judgments the Role may form or activate over that governed region. A Role may therefore be able to modify an artifact without holding the right to redefine the requirement the artifact implements.
 
-## 3.6 Required Capability Belongs to the Definition; Actual Capability to the Actor
+## 3.6 Skills and Actor Capability
 
-The Role Definition carries **Required Capabilities**: the competencies, model functions, tools, language support, data access, time, and operational capacity necessary to occupy the Role.
+The predefined **`skills` binding** identifies versioned skill or capability units explicitly associated with the Role, rather than leaving their availability as a prompt assumption. It may reference a reusable skill package, capability type, tool-mediated procedure, or locally mapped equivalent.
 
-Actual capability belongs to the Actor and is evaluated at binding. This prevents an implementation-specific property from contaminating the persistent definition. The same Verification Role may be bound to different models only if each Actor satisfies its Required Capabilities.
+Actual capability still belongs to the Actor and is evaluated when the Role is bound. A declared skill is not proof that a particular Actor can perform it. Binding checks resolve the skill reference, test availability or an accepted equivalent, and record the result. Skill upgrades and local substitutions remain attributable changes instead of silently altering the Role's capability boundary.
+
+## 3.7 Binding Types in Use
+
+The predefined types support different operational settings.
+
+**`viewpoints` in chat.** A PM Role may bind `product strategy`, `user value`, and `feasibility trade-off`. When asked to prioritize features, the model interprets the task through those perspectives rather than silently substituting an engineering or regulatory viewpoint.
+
+**`responsibilities` and `authority` in agent governance.** An Implementation Agent may be responsible for writing code, running tests, and proposing architecture while its Authority contains `MUST NOT merge to production without approval`. Evidence can then distinguish work outside the declared responsibility from conduct that violates a bound rule, without treating the binding as an RBAC permission grant.
+
+**`skills` in reusable role packages.** A Code Reviewer may reference `code-review@2` and `testing-strategy@1`. Binding verifies that the Actor can resolve or validly map those skills; a skill upgrade or organizational substitution is recorded and compatibility-tested rather than absorbed into an unchanged prompt.
 
 ---
 
@@ -182,9 +202,9 @@ Actual capability belongs to the Actor and is evaluated at binding. This prevent
 
 Binding creates a Role State from a particular Role Definition version:
 
-> **Role State = Bind(Role Definition Version, Actor, Context, Explicit Overrides)**
+> **Role State = Bind(Role Definition Version, Referenced Bindings, Actor, Context, Explicit Overrides)**
 
-Binding is not textual prompt expansion. It is a governed operation that resolves the persistent definition into a specific model, workflow, stage, policy context, and evidence environment. A prompt, system instruction, tool policy, access configuration, workflow node, and output schema may all be generated implementation artifacts of one binding. None is independently authoritative when it conflicts with the bound Role Definition.
+Binding is not textual prompt expansion. It is a governed operation that resolves the persistent definition and its applicable named bindings into a specific model, workflow, stage, policy context, and evidence environment. A prompt, system instruction, tool policy, access configuration, workflow node, and output schema may all be generated implementation artifacts of one binding. None is independently authoritative when it conflicts with the resolved Role Definition. Binding must also reject a non-active lifecycle state unless an explicit governance rule permits its use.
 
 ## 4.2 Binding Invariants
 
@@ -192,15 +212,15 @@ Role dimensions do not all adapt in the same direction. The following invariants
 
 | Dimension             | Permitted binding behavior                                                                                                |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| Visible Scope         | May remain equal or narrow; expansion requires a new version approved by a Role holding the required Decision Right       |
-| Artifact Scope        | May remain equal or narrow; expansion requires a new version approved by a Role holding the required Decision Right       |
-| Decision Right        | May remain equal or narrow; expansion requires a new version and approval by a Role already holding the right to grant it |
+| Visible Scope         | May remain equal or narrow; expansion requires an explicit binding or Definition version permitted by the type's compatibility rule and applicable Decision Right |
+| Artifact Scope        | May remain equal or narrow; expansion requires an explicit binding or Definition version permitted by the type's compatibility rule and applicable Decision Right |
+| Decision Right        | May remain equal or narrow; expansion requires a versioned change and approval by a Role already holding the right to grant it |
 | Policy (MUST)         | Required policies must be preserved; contextual specialization must not remove or contradict them                         |
 | Constraint (MUST NOT) | May remain equal or strengthen; removal requires a new version approved under the applicable Decision Right               |
 | Viewpoints            | Required viewpoints cannot be omitted; optional viewpoints may be selected explicitly                                     |
-| Work Definition       | May specialize within declared work; expansion requires a new Role Definition version                                     |
+| Work Definition       | May specialize within declared work; expansion requires a versioned change under the binding type's compatibility rule    |
 | Responsibilities      | May not be removed unless a named receiving Role accepts them                                                             |
-| Required Capabilities | Actor capability must satisfy, not rewrite, the requirement                                                               |
+| Skills                | Actor capability must satisfy or validly map each required skill binding; it must not rewrite the declaration             |
 
 The Responsibility rule is intentionally asymmetric. Narrowing Scope or Decision Right can be a safe local restriction. Silently narrowing Responsibility can create a vacancy: the work no longer has an accountable owner. A binding that removes Responsibility is valid only if it simultaneously records a transfer to another Role Definition or Role State whose acceptance is explicit and evidenced. Otherwise the condition is a role-layer cause of DR-V Decision Vacancy.
 
@@ -234,7 +254,7 @@ Role Drift becomes observable when its locus is specified.
 
 | Locus                | Definition                                                                     | Primary detection point                              |
 | -------------------- | ------------------------------------------------------------------------------ | ---------------------------------------------------- |
-| **Definition Drift** | Content changes under the same Role identifier and version                     | Definition and version comparison                    |
+| **Definition Drift** | Core content or referenced binding identity changes under the same Role identifier and version | Definition, dependency, and version comparison       |
 | **Binding Drift**    | Instantiation expands, replaces, or omits elements without a declared override | Pre-execution binding conformance                    |
 | **Enactment Drift**  | Actual behavior, decisions, outputs, or transfers exceed the Role State        | Execution-time or post-execution evidence comparison |
 
@@ -252,6 +272,7 @@ Drift may affect different dimensions:
 - **Work Drift** — performed activities expand beyond or depart from the Work Definition;
 - **Interaction Drift** — review, challenge, escalation, separation, or receiving-role relations change;
 - **Evidence Drift** — the Role relies on or produces a different evidentiary basis while retaining the same standing.
+- **Skill Drift** — a declared skill is unavailable, silently substituted, or changed incompatibly while the Role identity remains unchanged.
 
 The two axes form a **locus × dimension matrix**. A changed Output Contract under the same version is Definition–Interaction Drift. Omitting the security viewpoint when instantiating Model B is Binding–Viewpoint Drift. Issuing a release recommendation during execution is Enactment–Decision-Right Drift.
 
@@ -259,7 +280,7 @@ The two axes form a **locus × dimension matrix**. A changed Output Contract und
 
 **Role Fidelity** is a structural conformance result, not a numerical degree:
 
-> **A Role State has structural fidelity when every required Definition element is preserved or changed only through a permitted, explicit, and evidenced binding operation.**
+> **A Role State has structural fidelity when the minimal core resolves, every applicable binding is resolved, and every change is permitted, explicit, and evidenced under that binding type's rules.**
 
 The result is **pass**, **fail**, or **unresolved** when evidence is insufficient. `Unresolved` is not partial fidelity and must not be treated as approval. This avoids implying that a single score can compensate for a critical mismatch: perfect output formatting cannot offset an unauthorized Decision Right.
 
@@ -272,7 +293,7 @@ The earlier validity conditions are retained as checks of Role State fidelity ra
 | **Identity**       | Can the proposed or active Role State resolve to one unique Role Definition version?                        | During binding and execution reconstruction |
 | **Responsibility** | Do enacted responsibilities match the Definition, and is every reduction accepted by a receiving Role?      | Binding and post-binding                    |
 | **Authority**      | Are the bound rule set, Decision Right, Visible Scope, and Artifact Scope within the Definition?            | Binding and execution                       |
-| **Capacity**       | Does the Actor's actual capability satisfy Required Capabilities?                                           | Binding                                     |
+| **Capacity**       | Does the Actor's actual capability satisfy or validly map the required `skills` bindings?                    | Binding                                     |
 | **Continuity**     | Do outputs and unresolved obligations reach the roles declared by the interaction and escalation contracts? | After execution                             |
 
 These checks do not determine substantive correctness. They determine whether the enacted role remains structurally attributable to the Role Definition it claims to instantiate.
@@ -280,6 +301,8 @@ These checks do not determine substantive correctness. They determine whether th
 ---
 
 # 6. Role Relations and Composition
+
+## 6.1 Relations and Architectural Planes
 
 Roles become an architecture when they can be composed without losing their individual governance meaning. Relations fall into three classes.
 
@@ -299,6 +322,26 @@ Role Architecture separates two architectural planes.
 
 The design-time plane supplies the comparison target. The run-time plane supplies the observed instantiation. Drift is detected through differences between them and through unauthorized change within either plane.
 
+## 6.2 Specialization and Substitution
+
+A specialized Role may substitute for its parent only when every parent requirement remains satisfiable and every affected interface remains compatible. Specialization does not grant a general right to override inherited meaning.
+
+- required viewpoints and policies cannot be removed;
+- constraints may strengthen but cannot silently relax;
+- Responsibility remains with the child unless an explicit composition or binding transfers it and records acceptance;
+- Decision Right does not expand merely because the Role is specialized;
+- Artifact Scope may narrow, while expansion requires explicit authorization and version treatment;
+- Visible Scope expansion requires applicable data authorization and declared parameterization; and
+- input and output contracts must remain compatible with parent consumers and receivers.
+
+If composition produces both `MUST X` and `MUST NOT X` under the same condition, the result is unsatisfiable. Constraint-first filtering cannot resolve the contradiction by discarding the positive obligation. The Definition must be rejected or referred to a governance process holding the applicable Decision Right.
+
+## 6.3 Role Library
+
+A **Role Library** is the governed registry for Role Definitions, named binding types, referenced binding instances, lineage, dependencies, and compatibility metadata. Shared units carry identifiers, versions, content identities, and dependency manifests. Consumers pin the Role Definition and material binding or BRA Application Ruleset versions rather than relying on mutable latest-state resolution.
+
+The Role Library does not replace the BRA Rule Library. Authority bindings reference admitted Application Rulesets; they do not recompose atomic Rules under a second authority. Cross-organizational reuse may publish a complete Definition, a parameterized Role template, or an abstract Role. Localization of Scope, Authority, Responsibility, skills, evidence, ontology, or legal context must use declared parameters, registered bindings, or explicit binding records. Copying content, changing it locally, and retaining the same identifier is Definition Drift.
+
 ---
 
 # 7. Failure Modes by Locus
@@ -317,7 +360,7 @@ The design-time plane supplies the comparison target. The run-time plane supplie
 
 **Persona–Standing Confusion.** A professional viewpoint in a prompt is treated as institutional Decision Right.
 
-**Capability-Blind Assignment.** An Actor is bound despite failing Required Capabilities. The Role Definition may be valid while the resulting Role State is not.
+**Capability-Blind Assignment.** An Actor is bound despite failing or not resolving required skill bindings. The Role Definition may be valid while the resulting Role State is not.
 
 ## 7.3 Enactment Drift
 
@@ -337,6 +380,7 @@ Accountability Laundering is a consequence rather than a separate locus. It occu
 
 An enterprise admits **Verification Role v1.2** with the following abbreviated structure:
 
+- **ID / Version / Status:** `verification-role` / `1.2` / `active`;
 - **Description:** independently evaluate whether a candidate software change conforms to its accepted specification and declared technical policies;
 - **Viewpoints:** correctness, security, reliability, and policy conformance;
 - **Work Definition:** inspect the change and evidence, execute or evaluate required tests, identify findings, and issue a verification result;
@@ -348,10 +392,11 @@ An enterprise admits **Verification Role v1.2** with the following abbreviated s
 - **Output Contract:** structured findings, evidence references, unresolved issues, and verification classification;
 - **Interaction:** produces-for Business Acceptance Role and Release Authorization Role; escalates unresolved policy interpretation;
 - **Evidence Requirement:** model identity, prompt binding, tool record, inspected artifact versions, tests, and output.
+- **Skills:** `software-verification@1`, `test-evidence-analysis@1`, and an organization-approved policy-conformance mapping.
 
 ## 8.2 Two Bindings
 
-Repository X binds v1.2 to **Model A**. Repository Y binds the same definition to **Model B**. Both satisfy Required Capabilities. Their generated prompts differ because tool syntax and repository conventions differ, but each Role State resolves to the same Definition version and preserves the same semantic and governance fields.
+Repository X binds v1.2 to **Model A**. Repository Y binds the same definition to **Model B**. Both satisfy the required skill bindings. Their generated prompts differ because tool syntax and repository conventions differ, but each Role State resolves to the same Definition version and preserves the same semantic and governance bindings.
 
 Model A continues to emit the declared verification classification.
 
@@ -387,7 +432,7 @@ Role evidence should support the three drift loci rather than exist as an undiff
 | **Binding Evidence**    | Actor and model identity, context, capability check, generated prompt and policy artifacts, explicit overrides, accepting roles | Test binding invariants and detect undeclared expansion, replacement, or omission  |
 | **Enactment Evidence**  | inputs, applied rules, accessed Scope, actions, decision effects, outputs, transfers, escalations, unresolved conditions        | Compare observed behavior with the active Role State and detect Enactment Drift    |
 
-Pre-binding conformance resolves the Role Definition version, checks minimum completeness, compares Actor capability with Required Capabilities, and validates every override against the binding invariants.
+Pre-binding conformance resolves `id`, `version`, and `status`, checks the description anchor, determines the binding profile applicable to the intended use, resolves every required named binding, compares Actor capability with required skill bindings, and validates every override against type-specific invariants. Schema validity alone is insufficient evidence that a Role is executable.
 
 Execution-time conformance can enforce deterministic boundaries such as Artifact Scope, tool permission, prohibitive rules, and required escalation. Semantic dimensions such as Viewpoint and Work may require evidence-based post-execution analysis rather than universal runtime enforcement.
 
@@ -448,7 +493,7 @@ Continuation Readiness defines Role State and evaluates whether a receiving Role
 
 # 12. Limitations and Research Agenda
 
-This paper is conceptual and does not empirically establish how frequently Role Drift occurs, whether the proposed structure reduces it, or which elements are necessary across domains. The four-layer model may prove incomplete, and domain-specific roles may require additional semantic, legal, temporal, or organizational fields.
+This paper is conceptual and does not empirically establish how frequently Role Drift occurs, whether the proposed structure reduces it, or which binding types are necessary across domains. The predefined types may prove incomplete, and domain-specific roles may require additional semantic, legal, temporal, or organizational bindings.
 
 The distinction from prior work also requires disciplined validation. Gaia, MOISE+, OperA, RBAC, role engineering, agent organization theory, normative multi-agent systems, workflow languages, and agent specifications already provide rich role structures. Future work must test whether Definition–Binding–Enactment drift is absent from those mechanisms, merely implicit, or directly representable through extensions. The current novelty claim concerns the architectural responsibility assigned to persistence and comparison under probabilistic reuse, not exclusive ownership of the component mechanisms.
 
@@ -456,9 +501,10 @@ Role Fidelity is presently structural and categorical. The paper does not define
 
 Further research should develop:
 
-- a machine-readable schema for the four Role Definition layers;
-- a minimum-completeness test for L1–L3;
+- a machine-readable minimal-core schema and a registry format for named binding types;
+- profiles that distinguish schema validity, bindable completeness, and executable completeness;
 - formal binding invariants and responsibility-transfer semantics;
+- skill-resolution and compatibility rules across organizations;
 - compatibility rules for Role Definition versions;
 - conformance methods for the locus × dimension drift matrix;
 - mappings to RBAC, BPMN, A2A Agent Cards, and agent orchestration frameworks;
@@ -471,7 +517,7 @@ Further research should develop:
 
 Enterprise AI systems can preserve a Role label while repeatedly reconstructing the Role behind it. Across models, workflows, and executions, that reconstruction can alter Viewpoint, Responsibility, Authority, Decision Right, Scope, Work, Interaction, or Evidence without producing an explicit role change. The result is Role Drift: organizational meaning changes while nominal identity remains stable.
 
-Role Architecture addresses this problem by making established Role meaning a persistent engineering object. A four-layer Role Definition separates resolvable identity, semantic core, governance boundary, and interaction interface. Binding creates a contextual Role State under asymmetric invariants. Versioning distinguishes governed evolution from silent reinterpretation. Definition, Binding, and Enactment evidence provide comparison points for a locus × dimension model of drift.
+Role Architecture addresses this problem by making established Role meaning a persistent engineering object. A minimal Role Definition core supplies resolvable identity, description, version, and lifecycle status; schema-governed bindings add the semantic, governance, skill, and domain structures required by a particular use. Binding creates a contextual Role State under type-specific invariants. Versioning distinguishes governed evolution from silent reinterpretation. Definition, Binding, and Enactment evidence provide comparison points for a locus × dimension model of drift.
 
 The resulting shift is not from informal roles to structured roles in general; prior work already made that move. It is from **role structure as a design description** to **role meaning as a persistent, reusable, and examinable organizational state under probabilistic execution**.
 

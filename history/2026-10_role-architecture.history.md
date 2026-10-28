@@ -742,3 +742,127 @@ Version 0.4 does not change the thesis established by v0.3. It changes the
 model from a structurally coherent proposal into a more operationally
 checkable one by clarifying completeness, binding outcomes, override evidence,
 relation realization, and conformance result semantics.
+
+---
+
+## v0.5 — Role Inference Boundary and Extensible Role Structure
+
+**Status:** Conceptual Reframing
+
+### Role Inference Boundary
+
+Version 0.5 distinguishes the boundary established by Role Architecture from
+the boundary enforced during a task:
+
+> **Role Definition → Role Inference Boundary → Role State → Task Execution Boundary**
+
+A Role Definition constrains how a model may interpret and complete Role
+meaning. It does not independently determine every object the Actor may
+observe or modify during a particular execution. Task-specific Scope,
+constraints, runtime context, and enforcement remain downstream concerns.
+
+This distinction prevents Role Architecture from claiming that a Role label
+or Definition is itself a complete execution boundary. Its primary purpose is
+to prevent context from silently adding viewpoints, responsibilities,
+Authority, Decision Rights, Scope, or Work to the Role being instantiated.
+
+### Stable Core and Extension Sections
+
+The prior flat and four-layer formulations are generalized into a stable core
+plus schema-governed extensions. Scope, Work, Evidence, Interaction, and
+Capability structures can be referenced and versioned rather than frozen into
+one universal field list. An unresolved required extension does not imply an
+unrestricted value and cannot be completed through unrecorded model inference.
+
+### Specialization, Composition, and Sharing
+
+Version 0.5 adds explicit rules for Role specialization, composition,
+binding-time override, and Role Library reuse. Substitutability is checked per
+affected element; specialization cannot automatically expand Decision Right,
+remove Responsibility, relax constraints, or widen Scope. Authority references
+an admitted BRA Application Ruleset rather than creating a second rule
+composition authority.
+
+The Role Library becomes a registry for Definition identity, versions,
+extensions, dependencies, compatibility metadata, and parameterized templates.
+Cross-organizational localization must occur through declared parameters,
+extensions, or binding records rather than divergent copies retaining the same
+identifier.
+
+### Historical Significance
+
+Version 0.5 relocates the paper's architectural boundary. Role Drift remains
+the principal observable failure, but the positive object being engineered is
+now the Role Inference Boundary and its extensible, reusable definition
+structure.
+
+---
+
+## v0.6 — Minimal Role Core and Extensible Named Bindings
+
+**Status:** Schema Simplification
+
+### Minimal Required Schema
+
+Version 0.6 reduces the universally required Role Definition schema to four
+fields:
+
+- `id`;
+- `description`;
+- `version`; and
+- `status`.
+
+This follows the extensibility principle used by the Behavior Rule schema: a
+small interoperable core identifies the governed object, while domain and
+governance content is supplied through explicit extensions. The change
+replaces the v0.4 claim that semantic and governance layers are universally
+required for minimum schema completeness.
+
+Minimal schema validity is explicitly separated from bindable or executable
+completeness. A four-field Definition is resolvable but cannot be treated as
+unrestricted or execution-ready. The applicable binding profile determines
+which named bindings must be resolved, restricted, or escalated before use.
+
+### Predefined and Custom Binding Types
+
+The paper now predefines six interoperable binding types:
+
+- `viewpoints`;
+- `responsibilities`;
+- `authority`;
+- `work`;
+- `scope`; and
+- `skills`.
+
+Organizations may register additional types such as `risk_profile`,
+`data_classification`, or `regulatory_scope`. Each type carries its own schema,
+version, source, applicability, and compatibility rules instead of inheriting
+one uniform adaptation rule.
+
+### Skills Binding
+
+The new `skills` binding makes reusable skill or capability units explicit and
+versionable. A declared skill is still distinct from Actor capability: binding
+must resolve the reference and verify that the Actor supplies the skill or an
+accepted local equivalent. Skill upgrades and substitutions therefore become
+auditable changes rather than prompt-local assumptions.
+
+### Examples and Conformance Updates
+
+The manuscript adds concrete uses for viewpoint bindings in chat,
+responsibility and Authority bindings in agent-governance audit, and skill
+bindings in reusable role packages. The illustrative Verification Role now
+includes its minimal core and skills. Pre-binding conformance checks lifecycle
+status, applicable binding profiles, named binding resolution, skill capacity,
+and type-specific override invariants.
+
+### Historical Significance
+
+Version 0.6 preserves the Role Inference Boundary thesis while removing a
+closed completeness model. The architectural transition is:
+
+> **fixed universal Role field set → minimal identity core + extensible,
+> schema-governed named bindings**
+
+This makes Role Definitions easier to share across domains without allowing
+missing governance content to acquire permissive semantics.
